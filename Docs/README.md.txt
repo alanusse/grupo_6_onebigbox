@@ -14,7 +14,7 @@ Los ingredientes con los que las recetas son elaboradas son naturales, saludable
 
 ---------------------------------------------
 Público dirigido:
-- ONEBIGBOX está dirigido a las familias argentinas y/o a las personas jóvenes/adultas que viven solas y apunta resolver un problema crítico actual que vive la sociedad argentina, la alimentación de calidad VS la falta de tiempo. Con nuestra propuesta, nuestros usuarios podrán resolver ambos factores en sus comidas diarias invirtiendo lo mas valioso que tenemos en lo que realmente deseamos.
+- ONEBIGBOX está dirigido a las familias argentinas y/o a las personas jóvenes/adultas que viven solas y apunta resolver un problema crítico actual que vive la sociedad argentina, la alimentación de calidad VS la falta de tiempo. Con nuestra propuesta, nuestros usuarios podrán resolver ambos factores en sus comidas diarias y sin desperdicio de alimentos.
 
 ---------------------------------------------
 Funcionalidades:
@@ -78,3 +78,19 @@ REDES SOCIALES
 Detalle de los integrandes del grupo:
 Jesica Firus
 - Tengo 39 años, soy ingeniera en informática, egresé en la Universidad Nacional de la Matanza en el año 2007. En la facultad vimos lenguajes de programación como Pascal, C y C++. Trabajé programando en VisualBasic (ese fue mi primer trabajo) y luego pasé a .NET. Desde 2005/2006 empecé a trabajar como analista funcional, project manager y dejé la programación de lado. En Base de Datos tengo experiencia con SQL Server, Oracle y MySQL; pero desde aquellos años que no programo código posta, asi que estoy desactualizada con todo, es por eso mi objetivo del curso.
+
+Facundo:
+
+
+Agustín:
+
+
+
+
+---------------------------------------------
+Inspiraciones para nuestro sitio:
+No hay muchos sitios con el modelo de negocio que elegimos, es una idea bastante innovadora y justamente por eso fue elegida. Los 3 siguientes sitios los elegimos porque su visual es clara, cómoda  a la vista y las funcionalidades de la página son muy intuitivas.
+
+- https://foodinthebox.com/
+- http://dagusto.com.ar/
+- https://lalleva.com.co/
