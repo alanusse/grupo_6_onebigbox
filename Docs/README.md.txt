@@ -79,8 +79,8 @@ Detalle de los integrandes del grupo:
 Jesica Firus
 - Tengo 39 años, soy ingeniera en informática, egresé en la Universidad Nacional de la Matanza en el año 2007. En la facultad vimos lenguajes de programación como Pascal, C y C++. Trabajé programando en VisualBasic (ese fue mi primer trabajo) y luego pasé a .NET. Desde 2005/2006 empecé a trabajar como analista funcional, project manager y dejé la programación de lado. En Base de Datos tengo experiencia con SQL Server, Oracle y MySQL; pero desde aquellos años que no programo código posta, asi que estoy desactualizada con todo, es por eso mi objetivo del curso.
 
-Facundo:
-
+Facundo Martin:
+- Tengo 24 años, estudiaba Finanzas y decidí hacer un cambio rotundo en mi vida profesional empezando este curso de programación. Estoy entusiasmado con este nuevo desafío y espero que el curso me ayude a dar el primer paso.
 
 Agustín:
 
