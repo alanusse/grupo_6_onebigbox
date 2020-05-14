@@ -3,7 +3,7 @@ Nombre Del Proyecto:
 ---------------------------------------------
 Integrantes:
 - Facundo Martín 
-- Agustín
+- Agustín Lanusse
 - Jesica Firus
 
 ---------------------------------------------
@@ -82,8 +82,8 @@ Jesica Firus
 Facundo Martin:
 - Tengo 24 años, estudiaba Finanzas y decidí hacer un cambio rotundo en mi vida profesional empezando este curso de programación. Estoy entusiasmado con este nuevo desafío y espero que el curso me ayude a dar el primer paso.
 
-Agustín:
-
+Agustín Lanusse:
+- Tengo 19 años, apenas terminé el secundario y quise meterme de lleno con la programación para trabajar de esto. Anteriormente hice algunos cursos en Udemy de HTML, CSS, JavaScript y PHP para tener una base y poder familiarizarme con todo este mundo del desarrollo web.
 
 
 
