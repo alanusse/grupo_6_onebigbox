@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
+
+:root {
+    --light-grey: #f5f5f5;
+    --dark-grey: #707070;
+    --dark-blue: #303c6c;
+    --orange: #f4976c;
+}
+
+body {
+    background-color: var(--light-grey);
+}
+
+
+footer {
+    background-color: white;
+    color: var(--dark-blue);
+    
+}
+
+.container-body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 40px;
+    list-style-type: none;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.container-body div ul {
+    list-style-type: none;
+}
+.container-body div ul li a {
+    text-decoration: none;
+    color: var(--dark-blue);
+}
+
+.column1 {
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.column1 ul {
+    display: flex;
+    
+}
+.column1 h1 {
+    font-size: 45px;
+}
+
+.column1 ul li {
+    padding: 23px;
+}
+
+.fab.fa-facebook-square {
+    color: #3b5998;
+}
+.fab.fa-twitter-square {
+    color: #00acee;
+}
+.fab.fa-instagram {
+    color: #dd2a7b;
+}
+.fab.fa-whatsapp-square {
+    color: #4fce5d;
+}
+
+.column2 {
+    margin-right: 0 50px;
+}
+
+.column2 ul li.items {
+    width: auto;
+    font-size: 10px;
+    margin: 0 70px;
+    text-align: center;
+    text-transform: uppercase;
+    order: 3;
+    padding-top: 20px;
+}
+
+.column3 {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 30px;
+    
+}
+.column3 h6 {
+    margin-bottom: 10px;
+}
+.newsletter {
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.newsletter .btn {
+    padding: 5px 10px;
+    border-radius: 10px;
+    width: 20%;
+    border: none;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-decoration: none;
+    color: #ffffff;
+    transition: ease-in-out .2s;
+}
+
+.newsletter .email {
+    width: 70%;
+}
+
+.newsletter .btn-d-block {
+    flex-direction: row;
+}
+
+.newsletter .btn-naranja {
+    background-color: var(--orange);
+}
+
+.btn-naranja:hover {
+    background-color: #db7a4d;
+}
+
+
+@media (min-width: 768px) {
+    .container-body {
+        flex-direction: row;
+    }
+    .column2 {
+        margin-right: 50px;
+    }
+}

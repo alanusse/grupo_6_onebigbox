@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
+
+:root {
+    --light-grey: #f5f5f5;
+    --dark-grey: #707070;
+    --dark-blue: #303c6c;
+    --orange: #f4976c;
+}
+
+body {
+    background-color: var(--light-grey);
+}
+nav{
+    background-color: white;
+    padding: 5px 40px;
+}
+nav ul {
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+nav ul li {
+    padding: 15px 0;
+    cursor: pointer;
+}
+
+nav ul li.items {
+    width: auto;
+    margin: 0 16px;
+    text-align: center;
+    text-transform: uppercase;
+    order: 3;
+}
+
+nav ul li.logo {
+    flex: 1;
+    color: var(--dark-blue);
+    cursor: default;
+    user-select: none;
+}
+
+nav ul li.user {
+    width: auto;
+    margin: 0 5px;
+    order: 4;
+}
+
+nav ul li a {
+    color: var(--dark-blue);
+    font-size: 15px;
+    text-decoration: none;
+}
+
+nav ul li i {
+    font-size: 23px;
+}
+
+nav ul li.btn {
+    display: none;
+}
+
+nav ul li.btn.hide i:before{
+    content: '\f00d';
+}
+@media (max-width: 768px) {
+    
+    nav {
+        padding: 5px 30px;
+    }
+
+    nav ul li.items {
+        width: 100%;
+        display: none;
+    }
+
+    nav ul li.items.show {
+        display: block;
+    }
+
+    nav ul li.btn {
+        display: block;
+    }
+
+    nav ul li.user {
+        margin: 0 16px;
+        display: none;
+    }
+    nav ul li.user.show {
+        display: block;
+    }
+}
