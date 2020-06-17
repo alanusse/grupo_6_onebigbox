@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "plan": "PLAN FAMILIAR",
+    "description": "",
+    "image": "plan-familiar.png"
+  },
+  {
+    "id": 2,
+    "plan": "PLAN EQUILIBRADO",
+    "description": "",
+    "image": "plan-equilibrado.png"
+  },
+  {
+    "id": 3,
+    "plan": "PLAN VEGETARIANO",
+    "description": "",
+    "image": "plan-vegetariano.jpg"
+  },
+  {
+    "id": 4,
+    "plan": "PLAN PERSONALIZADO",
+    "description": "",
+    "image": "plan-personalizado.jpg"
+  }
+]
