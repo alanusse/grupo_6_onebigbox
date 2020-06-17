@@ -1,0 +1,285 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+    list-style-type: none;
+    text-decoration: none;
+}
+
+:root {
+    --light-grey: #f5f5f5;
+    --dark-grey: #707070;
+    --dark-blue: #303c6c;
+    --orange: #f4976c;
+}
+
+body {
+    background-color: var(--light-grey);
+}
+
+ .slogan {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-right: 50px;
+    padding-bottom: 100px;
+
+}
+
+.btn {
+    padding: 5px 20px;
+    border-radius: 10px;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-decoration: none;
+    color: #ffffff;
+    transition: ease-in-out .2s;
+    margin: 5% 15%;
+    width: 70%;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-d-block {
+    display: flex;
+}
+
+.btn-naranja {
+    background-color: var(--orange);
+}
+
+.btn-naranja:hover {
+    background-color: #db7a4d;
+}
+
+.background {
+    display: flex;
+    justify-content: flex-end;
+    box-sizing: border-box;
+    background: url(/public/img/home.png);
+    background-size: cover;
+    width: 100%;
+    height: 600px;
+}
+section {
+    margin-bottom: 30px;
+}
+
+section ul li.title {
+    margin-top: 20px;
+    color: var(--dark-blue);
+    font-weight: 700;
+    font-size: 20px;
+    text-align: center;
+}
+
+section ul li.description {
+    margin-top: 10px;
+    font-size: 11px;
+    color: var(--dark-blue);
+    text-align: center;
+    padding: 0 12px;
+}
+
+
+.planes {
+    display: flex;
+}
+.home-planes {
+    width: 100%;
+    margin: 30px 0;
+}
+.lista-planes {
+    flex-wrap: wrap;
+    margin: 30px 100px;
+}
+
+.plan img{
+    width: 100%;
+    border-radius: 20px 20px 0 0;
+}
+
+.plan {
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    box-shadow: 0px 20px 34px -20px var(--dark-grey);
+    justify-content: center;
+    align-content: center;
+}
+
+.plan-home {
+    width: 30%;
+    margin-right: 20px;
+    margin-bottom: 5%;
+}
+
+.plan-full {
+    width: 40%;
+    margin: 5%;
+}
+
+.plan-home:first-child {
+    margin-left: 10px;
+}
+.plan-home:last-child {
+    margin-right: 10px;
+}
+
+.center {
+    flex-grow: 2;
+}
+
+.button {
+    padding: 10px 30px;
+    border-radius: 10px;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-decoration: none;
+    color: var(--orange);
+    border: 3px solid var(--orange);
+    transition: ease-in-out .2s;
+    
+}
+.view-all {
+    display: flex;
+    justify-content: center;
+}
+
+.button:hover {
+    background-color: #db7a4d;
+    color: white;
+    border: 3px solid #db7a4d;
+}
+.instructive {
+    display: flex;
+    margin: 30px;
+}
+.instructive ul.steps {
+    margin-left: 15%;
+    width: 25%;
+    justify-content: center;
+}
+.instructive ul.steps:first-child {
+    margin-left: 0;
+}
+.instructive ul li img {
+    width: 100%;
+}
+
+@media (max-width: 425px) {
+    .background {
+        height: 325px;
+    }
+    .slogan {
+        justify-content: center;
+        margin: auto;
+        padding-bottom: 212px;
+    }
+    section ul li.title {
+        margin-top: 20px;
+        color: var(--dark-blue);
+        font-weight: 700;
+        font-size: 17px;
+        text-align: center;
+    }
+    
+    .background ul li.description {
+        display: none;
+    }
+    .btn {
+        font-size: 10px;
+        margin-top: 10px;
+    }
+    .planes {
+        flex-direction: column;
+        margin: 30px 10%;
+        justify-content: center;
+        align-items: center;
+    }
+    .home-planes{
+        margin: 30px 0;
+    }
+    .plan {
+        border-radius: 20px;
+        box-shadow: 0px 20px 34px -20px var(--dark-grey);
+        justify-content: center;
+        align-content: center;
+        margin-bottom: 15px;
+        
+    }
+
+    .plan-home {
+        width: 80%;
+        margin-right: 0;
+        margin-bottom: 30px;
+    }
+
+    .plan-full {
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .plan:first-child,
+    .plan:last-child {
+        margin-left: 0;
+    }
+
+    .button {
+        font-size: 10px;
+    }
+
+    .instructive {
+        flex-direction: column;
+    }
+
+    .instructive ul.steps {
+        width: 70%;
+        margin: 10px 15%;
+    }
+
+    .instructive ul.steps:first-child {
+        margin-left: 15%;
+    }
+}
+
+@media (max-width: 768px) {
+    .slogan {
+        justify-content: center;
+        margin: auto;
+        padding-bottom: 350px;
+    }
+    section ul li.title {
+        font-size: 15px;
+    }
+    section ul li.description {
+        font-size: 8px;
+    }
+    section ul li a {
+        font-size: 15px;
+    }
+    section main div ul li a {
+        margin: 5% 15%;
+        width: 70%;
+    }
+    section main div ul li.title {
+        font-size: 12px;
+    }
+    section main div ul li.description {
+        font-size: 8px;
+    }
+    section main div ul li a {
+        font-size: 10px;
+    }
+    section .view-all a {
+        font-size: 10px;
+    }
+
+}

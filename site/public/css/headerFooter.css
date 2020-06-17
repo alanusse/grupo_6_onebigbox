@@ -18,6 +18,7 @@ body {
     background-color: var(--light-grey);
 }
 
+/* FOOTER */
 
 footer {
     background-color: white;
@@ -32,7 +33,7 @@ footer {
     padding: 60px 40px;
     list-style-type: none;
     flex-wrap: wrap;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
 }
@@ -78,7 +79,7 @@ footer {
 }
 
 .column2 {
-    margin-right: 0 50px;
+    flex: 2;
 }
 
 .column2 ul li.items {
@@ -92,11 +93,10 @@ footer {
 }
 
 .column3 {
+    flex: 1;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    margin: 30px;
-    
+    justify-content: center;    
 }
 .column3 h6 {
     margin-bottom: 10px;
@@ -136,13 +136,98 @@ footer {
 .btn-naranja:hover {
     background-color: #db7a4d;
 }
+/* FOOTER */
 
 
-@media (min-width: 768px) {
+/* HEADER */
+nav{
+    background-color: white;
+    padding: 5px 40px;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+nav ul li {
+    padding: 15px 0;
+    cursor: pointer;
+}
+
+nav ul li.items {
+    
+    width: auto;
+    margin: 0 16px;
+    text-align: center;
+    text-transform: uppercase;
+    order: 3;
+}
+
+nav ul li.logo {
+    flex: 1;
+    color: var(--dark-blue);
+    cursor: default;
+    user-select: none;
+}
+
+nav ul li.user {
+    width: auto;
+    margin: 0 5px;
+    order: 4;
+}
+
+nav ul li a {
+    color: var(--dark-blue);
+    font-size: 15px;
+    text-decoration: none;
+}
+
+nav ul li i {
+    font-size: 23px;
+}
+
+nav ul li.btn {
+    display: none;
+}
+
+nav ul li.btn.hide i:before{
+    content: '\f00d';
+}
+/* HEADER */
+
+
+@media (max-width: 768px) {
     .container-body {
-        flex-direction: row;
+        flex-direction: column;
     }
-    .column2 {
-        margin-right: 50px;
+    nav {
+        padding: 5px 30px;
     }
+
+    nav ul li.items {
+        width: 100%;
+        display: none;
+    }
+
+    nav ul li.items.show {
+        display: block;
+    }
+
+    nav ul li.btn {
+        display: block;
+    }
+
+    nav ul li.user {
+        margin: 0 16px;
+        display: none;
+    }
+    nav ul li.user.show {
+        display: block;
+    }
+    
 }
