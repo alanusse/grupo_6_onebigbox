@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://kit.fontawesome.com/ee0a2c8855.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="/css/app.css">
-    <title>Document</title>
-</head>
+<!-- Include Head -->
+<%- include('partials/head', {title: 'HomePage'}) %>
+
 <body>
+    <!-- Header -->
+	<%- include('partials/header') %>
+	<!-- /Header -->
     <div class="page-bg-image">
         <div class="container register-container">
             <div class="register-page-title">
@@ -31,5 +30,8 @@
             </main>
         </div>
     </div>
+<!-- footer -->
+<%- include('partials/footer') %>
+<!-- /footer -->
 </body>
 </html>
