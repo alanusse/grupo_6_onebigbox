@@ -10,7 +10,6 @@ var usersRouter = require('./routes/users');
 var planesListRouter = require('./routes/planes');
 var cartRouter = require('./routes/cart');
 
-
 var app = express();
 
 // view engine setup
@@ -27,7 +26,7 @@ app.use(express.static(path.join(__dirname, '../public')));
 
 //********** ACCESO A LAS RUTAS **********
 app.use('/', homeRouter);
-app.use('/users', usersRouter);
+app.use('/register', usersRouter);
 app.use('/planes-list', planesListRouter);
 app.use('/cart', cartRouter );
 

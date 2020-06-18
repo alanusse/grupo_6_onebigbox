@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://kit.fontawesome.com/ee0a2c8855.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="/css/home.css">
-    <title>Document</title>
-</head>
+<html lang="es">
+<!-- Include Head -->
+<%- include('partials/head', {title: 'HomePage'}) %>
+
 <body>
+    <!-- Header -->
+	<%- include('partials/header') %>
+	<!-- /Header -->
     <section class="nuestros-planes">
         <ul>
             <li class="title">NUESTRO PLANES</li>
@@ -40,12 +39,16 @@
             </div>
             <div class="plan plan-full">
                 <ul>
+<<<<<<< HEAD:site/src/views/planes-list.ejs
                     <li><img src="/img/planes/plan-equilibrado.jpg" alt="plan personalizado"></li>
+=======
+                    <li><img src="/public/img/planes/plan-personalizado.jpg" alt="plan personalizado"></li>
+>>>>>>> f582428c0f7223a42a9158cc5c4b9ed82468fdf9:site/src/views/planes-list.html
                     <li class="title">PLAN PERSONALIZADO</li>
                     <li class="description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab iure architecto nesciunt atque quo?</li>
                     <li><a href="#" class="btn btn-d-block btn-naranja">SELECCIONAR PLAN</a></li>
                 </ul>
-            </div>     
+            </div>
         </main>
     </section>
     <section class="instructive">
@@ -65,5 +68,8 @@
             <li class="description">Disfrutá cocinando tus recetas con nuestro sencillo paso a paso que te explicará con lujo de detalle como prepararlas.</li>
         </ul>
     </section>
+    <!-- footer -->
+	<%- include('partials/footer') %>
+	<!-- /footer -->
 </body>
 </html>
