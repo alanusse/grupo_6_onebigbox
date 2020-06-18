@@ -1,0 +1,20 @@
+[
+    {
+      "id": 1,
+      "instruction": "1. ELEGÍ TU PLAN",
+      "description": "Escoge el plan que más encaja contigo y selecciona recetas saludables nuevas creadas por nuestros chefs cada semana",
+      "image": "click.png"
+    },
+    {
+      "id": 2,
+      "instruction": "2. RECIBÍ TU BOX",
+      "description": "Te enviamos tus recetas a casa en una caja con todos los ingredientes frescos necesarios y las instrucciones para cada plato.",
+      "image": "box.png"
+    },
+    {
+      "id": 3,
+      "instruction": "3. SEGUÍ LA RECETA",
+      "description": "Disfrutá cocinando tus recetas con nuestro sencillo paso a paso que te explicará con lujo de detalle como prepararlas.",
+      "image": "recipe-book.png"
+    }
+]

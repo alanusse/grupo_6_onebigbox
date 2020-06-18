@@ -5,6 +5,7 @@ var router = express.Router();
 const planesController = require('../controller/planesController');
 
 //Redirijo al controlador de planes
-router.get('/', planesController.root); 
+router.get('/', planesController.root);
+
 
 module.exports = router;

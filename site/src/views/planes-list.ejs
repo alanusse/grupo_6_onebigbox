@@ -13,60 +13,29 @@
             <li class="description">Nuestros planes incluyen recetas creadas por nuestros chefs pensadas para tu salud</li>
         </ul>
         <main class="planes lista-planes">
-            <div class="plan plan-full">
-                <ul>
-                    <li><img src="/img/planes/plan-familiar.png" alt="plan familiar"></li>
-                    <li class="title">PLAN FAMILIAR</li>
-                    <li class="description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab iure architecto nesciunt atque quo?</li>
-                    <li><a href="#" class="btn btn-d-block btn-naranja">SELECCIONAR PLAN</a></li>
-                </ul>
-            </div>
-            <div class="plan plan-full">
-                <ul>
-                    <li><img src="/img/planes/plan-equilibrado.jpg" alt="plan equilibrado"></li>
-                    <li class="title">PLAN EQUILIBRADO</li>
-                    <li class="description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab iure architecto nesciunt atque quo?</li>
-                    <li><a href="#" class="btn btn-d-block btn-naranja">SELECCIONAR PLAN</a></li>
-                </ul>
-            </div>
-            <div class="plan plan-full">
-                <ul>
-                    <li><img src="/img/planes/plan-vegetariano.png" alt="plan vegetariano"></li>
-                    <li class="title">PLAN VEGETARIANO</li>
-                    <li class="description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab iure architecto nesciunt atque quo?</li>
-                    <li><a href="#" class="btn btn-d-block btn-naranja">SELECCIONAR PLAN</a></li>
-                </ul>
-            </div>
-            <div class="plan plan-full">
-                <ul>
-<<<<<<< HEAD:site/src/views/planes-list.ejs
-                    <li><img src="/img/planes/plan-equilibrado.jpg" alt="plan personalizado"></li>
-=======
-                    <li><img src="/public/img/planes/plan-personalizado.jpg" alt="plan personalizado"></li>
->>>>>>> f582428c0f7223a42a9158cc5c4b9ed82468fdf9:site/src/views/planes-list.html
-                    <li class="title">PLAN PERSONALIZADO</li>
-                    <li class="description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab iure architecto nesciunt atque quo?</li>
-                    <li><a href="#" class="btn btn-d-block btn-naranja">SELECCIONAR PLAN</a></li>
-                </ul>
-            </div>
+            <% planes.forEach(plan => { %>
+             
+                <div class="plan plan-full">
+                    <ul>
+                        <li><img src="/img/planes/<%= plan.image %> " alt="plan familiar"></li>
+                        <li class="title"><%= plan.plan %></li>
+                        <li class="description"><%= plan.description %> </li>
+                        <li><a href="#" class="btn-home btn-d-block btn-naranja">SELECCIONAR PLAN</a></li>
+                    </ul>
+                </div>
+
+            <% }) %>
+            
         </main>
     </section>
     <section class="instructive">
+        <% instructive.forEach(step => { %>
         <ul class="steps">
-            <li class="title">1. ELEGÍ TU PLAN</li>
-            <li><img src="/img/instructivo/click.png" alt="click"></li>
-            <li class="description">Escoge el plan que más encaja contigo y selecciona recetas saludables nuevas creadas por nuestros chefs cada semana</li>
+            <li class="title"><%= step.instruction %> </li>
+            <li><img src="/img/instructivo/<%= step.image %>" alt="click"></li>
+            <li class="description"><%= step.description %></li>
         </ul>
-        <ul class="steps">
-            <li class="title">2. RECIBÍ TU BOX</li>
-            <li><img src="/img/instructivo/box.png" alt="box"></li>
-            <li class="description">Te enviamos tus recetas a casa en una caja con todos los ingredientes frescos necesarios y las instrucciones para cada plato.</li>
-        </ul>
-        <ul class="steps">
-            <li class="title">3. SEGUÍ LA RECETA</li>
-            <li><img src="/img/instructivo/recipe-book.png" alt="recipe-book"></li>
-            <li class="description">Disfrutá cocinando tus recetas con nuestro sencillo paso a paso que te explicará con lujo de detalle como prepararlas.</li>
-        </ul>
+        <% }) %>
     </section>
     <!-- footer -->
 	<%- include('partials/footer') %>

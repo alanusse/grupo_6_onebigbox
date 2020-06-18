@@ -11,7 +11,7 @@
         <ul class="slogan">
             <li class="title">COMIDA SANA <br> PARA TODA LA SEMANA</li>
             <li class="description">Sin moverte de tu casa, recibí los mejores <b>ingredientes</b> y <b>recetas</b><br> para cocinar como un chef profesional</li>
-            <li><a href="#" class="btn btn-d-block btn-naranja">¡Ingresá!</a></li>
+            <li><a href="#" class="btn-home btn-d-block btn-naranja">¡Ingresá!</a></li>
         </ul>
     </section>
         
@@ -26,7 +26,7 @@
                     <li><img src="/img/planes/plan-familiar.png" alt="plan familiar"></li>
                     <li class="title">PLAN FAMILIAR</li>
                     <li class="description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab iure architecto nesciunt atque quo?</li>
-                    <li><a href="#" class="btn btn-d-block btn-naranja">SELECCIONAR PLAN</a></li>
+                    <li><a href="#" class="btn-home btn-d-block btn-naranja">SELECCIONAR PLAN</a></li>
                 </ul>
             </div>
             <div class="plan center plan-home">
@@ -34,15 +34,15 @@
                     <li><img src="/img/planes/plan-equilibrado.jpg" alt="plan equilibrado"></li>
                     <li class="title">PLAN EQUILIBRADO</li>
                     <li class="description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab iure architecto nesciunt atque quo?</li>
-                    <li><a href="#" class="btn btn-d-block btn-naranja">SELECCIONAR PLAN</a></li>
+                    <li><a href="#" class="btn-home btn-d-block btn-naranja">SELECCIONAR PLAN</a></li>
                 </ul>
             </div>
             <div class="plan plan-home">
                 <ul>
                     <li><img src="/img/planes/plan-vegetariano.png" alt="plan vegetariano"></li>
-                    <li class="title"></li>PLAN VEGETARIANO</li>
+                    <li class="title">PLAN VEGETARIANO</li>
                     <li class="description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab iure architecto nesciunt atque quo?</li>
-                    <li><a href="#" class="btn btn-d-block btn-naranja">SELECCIONAR PLAN</a></li>
+                    <li><a href="#" class="btn-home btn-d-block btn-naranja">SELECCIONAR PLAN</a></li>
                 </ul>
             </div>    
         </main>
@@ -50,21 +50,13 @@
     </section>
 
     <section class="instructive">
-        <ul class="steps">
-            <li class="title">1. ELEGÍ TU PLAN</li>
-            <li><img src="/img/instructivo/click.png" alt="click"></li>
-            <li class="description">Escoge el plan que más encaja contigo y selecciona recetas saludables nuevas creadas por nuestros chefs cada semana</li>
-        </ul>
-        <ul class="steps">
-            <li class="title">2. RECIBÍ TU BOX</li>
-            <li><img src="/img/instructivo/box.png" alt="box"></li>
-            <li class="description">Te enviamos tus recetas a casa en una caja con todos los ingredientes frescos necesarios y las instrucciones para cada plato.</li>
-        </ul>
-        <ul class="steps">
-            <li class="title">3. SEGUÍ LA RECETA</li>
-            <li><img src="/img/instructivo/recipe-book.png" alt="recipe-book"></li>
-            <li class="description">Disfrutá cocinando tus recetas con nuestro sencillo paso a paso que te explicará con lujo de detalle como prepararlas.</li>
-        </ul>
+        <% instructive.forEach(step => { %>
+            <ul class="steps">
+                <li class="title"><%= step.instruction %> </li>
+                <li><img src="/img/instructivo/<%= step.image %>" alt="click"></li>
+                <li class="description"><%= step.description %></li>
+            </ul>
+            <% }) %>
     </section>
     <!-- footer -->
 	<%- include('partials/footer') %>
