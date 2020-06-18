@@ -26,7 +26,8 @@ app.use(express.static(path.join(__dirname, '../public')));
 
 //********** ACCESO A LAS RUTAS **********
 app.use('/', homeRouter);
-app.use('/register', usersRouter);
+app.use('/user', usersRouter);
+//app.use('/register', usersRouter);
 app.use('/planes-list', planesListRouter);
 app.use('/cart', cartRouter );
 
