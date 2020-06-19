@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <!-- Include Head -->
-<%- include('partials/head', {title: 'Plan'}) %>
+<%- include('partials/head', {title: 'Planes'}) %>
 
 <body>
     <!-- Header -->
@@ -10,7 +10,7 @@
 
     <!-- EL PLAN SOLICITADO POR ID -->
     <main>
-        <div class="conteiner-receta" >
+        <div class="container-receta" >
             <div >
                 <img src="/img/planes/plan-familiar.png" alt="plan familiar">
             </div>
@@ -39,14 +39,14 @@
     <% if (recetas.length>0) { %>
         
         <!-- Listado de Recetas Pertenecientes al Plan que se está buscando-->
-        <section class="nuestras-recetas">
+        <section class="nuestros-box">
             <div>
                 <h2 class="title">Recetas del Plan</h2>
             </div>
-            <main class="recetas lista-recetas">
+            <main class="boxes lista-boxes">
                 <% recetas.forEach(receta => { %>
                 
-                    <div class="recetas recetas-full">
+                    <div class="box box-full">
                         <ul>
                             <li><img src="/img/recetas/<%= receta.image %> " alt=""></li>
                             <li class="title"><%= receta.titulo %></li>

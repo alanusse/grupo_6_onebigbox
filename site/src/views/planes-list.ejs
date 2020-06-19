@@ -7,15 +7,15 @@
     <!-- Header -->
 	<%- include('partials/header') %>
 	<!-- /Header -->
-    <section class="nuestros-planes">
+    <section class="nuestros-box">
         <ul>
             <li class="title">NUESTRO PLANES</li>
             <li class="description">Nuestros planes incluyen recetas creadas por nuestros chefs pensadas para tu salud</li>
         </ul>
-        <main class="planes lista-planes">
+        <main class="boxes lista-boxes">
             <% planes.forEach(plan => { %>
              
-                <div class="plan plan-full">
+                <div class="box box-full">
                     <ul>
                         <li><img src="/img/planes/<%= plan.image %> " alt="plan familiar"></li>
                         <li class="title"><%= plan.plan %></li>

@@ -129,30 +129,31 @@ section ul li.description {
     padding: 0 12px;
 }
 
-.planes {
+.boxes {
     display: flex;
 }
 .home-planes {
     width: 100%;
     margin: 30px 0;
 }
-.lista-planes {
+.lista-boxes {
     flex-wrap: wrap;
     margin: 30px 100px;
 }
 
-.plan img{
+.box img{
     width: 100%;
     border-radius: 20px 20px 0 0;
 }
 
-.plan {
+.box {
     display: flex;
     flex-direction: column;
     border-radius: 20px;
     box-shadow: 0px 20px 34px -20px var(--dark-grey);
     justify-content: center;
     align-content: center;
+    background-color: white;
 }
 
 .plan-home {
@@ -161,7 +162,7 @@ section ul li.description {
     margin-bottom: 5%;
 }
 
-.plan-full {
+.box-full {
     width: 40%;
     margin: 5%;
 }
@@ -222,6 +223,75 @@ section ul li.description {
 }
 /* HOMEPAGE Y PLANES */
 
+
+/* DETALLE PLAN */
+
+.container-receta{
+    display: flex;
+    flex-direction: row;
+    background: white;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0,3);
+    border-radius: 3px;
+    margin: auto;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 20px;
+}
+.container-receta img {
+    border-radius: 20px;
+}
+
+.container-receta div{
+    width: 50%;
+    padding: 10px;
+    align-items: left;
+}
+
+.container-receta div ul li{
+    padding: 2%;
+    font-size: 14px;
+}
+.container-receta div .title {
+    font-size: 18px;
+    margin: 0;
+    font-weight: bold;
+}
+.container-receta div .cantidad .label {
+    font-size: 14px;
+    margin: 0;
+    
+}
+.conteiner-receta div .precio {
+    margin: 0;
+    font-weight: bold;
+}
+
+.container-receta input[type="number"] {
+    margin-left: 15px;
+    padding: 3px 10px;
+    width: 50px;
+    height: 30px;
+    border: 1px solid var(--dark-grey);
+    border-radius: 5px;
+}
+.container-receta div .envios {
+    font-size: 10px;
+    margin: 0;
+
+}
+.recetas-boton-carrito{
+    vertical-align: bottom;
+    bottom:0px;
+    right:0px;
+}
+h2.title {
+    display: flex;
+    justify-content: center;
+}
+
+/* DETALLE PLAN */
+
 /* NOSOTROS*/
 .container-nosotros{
     display: flex;
@@ -257,93 +327,6 @@ section ul li.description {
 }
 /**/
 
-
-/*RECETAS*/
-.recetas {
-    display: flex;
-}
-.nuestras-recetas h2{
-    text-align: center;
-    padding-top: 20px;
-    font-size: 24px;
-    text-transform: uppercase;
-}
-.home-recetas {
-    width: 100%;
-    margin: 30px 0;
-}
-.lista-recetas {
-    flex-wrap: wrap;
-    margin: 30px 100px;
-}
-.recetas-full {
-    width: 40%;
-    margin: 5%;
-}
-.error{
-    color: tomato;
-    text-align: center;
-}
-.conteiner-receta{
-    display: flex;
-    flex-direction: row;
-    background: white;
-    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0,3);
-    border-radius: 3px;
-    margin: auto;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    width: 80%;
-    margin-top: 20px;
-}
-.conteiner-receta div{
-    width: 50%;
-    padding: 10px;
-    align-items: left;
-}
-
-.conteiner-receta div ul li{
-    padding: 2%;
-    font-size: 14px;
-}
-.conteiner-receta div .title {
-    font-size: 18px;
-    margin: 0;
-    font-weight: bold;
-}
-.conteiner-receta div .cantidad .label {
-    font-size: 14px;
-    margin: 0;
-    
-}
-.conteiner-receta div .precio {
-    margin: 0;
-    font-weight: bold;
-}
-
-.conteiner-receta input[type="number"] {
-    margin-left: 15px;
-    padding: 3px 10px;
-    width: 50px;
-    height: 30px;
-    border: 1px solid var(--dark-grey);
-    border-radius: 5px;
-}
-.conteiner-receta div .envios {
-    font-size: 10px;
-    margin: 0;
-
-}
-.recetas-boton-carrito{
-    vertical-align: bottom;
-    bottom:0px;
-    right:0px;
-}
-
-
-
-
-/*RECETAS*/
 
 /* REGISTER */
 .page-bg-image {
@@ -471,7 +454,6 @@ section ul li.description {
 /* REGISTER */
 
 /* LOGIN */
-
 .login-container{
     background: rgba(0, 0, 0, 0.8);
     position: fixed;
@@ -1016,7 +998,7 @@ footer {
         margin-top: 10px;
     }
 
-    .planes {
+    .boxes {
         flex-direction: column;
         margin: 30px 10%;
         justify-content: center;
@@ -1027,7 +1009,7 @@ footer {
         margin: 30px 0;
     }
 
-    .plan {
+    .box {
         border-radius: 20px;
         box-shadow: 0px 20px 34px -20px var(--dark-grey);
         justify-content: center;
@@ -1041,14 +1023,14 @@ footer {
         margin-bottom: 30px;
     }
 
-    .plan-full {
+    .box-full {
         width: 100%;
         margin-left: 0;
         margin-right: 0;
     }
 
-    .plan:first-child,
-    .plan:last-child {
+    .box:first-child,
+    .box:last-child {
         margin-left: 0;
     }
 
