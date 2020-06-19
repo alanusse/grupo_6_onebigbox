@@ -1,26 +1,26 @@
 [
   {
-    "id": 1,
-    "plan": "PLAN FAMILIAR",
-    "description": "Las recetas más saludables adaptadas para toda la familia con opciones para 3, 4 y 5 personas.",
-    "image": "plan-familiar.png"
+    "id":1,
+    "plan":"PLAN FAMILIAR",
+    "description":"Las recetas más saludables adaptadas para toda la familia con opciones para 3, 4 y 5 personas.",
+    "image":"plan-familiar.png"
   },
   {
-    "id": 2,
-    "plan": "PLAN EQUILIBRADO",
-    "description": "Come sano sin restricciones, si te gusta comer de todo y saludable este es tu plan.",
-    "image": "plan-equilibrado.jpg"
+    "id":2,
+    "plan":"PLAN EQUILIBRADO",
+    "description":"Come sano sin restricciones, si te gusta comer de todo y saludable este es tu plan.",
+    "image":"plan-equilibrado.jpg"
   },
   {
-    "id": 3,
-    "plan": "PLAN VEGETARIANO",
-    "description": "Descubre la nueva alimentación sin carne ni pescado con recetas, sanas, rápidas y deliciosas.",
-    "image": "plan-vegetariano.png"
+    "id":3,
+    "plan":"PLAN VEGETARIANO",
+    "description":"Descubre la nueva alimentación sin carne ni pescado con recetas, sanas, rápidas y deliciosas.",
+    "image":"plan-vegetariano.png"
   },
   {
-    "id": 4,
-    "plan": "PLAN PERSONALIZADO",
-    "description": "Armá tu plan a gusto, con todas las recetas disponibles. Inspirate.",
-    "image": "plan-personalizado.jpg"
+    "id":4,
+    "plan":"PLAN PERSONALIZADO",
+    "description":"Armá tu plan a gusto, con todas las recetas disponibles. Inspirate.",
+    "image":"plan-personalizado.jpg"
   }
 ]

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- Include Head -->
+<%- include('partials/head', {title: 'Como Funciona?'}) %>
+
+<body class="homepage">
+    <!-- Header -->
+	<%- include('partials/header') %>
+    <!-- /Header -->
+    
+    <section  >
+        <div class="page-bg-image">
+              <div class = "container-nosotros">
+                <h2> Quienes Somos </h2>
+                    <P> Somos una empresa de venta de planes y productos alimenticios, personalizado, para resolver de manera fácil, rápida y saludable las comidas de los hogares argentinos con ingredientes saludables. Contamos con una amplia variedad de recetas para toda la familia.
+                        Cada semana subimos a la web nuevas recetas elaboradas por nutricionistas, basadas en las elecciones de los clientes, quienes ademas de realizar las compras nos dejan sus preferencias para nuestras futuras elaboraciones. Luego de registrarse en ONEBIGBOX el usuario podrá elegir el plan y que mejor se ajuste a su estilo de vida y una vez realizada la compra, nuestro equipo especializado de embalaje, siguiendo las normas de seguridad e higiene; es el encargado dede almacenar en cajas los productos de cada pedido hecho por cada cada cliente para luego ser entregado en tiempo y forma a cada hogar. 
+                        Los ingredientes con los que las recetas son elaboradas son naturales, saludables y aportarán los nutrientes que el cuerpo necesita. </P>
+                <h2> ¿Que es un plan?</h2>
+                    <p> Un plan es un conjunto de recetas que vos podrás elegir dependiendo tus gustos. La cantidad de recetas que desees depende solo de vos!</p>
+                <h2> ¿Como puedo Conseguir una caja?</h2>
+                    <p> Logueate en nuestra web, seleccioná el plan que mejor se adapte a tus hábitos alimenticios y te llevamos tu Box a tu casa! Luego solo vas a tener que seguir la receta con los ingredientes enviados. Súper fácil!</p>
+
+                <h2> Solo tenés que...</h2>
+           
+            <section class="instructive">
+                <% instructive.forEach(step => { %>
+                    <ul class="steps">
+                        <li class="title"><%= step.instruction %> </li>
+                        <li><img src="/img/instructivo/<%= step.image %>" alt="click"></li>
+                        <li class="description"><%= step.description %></li>
+                    </ul>
+                    <% }) %>
+            </section>
+            </div>
+
+        </div>
+    </section>
+        <!-- footer -->
+	<%- include('partials/footer') %>
+	<!-- /footer -->
+</body>
+</html>

@@ -9,6 +9,7 @@ var homeRouter = require('./routes/home');
 var usersRouter = require('./routes/users');
 var planesListRouter = require('./routes/planes');
 var cartRouter = require('./routes/cart');
+var recetasRouter = require('./routes/recetas');
 
 var app = express();
 
@@ -27,9 +28,9 @@ app.use(express.static(path.join(__dirname, '../public')));
 //********** ACCESO A LAS RUTAS **********
 app.use('/', homeRouter);
 app.use('/user', usersRouter);
-//app.use('/register', usersRouter);
-app.use('/planes-list', planesListRouter);
+app.use('/planes', planesListRouter);
 app.use('/cart', cartRouter );
+app.use('/recetas', recetasRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

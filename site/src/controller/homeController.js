@@ -17,9 +17,16 @@ const controller ={
     root: (req, res) =>{
 
         const instructive = leerJson(instructionsFilePath);
-
         return res.render('home', {instructive});
-    } 
+    },
+    howtouse: (req, res) => {
+        const instructive = leerJson(instructionsFilePath);
+        return res.render('how-to-use', {instructive});
+    },
+    nosotros: (req, res) => {
+        const instructive = leerJson(instructionsFilePath);
+        return res.render('nosotros',{instructive});
+    }
 
 };
 

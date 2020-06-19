@@ -222,6 +222,128 @@ section ul li.description {
 }
 /* HOMEPAGE Y PLANES */
 
+/* NOSOTROS*/
+.container-nosotros{
+    display: flex;
+    flex-direction: row;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0,3);
+    margin: auto;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 80%;
+    margin-top: 20px;
+}
+.container-nosotros h2{
+    padding: 2%;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 18px;
+}
+
+.container-nosotros P{
+    font-size: 12;
+    text-align: justify;
+    padding: 2%
+}
+/* NOSOTROS*/
+
+
+/**/
+.container-howtouse h2{
+    padding: 2%;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 18px;
+}
+/**/
+
+
+/*RECETAS*/
+.recetas {
+    display: flex;
+}
+.nuestras-recetas h2{
+    text-align: center;
+    padding-top: 20px;
+    font-size: 24px;
+    text-transform: uppercase;
+}
+.home-recetas {
+    width: 100%;
+    margin: 30px 0;
+}
+.lista-recetas {
+    flex-wrap: wrap;
+    margin: 30px 100px;
+}
+.recetas-full {
+    width: 40%;
+    margin: 5%;
+}
+.error{
+    color: tomato;
+    text-align: center;
+}
+.conteiner-receta{
+    display: flex;
+    flex-direction: row;
+    background: white;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0,3);
+    border-radius: 3px;
+    margin: auto;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 80%;
+    margin-top: 20px;
+}
+.conteiner-receta div{
+    width: 50%;
+    padding: 10px;
+    align-items: left;
+}
+
+.conteiner-receta div ul li{
+    padding: 2%;
+    font-size: 14px;
+}
+.conteiner-receta div .title {
+    font-size: 18px;
+    margin: 0;
+    font-weight: bold;
+}
+.conteiner-receta div .cantidad .label {
+    font-size: 14px;
+    margin: 0;
+    
+}
+.conteiner-receta div .precio {
+    margin: 0;
+    font-weight: bold;
+}
+
+.conteiner-receta input[type="number"] {
+    margin-left: 15px;
+    padding: 3px 10px;
+    width: 50px;
+    height: 30px;
+    border: 1px solid var(--dark-grey);
+    border-radius: 5px;
+}
+.conteiner-receta div .envios {
+    font-size: 10px;
+    margin: 0;
+
+}
+.recetas-boton-carrito{
+    vertical-align: bottom;
+    bottom:0px;
+    right:0px;
+}
+
+
+
+
+/*RECETAS*/
 
 /* REGISTER */
 .page-bg-image {
@@ -350,22 +472,6 @@ section ul li.description {
 
 /* LOGIN */
 
-.overlay{
-    background: rgba(0, 0, 0, 0.8);
-    position: fixed;
-    top: 0;
-    bottom: 0px;
-    left: 0;
-    right: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    visibility: hidden;
-}
-
-.overlay.active{
-    visibility: visible;
-}
 .login-container{
     background: rgba(0, 0, 0, 0.8);
     position: fixed;
@@ -856,7 +962,14 @@ footer {
 
 .newsletter .email {
     width: 70%;
-}
+    display: block;
+    width: 100%;
+    margin: 15px 0;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    }
 
 .newsletter .btn-d-block {
     flex-direction: row;

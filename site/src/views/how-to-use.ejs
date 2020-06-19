@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- Include Head -->
+<%- include('partials/head', {title: 'Como Funciona?'}) %>
+
+<body class="homepage">
+    <!-- Header -->
+	<%- include('partials/header') %>
+    <!-- /Header -->
+    <main>
+        <div class="container-howtouse">
+            <h2>¿Como hago para obtener una caja?</h2>
+        </div>
+        <section class="instructive">
+       
+        <% instructive.forEach(step => { %>
+            <ul class="steps">
+                <li class="title"><%= step.instruction %> </li>
+                <li><img src="/img/instructivo/<%= step.image %>" alt="click"></li>
+                <li class="description"><%= step.description %></li>
+            </ul>
+            <% }) %>
+        </section>
+    </main>
+        <!-- footer -->
+	<%- include('partials/footer') %>
+	<!-- /footer -->
+</body>
+</html>

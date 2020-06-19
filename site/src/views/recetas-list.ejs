@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- Include Head -->
+<%- include('partials/head', {title: 'Listado de Recetas'}) %>
+
+<body>
+    <!-- Header -->
+	<%- include('partials/header') %>
+	<!-- /Header -->
+    <section class="nuestras-recetas">
+        <div>
+            <h2 class="title">NUESTRAS RECETAS</h2>
+        </div>
+        <main class="recetas lista-recetas">
+            <% recetas.forEach(receta => { %>
+             
+                <div class="recetas recetas-full">
+                    <ul>
+                        <li><img src="/img/recetas/<%= receta.image %> " alt=""></li>
+                        <li class="title"><%= receta.titulo %></li>
+                        <li class="description"><%= receta.description %> </li>
+                        <li><a href="#" class="btn-home btn-d-block btn-naranja">SELECCIONAR RECETA</a></li>
+                    </ul>
+                </div>
+
+            <% }) %>
+            
+        </main>
+    </section>
+    
+    <!-- footer -->
+	<%- include('partials/footer') %>
+	<!-- /footer -->
+</body>
+</html>
