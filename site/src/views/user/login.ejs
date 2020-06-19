@@ -1,30 +1,38 @@
-<!DOCTYPE html>
 <html lang="en">
-<!-- Include Head -->
-<%- include('partials/head', {title: 'Login'}) %>
-
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/ee0a2c8855.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/home.css">
+    <title>Login</title>
+</head>
 <body>
-    <div class = "container login-container">
-        <main class="register-page-main">
-        <div class="register-page-title">
-              <h2>INICIAR SESIÓN PARA CONTINUAR</h2>
-        </div>
-            <form accept="#" method="dialog">
-                <imput type="text" name="email" id = "email" placeholder="Email"> </imput>
-                <imput type="password" name = "password"id="password" placeholder ="Contraseña"></imput>
-                <imput type="checkbox" name = "Recordarme">Recordarme</imput>
-                <input type="submit" value="INICIAR SESIÓN">
+    <div class="login-container" >
+        <div class = "login-popup">
+            <a href="/" id="btn-cerrar-popUp" class="btn-cerrar-popUp"><i class="fas fa-times"></i></a>
+            <h2> INICIAR SESIÓN PARA CONTINUAR</h2>
+
+            <form>
+                <div class="contenedor-imputs">
+                    <input type="text" name="email" id = "email" placeholder="Email"> </imput>
+                    <input type="password" name = "password"id="password" placeholder ="Contraseña"></imput>
+                    <label id="recordarEmail"> <input type="checkbox" name = "Recordarme" id="recordarEmail"></imput> Recordarme</label>
+                </div>
+                <div>
+                    <input type="submit" value="INICIAR SESIÓN">
+                </div>
+                <section class="social-methods-login">
+                    <span class="login-separator">o</span>
+                    <a href="#" class="social-ntw-btn"><i class="fab fa-google"></i>Registrarse con <span>Google</span></a>
+                    <a href="#" class="social-ntw-btn"><i class="fab fa-facebook-square"></i>Registrarse con <span>Facebook</span></a>
+                </section>
+                <div>
+                    <h3>¿No tenés cuenta? <a href="/user/register">Registrate</a></h3>
+                </div>
             </form>
-            <section class="social-methods-register">
-                <span class="register-separator">o</span>
-                <a href="#" class="social-ntw-btn"><i class="fab fa-google"></i>Registrarse con <span>Google</span></a>
-                <a href="#" class="social-ntw-btn"><i class="fab fa-facebook-square"></i>Registrarse con <span>Facebook</span></a>
-                <h3>¿No tenés cuenta? <a href="/user/register">Registrate</a></h3>
-            </section>
-        </main>
-    </div>
-    <!-- footer -->
-<%- include('partials/footer') %>
-<!-- /footer -->
+
+        </div>
+    </div>    
+   
 </body>
 </html>

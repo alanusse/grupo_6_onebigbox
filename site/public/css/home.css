@@ -348,6 +348,173 @@ section ul li.description {
 }
 /* REGISTER */
 
+/* LOGIN */
+
+.overlay{
+    background: rgba(0, 0, 0, 0.8);
+    position: fixed;
+    top: 0;
+    bottom: 0px;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;
+}
+
+.overlay.active{
+    visibility: visible;
+}
+.login-container{
+    background: rgba(0, 0, 0, 0.8);
+    position: fixed;
+    top: 0;
+    bottom: 0px;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-popup{
+    background:white;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0,3);
+    border-radius: 3px;
+    font-family: 'Open Sans', sans-serif;
+    padding: 20px;
+    text-align: center;
+    width: 600px;
+
+}
+.login-popup .btn-cerrar-popUp{
+    font-size: 20px;
+    line-height: 16px;
+    display: block;
+    text-align: right;
+    color: var(--dark-grey);
+    transition: .3s ease all ;
+}
+
+.login-popup .btn-cerrar-popUp :hover{
+    color: #303c6c;
+}
+
+.login-popup h2 {
+    font-size: 18px;
+    text-transform: uppercase;
+    width: 100%;
+}
+
+.login-popup form input {
+    display: block;
+    width: 100%;
+    margin: 15px 0;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.login-popup form input::placeholder {
+    color: #acacac;
+}
+
+.login-popup form input[type="submit"] {
+    display: inline-block;
+}
+
+.login-popup form label input[type="checkbox"]{
+    display: inline-block;
+    display: none;
+}
+
+.login-popup form label{
+    display: inline-block;
+    cursor: pointer;
+    padding-left: 25px;
+    position: relative;
+}
+
+.login-popup form label:before {
+    content: "";
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    background: none;
+    border: 2px solid  #e0dede;
+    position: absolute;
+    left: 0px;
+}
+
+.login-popup form label input[type="checkbox"]:checked + label{
+    background: black;
+}
+.login-popup form input[type="submit"] {
+    color: #fff;
+    background-color: var(--orange);
+    text-transform: uppercase;
+    font-weight: 600;
+    transition: ease-in-out .3s;
+}
+
+.login-popup form input[type="submit"]:hover {
+    transform: scale(1.1);
+}
+
+.login-popup .login-separator {
+    display: block;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 300;
+    margin: 20px 0;
+}
+
+.login-popup a.social-ntw-btn {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    background-color: #fff;
+    color: var(--dark-blue);
+    margin-bottom: 20px;
+    font-weight: 400;
+    font-size: 16px;
+    border-radius: 8px;
+    padding: 10px 20px;
+    position: relative;
+    transition: ease-in-out .3s;
+}
+
+.login-popup a.social-ntw-btn:hover {
+    transform: scale(1.1);
+}
+
+.login-popup a.social-ntw-btn i {
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+}
+
+.login-popup a.social-ntw-btn span {
+    font-weight: 600;
+}
+
+.login-popup h3 {
+    text-align: center;
+    font-size: 16px;
+    font-weight: 400;
+    margin: 40px 0 0 0;
+}
+
+.login-popup .social-methods-login h3 a {
+    color: var(--dark-blue);
+    font-weight: 600;
+}
+/* LOGIN */
+
 
 /* CARRITO */
 h1.cart-title {
@@ -908,7 +1075,7 @@ footer {
 
     .register-page-main {
         flex-basis: 40%;
-    }
+    } 
 
     .register-page-title h1,
     .register-page-title h2 {
@@ -916,6 +1083,16 @@ footer {
         letter-spacing: 1px;
     }
     /* /Página de registro */
+
+    /* Página de Login */
+    .login-container {
+        display: flex;
+    }
+    .login-page-main {
+        flex-basis: 40%;
+    }
+
+    /*Fin del Login*/
 
     /* Carrito */
     .foods-plans-container {
