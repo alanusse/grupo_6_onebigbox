@@ -1,38 +1,42 @@
+<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://kit.fontawesome.com/ee0a2c8855.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="/css/home.css">
-    <title>Login</title>
-</head>
-<body>
-    <div class="login-container" >
-        <div class = "login-popup">
-            <a href="/" id="btn-cerrar-popUp" class="btn-cerrar-popUp"><i class="fas fa-times"></i></a>
-            <h2> INICIAR SESIÓN PARA CONTINUAR</h2>
+<!-- Include Head -->
+<%- include('../partials/head', {title: 'Registro Nuevo Usuario'}) %>
 
-            <form>
-                <div class="contenedor-imputs">
-                    <input type="text" name="email" id = "email" placeholder="Email"> </imput>
-                    <input type="password" name = "password"id="password" placeholder ="Contraseña"></imput>
-                    <label id="recordarEmail"> <input type="checkbox" name = "Recordarme" id="recordarEmail"></imput> Recordarme</label>
-                </div>
-                <div>
-                    <input type="submit" value="INICIAR SESIÓN">
-                </div>
+<body>
+    <!-- Header -->
+	<%- include('../partials/header') %>
+	<!-- /Header -->
+    <div class="page-bg-image">
+        <div class="container register-container">
+            <div class="register-page-title">
+                <h1>INICIAR SESIÓN</h1>
+       
+            </div>
+            <main class="register-page-main">
+                <form action="" method="post">
+                    <div class="contenedor-imputs">
+                        <input type="text" name="email" id = "email" placeholder="Email"> </imput>
+                        <input type="password" name = "password"id="password" placeholder ="Contraseña"></imput>
+                        <label id="recordarEmail"> <input type="checkbox" name = "Recordarme" id="recordarEmail"></imput> Recordarme</label>
+                    </div>
+                    <div>
+                        <input type="submit" value="INICIAR SESIÓN">
+                    </div>
+                </form>
                 <section class="social-methods-login">
-                    <span class="login-separator">o</span>
+                    <span class="register-separator">o</span>
                     <a href="#" class="social-ntw-btn"><i class="fab fa-google"></i>Registrarse con <span>Google</span></a>
                     <a href="#" class="social-ntw-btn"><i class="fab fa-facebook-square"></i>Registrarse con <span>Facebook</span></a>
                 </section>
                 <div>
                     <h3>¿No tenés cuenta? <a href="/user/register">Registrate</a></h3>
                 </div>
-            </form>
-
+            </main>
         </div>
-    </div>    
-   
+    </div>
+<!-- footer -->
+<%- include('../partials/footer') %>
+<!-- /footer -->
 </body>
 </html>

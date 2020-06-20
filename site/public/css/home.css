@@ -601,6 +601,39 @@ h2.title {
     color: var(--dark-blue);
     font-weight: 600;
 }
+
+
+/*Para el LOGIN que no es popUp*/
+.register-page-main form label input[type="checkbox"]{
+    display: inline-block;
+    display: none;
+}
+
+.register-page-main form label{
+    display: inline-block;
+    cursor: pointer;
+    padding-left: 25px;
+    position: relative;
+    padding-top: 4%;
+}
+
+.register-page-main form label:before {
+    content: "";
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    background: none;
+    border: 2px solid  #e0dede;
+    position: absolute;
+    left: 0px;
+}
+
+.register-page-main form label input[type="checkbox"]:checked + label{
+    background: black;
+}
+
+
+/**/
 /* LOGIN */
 
 
