@@ -17,15 +17,11 @@
             <div >
                 <ul>
                     <li class="title"><%- plan[0].plan %> </li>
-                    <li class="precio">Precio Total del plan: $ 1000 </li>
-                    <li class="description">Las recetas más saludables adaptadas para toda la familia con opciones para 3, 4 y 5 personas.</li>
+                    <li class="precio">Precio Total del plan: <%- precioTotal %>  </li>
+                    <li class="description"> <%- plan[0].description %> </li>
                     <li class="incluye">Incluye: Ingredientes medidos + Recetas. Platos completos y equilibrados. Postres saludables</li>
-                    <li class="cantidad">
-                    <form action="" method="get" class="">
-                        <label for="cantidad">Cantidad</label>
-                        <input type="number" name="cantidad" id="cantidad" min="1" max="10" value="1">
-                    </form>
-                    </li>
+                    <li class="cantidad"> Cantidad Recetas que contiene el Plan:  <%- recetas.length %> </li>
+
                     <li class="envios">Envios Gratis</li>
                     
                 </ul>

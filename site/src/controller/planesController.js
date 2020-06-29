@@ -38,17 +38,19 @@ const controller ={
         });
         //Calculo el precio que tendrá el plan según la cantidad de recetas que tiene el mismo
        /* JF: COMMITEO PORQUE NO ME SALIO, LO SIGO DESPUES 
-        let precioPlan = recetas.reduce(function(total, element){
-            return precioAcum + element.precioPlan;
-        });
-        
-        recetas.reduce(function(valorAnterior, valorActual, indice, vector){
-            return valorAnterior + valorActual;
-          });
+       */
 
-        console.log(precioPlan);
-        */
-      return res.render('planes-detail', {plan, recetas});
+        // console.log(recetas);
+        //console.log(recetas.lenght);
+
+        let precioTotal = recetas.reduce(function(total, element){
+           
+            return total += element.precio;
+        }, 0);
+        
+        //console.log(precioPlan);
+    
+      return res.render('planes-detail', {plan, recetas, precioTotal });
     }
 
 };
