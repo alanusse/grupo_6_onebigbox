@@ -14,7 +14,16 @@
                 <h2>Puedes crear una cuenta con Google, Facebook o directamente con tus datos.</h2>
             </div>
             <main class="register-page-main">
-                <form action="" method="post">
+                <form action="/user/register" method="post">
+                    <% if (typeof errors != "undefined" ) { %>
+                        <ul>
+                            <% errors.forEach(function(element){ %>
+                                <li>
+                                    <%= element.msg %> 
+                                </li>                            
+                            <% }) %>
+                        </ul>
+                    <% } %>                     
                     <input type="text" name="nombre" id="nombre" placeholder="Nombre">
                     <input type="text" name="apellido" id="apellido" placeholder="Apellido">
                     <input type="email" name="email" id="email" placeholder="Correo electrónico">

@@ -15,9 +15,18 @@
             </div>
             <main class="register-page-main">
                 <form action="#" method="post">
+                    <% if (typeof errors != "undefined" ) { %>
+                        <ul>
+                            <% errors.forEach(function(element){ %>
+                                <li>
+                                    <%= element.msg %> 
+                                </li>                            
+                            <% }) %>
+                        </ul>
+                    <% } %>     
                     <div class="contenedor-imputs">
                         <input type="text" name="email" id = "email" placeholder="Email"> </imput>
-                        <input type="password" name = "password"id="password" placeholder ="Contraseña"></imput>
+                        <input type="text" name = "password"id="password" placeholder ="Contraseña"></imput>
                         <label id="recordarEmail"> <input type="checkbox" name = "Recordarme" id="recordarEmail"></imput> Recordarme</label>
                     </div>
                     <div>

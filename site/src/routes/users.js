@@ -1,25 +1,25 @@
 var express = require('express');
 var router = express.Router();
-const {body} = require('express-validator');
+
+
 
 // ************ Controller Require ************
 const userController = require('../controller/userController');
 
+
+// ************ Middlewares ************
+const validator = require('../middlewares/validator');
+
 //Redirijo al controlador para todos los métodos del usuario
-/*
-router.get('/', [
-    body('email')
-        .notEmpty()
-        .withMessage('El campo email es obligatorio'),
-    body('email')
-        .notEmpty()
-        .withMessage('El campo nombre es obligatorio')
-],userController.login); 
-*/
+
+//  Routeador del login
 router.get('/', userController.login);
-router.post('/', userController.login);
+router.post('/', validator.login ,userController.loginIngresoDatos); 
+
+
+// Routeador del Register
 router.get('/register', userController.register);
-router.post('/register', userController.register);
+router.post('/register',validator.register ,userController.registerPost); 
 
 
 module.exports = router;
