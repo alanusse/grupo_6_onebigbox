@@ -14,7 +14,7 @@
                 <h2>Puedes crear una cuenta con Google, Facebook o directamente con tus datos.</h2>
             </div>
             <main class="register-page-main">
-                <form action="/user/register" method="post">
+                <form action="/user/register" method="post" enctype="multipart/form-data">
                     <% if (typeof errors != "undefined" ) { %>
                         <ul>
                             <% errors.forEach(function(element){ %>
@@ -28,6 +28,7 @@
                     <input type="text" name="apellido" id="apellido" placeholder="Apellido">
                     <input type="email" name="email" id="email" placeholder="Correo electrónico">
                     <input type="password" name="password" id="password" placeholder="Contraseña">
+                    <input type="file" name="avatar" id="avatar" >
                     <input type="submit" value="Registrarse">
                 </form>
                 <section class="social-methods-register">

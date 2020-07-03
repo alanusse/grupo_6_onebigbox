@@ -4,6 +4,8 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const session = require('express-session');
+// Requiero el middleware a nivel aplicación para loguear siempre las rutas por donde pasa el usuario
+const userLogs = require('./middlewares/userlogs');
 
 // Creo las variables para los routes
 var homeRouter = require('./routes/home');
@@ -25,6 +27,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../public'))); 
 app.use(session({secret: "Mensaje Secreto"}));
+
+//********** LOUEO **********
+app.use(userLogs);
 
 //********** ACCESO A LAS RUTAS **********
 app.use('/', homeRouter);

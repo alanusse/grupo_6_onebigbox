@@ -1,7 +1,6 @@
 const bcrypt = require('bcryptjs')
 const {body} = require('express-validator');
 
-
 //Llamo al modelo de Usuarios para validarlo en el LOGIN
 const jsonModel = require('../models/jsonModel');
 const usersModel = jsonModel('userDataBase');
@@ -44,25 +43,12 @@ module.exports = {
                 const user = users.find(function(user) {
                     return user.email == value
                 })
-    
-    
                 if(user){
                     // seguimos preguntando
-    
                     return bcrypt.compareSync(req.body.password, user.password);
-    
                 } else {
                     return false
                 }
-    
-    
-    
-                // let mailEncontrado = user.filter(function(elemento){
-                //     if (elemento.email == req.body.email){
-                //         return (bcrypt.compareSync(req.body.password, elemento.password))
-                //     }
-                //     return false;
-                // });
             })
             .withMessage('Email y contrasenia no coinciden'),
         body('password')

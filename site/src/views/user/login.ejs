@@ -8,12 +8,12 @@
 	<%- include('../partials/header') %>
 	<!-- /Header -->
     <div class="page-bg-image">
-        <div class="container register-container">
-            <div class="register-page-title">
+        <div class="container login-container">
+            <div class="login-page-title">
                 <h1>INICIAR SESIÓN</h1>
                 <h2> Ingresá con tu cuenta, con Google o Facebook. Si aún no tiene una, puedes registrarte!</h2>
             </div>
-            <main class="register-page-main">
+            <main class="login-page-main">
                 <form action="#" method="post">
                     <% if (typeof errors != "undefined" ) { %>
                         <ul>
@@ -27,14 +27,18 @@
                     <div class="contenedor-imputs">
                         <input type="text" name="email" id = "email" placeholder="Email"> </imput>
                         <input type="text" name = "password"id="password" placeholder ="Contraseña"></imput>
-                        <label id="recordarEmail"> <input type="checkbox" name = "Recordarme" id="recordarEmail"></imput> Recordarme</label>
+                        <!-- <label id="recordarEmail"> <input type="checkbox" name = "Recordarme" id="recordarEmail"></imput> Recordarme</label> -->
+                        <div class="login-checkbox-rememberme">
+                            <input id="checkRecordarme" name = "checkRecordarme" type="checkbox"> <label for="checkRecordarme"> Recordarme</label>
+                          </div>
+                          
                     </div>
                     <div>
                         <input type="submit" value="INICIAR SESIÓN">
                     </div>
                 </form>
                 <section class="social-methods-login">
-                    <span class="register-separator">o</span>
+                    <span class="login-separator">o</span>
                     <a href="#" class="social-ntw-btn"><i class="fab fa-google"></i>Registrarse con <span>Google</span></a>
                     <a href="#" class="social-ntw-btn"><i class="fab fa-facebook-square"></i>Registrarse con <span>Facebook</span></a>
                 </section>

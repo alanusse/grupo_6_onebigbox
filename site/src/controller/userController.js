@@ -1,7 +1,6 @@
 const jsonModel = require('../models/jsonModel');
 const usersModel = jsonModel('userDataBase');
-
-const { validationResult, cookie } = require ('express-validator');
+const { validationResult, cookie, body } = require ('express-validator');
 const bcrypt = require('bcryptjs');
 
 const controller ={
@@ -15,20 +14,24 @@ const controller ={
      
         if (errors.isEmpty()){
             
+            //Leo el Json de los usuarios para obtener el ultimo ID
+            let usuarios = usersModel.leerJson();
+            //Me posiciono en el ultimo registro del array de usuarios, tomo el id que tiene ese registro y le sumo 1
+            let nuevoid = usuarios[usuarios.length - 1].id + 1;
+
             // Creo el objeto Usuario
             let usuarionuevo = {
-                id : "",
+                id : nuevoid, 
                 nombre : req.body.nombre,
                 apellido : req.body.apellido,
                 email : req.body.email,
-                password : bcrypt.hashSync(req.body.password, 10)
+                password : bcrypt.hashSync(req.body.password, 10),
+                avatar: req.file.filename
             }
-            
-            
             // Inserto en el array el nuevo usuario
             usersModel.guardarUno(usuarionuevo);
            
-            //Guardo en una cookie el usuario que se registró asi ya queda logueado en la aplicación
+            //Guardo en una cookie el usuaquirio que se registró asi ya queda logueado en la aplicación
             res.cookie('email', usuarionuevo.email);
 
             //Lo mando a la home con la session ya iniciada
@@ -46,10 +49,14 @@ const controller ={
     loginIngresoDatos: (req, res) => {
         let errors = validationResult(req);
         
-        console.log(errors);
-
+        //Si no hay errores, quiere decir que encontró al usuario en la BD
         if (errors.isEmpty()){
-           
+            
+            //Pregunto si check está checkeado para guardarme la cookie
+            if (req.body.checkRecordarme == 'on'){
+                //Guardo en la cookie los datos del usuairo
+                res.cookie('email', req.body.email);
+            } 
         }
         return res.render('user/login', { errors : errors.errors});
     }
