@@ -70,5 +70,13 @@
   "email": "prueba@gmail.com",
   "password": "$2a$10$7Or0vNUpOXgntLICPZ.rnOm081V6Fn08jOdhUDwj2bTHad2htKdPm",
   "avatar": "avatar-1593796498140.png"
+ },
+ {
+  "id": 10,
+  "nombre": "jesica",
+  "apellido": "jesica",
+  "email": "jesica@gmail.com",
+  "password": "$2a$10$OEj5ss8J0iVsGw.zJEmfuuk5hsbAHFVf5bil66vkCajp/wUeKrA/e",
+  "avatar": "default.png"
  }
 ]

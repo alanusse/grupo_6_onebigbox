@@ -283,3 +283,12 @@
  El usuario ingresó a la ruta: /user/register
  El usuario ingresó a la ruta: /user/register
  El usuario ingresó a la ruta: /
+ El usuario ingresó a la ruta: /
+ El usuario ingresó a la ruta: /planes
+ El usuario ingresó a la ruta: /planes/detail/1
+ El usuario ingresó a la ruta: /howtouse
+ El usuario ingresó a la ruta: /user
+ El usuario ingresó a la ruta: /user/register
+ El usuario ingresó a la ruta: /user/register
+ El usuario ingresó a la ruta: /user/register
+ El usuario ingresó a la ruta: /

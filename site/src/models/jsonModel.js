@@ -22,15 +22,28 @@ module.exports = (archivo)=>{
         guardarUno: function(newData){
             //Primero leo mi json entero
             let allData = this.leerJson();
-
-            // Agrego la información que viene por parámetro 
+            
+            //Genero el nuevo id y lo almaceno en el dato que me mandan por parámetro, que es el dato que voy a guardar en el JSON
+            this.generateId(newData);
+            
             allData = [...allData, newData];
             //allData.push(newData);
 
             // Sobre escribo el json con la información
             this.escribirJson(allData);
         },
-       findById: function (id) {
+        generateId: function(newData){
+            //Función que genera un ID para el nuevo elemento del Json
+
+             //Leo el Json de los usuarios para obtener el ultimo ID
+             let usuarios = this.leerJson();
+             
+             //Me posiciono en el ultimo registro del array de usuarios, tomo el id que tiene ese registro y le sumo 1
+             newData.id = usuarios[usuarios.length - 1].id + 1;
+            
+             //No retorno nada porque albaceno el valor en el mismo objeto que me enviaron por parámetro
+        },
+        findById: function (id) {
             const allData = this.leerJson();   
 
             const objeto = allData.find(function(elemento){
