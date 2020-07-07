@@ -27,8 +27,8 @@ const controller ={
             usersModel.guardarUno(usuarionuevo);
            
             //Guardo en una cookie el usuario que se registró asi ya queda logueado en la aplicación
-            // Pero acá debería haber una variable de sessión, no de cookie
-            res.cookie('email', usuarionuevo.email, {maxAge: 60 * 60 * 24});
+              //Guardo los datos del usuario en sesión
+            req.session.user = user;
            
            //Lo mando a la home con la session ya iniciada
             return res.redirect('/');
@@ -45,14 +45,35 @@ const controller ={
         
         //Si no hay errores, quiere decir que encontró al usuario en la BD
         if (errors.isEmpty()){
-            
+            // Si no hay errores quiere decir que puedo buscar al usuario en la BD
+            let user = usersModel.findBySomething(user=>  user.email == req.body.email);
+
+            //Borro la contraseña por seguridad
+            delete user.password;
+
+            console.log('Valor que tiene el check Recordarme: ' + req.body.checkRecordarme);
+          
+            req.session.user = user;
+
             if (req.body.checkRecordarme){
-                //Guardo en una cookie el usuario que se registró asi ya queda logueado en la aplicación
-                res.cookie('email', usuarionuevo.email, {maxAge: 60 * 60 * 24});
+                //Guardo en una cookie el usuario que se registró asi ya queda logueado en la aplicación. Tercer parámetro es el tiempo, lo establecido ahi es para que dure UN DIA
+                res.cookie('email', user.email, {maxAge: 1000 * 60 * 60 * 24});
             }
+            return res.redirect('/');
         }
         return res.render('user/login', { errors : errors.errors});
-    }
+    },
+
+    logout: (req, res) =>{
+        // Deslogueo al usuario, borrando la session
+        req.session.destroy();
+        
+        //y borro la cookie si existe
+        if (req.cookies.email){
+            res.clearCookie('email');
+        }
+        return res.redirect('/');
+    } 
 
 };
 

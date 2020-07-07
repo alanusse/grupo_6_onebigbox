@@ -51,7 +51,18 @@ module.exports = (archivo)=>{
             })
             return objeto;
          },
-        filterbySomething: function(filtroDeseado){
+
+         findBySomething: function (filtro) {
+           
+            const allData = this.leerJson();   
+
+            const objeto = allData.find(filtro);
+            console.log(objeto);
+
+            return objeto;
+         },
+
+         filterbySomething: function(filtroDeseado){
             // Leo mi json
             const data = this.leerJson();
             // El filter recibe un callback, ese callback es el que le paso por parámetro

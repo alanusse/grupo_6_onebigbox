@@ -370,6 +370,11 @@ h2.title {
     font-weight: 400;
     margin: 0;
 }
+.register-page-main label{
+    font-size: 18px;
+    font-weight: 400;
+    margin: 15px 0;
+}
 
 .register-page-main form input {
     display: block;
