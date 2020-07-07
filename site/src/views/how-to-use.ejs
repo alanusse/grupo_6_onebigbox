@@ -9,6 +9,11 @@
     <!-- /Header -->
     <main>
         <div class="container-howtouse">
+            <% if (locals.user) { %>
+                <p> USUARIO LOGUEADO: <%= locals.user.email %> </p>
+            <% }else{ %>
+                <p>NO HAY USUARIO LOGUEADO</p>
+            <% } %>
             <h2>¿Como hago para obtener una caja?</h2>
         </div>
         <section class="instructive">

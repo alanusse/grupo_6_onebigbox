@@ -370,12 +370,29 @@ h2.title {
     font-weight: 400;
     margin: 0;
 }
-.register-page-main label{
-    font-size: 18px;
-    font-weight: 400;
+.file{
+    display: inline-block;
+    font-size: 16px;
     margin: 15px 0;
+    padding: 10px;
+    color: #acacac;
+    background-color: white;
+    border-radius: 8px;
+    text-align: center;
+    width: 100%;
+   
 }
-
+#avatar {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+ 
+}
 .register-page-main form input {
     display: block;
     width: 100%;

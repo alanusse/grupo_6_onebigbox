@@ -9,6 +9,11 @@
     <!-- /Header -->
     
     <section  >
+        <% if (locals.user) { %>
+            <p> USUARIO LOGUEADO: <%= locals.user.email %> </p>
+        <% }else{ %>
+            <p>NO HAY USUARIO LOGUEADO</p>
+        <% } %>
         <div class="page-bg-image">
               <div class = "container-nosotros">
                 <h2> Quienes Somos </h2>

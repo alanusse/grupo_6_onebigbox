@@ -8,6 +8,11 @@
 	<%- include('partials/header') %>
 	<!-- /Header -->
     <section class="nuestros-box">
+        <% if (locals.user) { %>
+            <p> USUARIO LOGUEADO: <%= locals.user.email %> </p>
+        <% }else{ %>
+            <p>NO HAY USUARIO LOGUEADO</p>
+        <% } %>
         <div>
             <h2 class="title">NUESTRAS RECETAS</h2>
         </div>

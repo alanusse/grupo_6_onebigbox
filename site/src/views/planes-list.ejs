@@ -9,6 +9,11 @@
 	<!-- /Header -->
     <section class="nuestros-box">
         <ul>
+            <% if (locals.user) { %>
+                <li> USUARIO LOGUEADO: <%= locals.user.email %> </li>
+            <% }else{ %>
+                <li>NO HAY USUARIO LOGUEADO</li>
+            <% } %>
             <li class="title">NUESTRO PLANES</li>
             <li class="description">Nuestros planes incluyen recetas creadas por nuestros chefs pensadas para tu salud</li>
         </ul>
