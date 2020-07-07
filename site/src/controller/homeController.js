@@ -9,7 +9,7 @@ const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 const controller ={
     root: (req, res) =>{
         //console.log(req.session.email);
-        let emailUsuarioLogueado = req.cookies.email;
+        let emailUsuarioLogueado = req.session.email;
 
         //const instructive = leerJson(instructionsFilePath);
         const instructive = instructivoModel.leerJson();

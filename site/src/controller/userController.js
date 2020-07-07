@@ -1,6 +1,6 @@
 const jsonModel = require('../models/jsonModel');
 const usersModel = jsonModel('userDataBase');
-const { validationResult, cookie, body } = require ('express-validator');
+const { validationResult } = require ('express-validator');
 const bcrypt = require('bcryptjs');
 
 const controller ={
@@ -27,13 +27,15 @@ const controller ={
             usersModel.guardarUno(usuarionuevo);
            
             //Guardo en una cookie el usuario que se registró asi ya queda logueado en la aplicación
-              //Guardo los datos del usuario en sesión
+            //Guardo los datos del usuario en sesión
             req.session.user = user;
+
            
            //Lo mando a la home con la session ya iniciada
             return res.redirect('/');
+        } else {
+            return res.render('user/register', { errors : errors.errors });
         }
-        return res.render('user/register', { errors : errors.errors});
     },
 
     login: (req, res) =>{
