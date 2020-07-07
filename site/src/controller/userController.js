@@ -1,6 +1,6 @@
 const jsonModel = require('../models/jsonModel');
 const usersModel = jsonModel('userDataBase');
-const { validationResult, cookie, body } = require ('express-validator');
+const { validationResult } = require ('express-validator');
 const bcrypt = require('bcryptjs');
 
 const controller ={
@@ -28,12 +28,14 @@ const controller ={
            
             //Guardo en una cookie el usuario que se registró asi ya queda logueado en la aplicación
             // Pero acá debería haber una variable de sessión, no de cookie
-            res.cookie('email', usuarionuevo.email, {maxAge: 60 * 60 * 24});
+            // res.cookie('email', usuarionuevo.email, {maxAge: 60 * 60 * 24});
+            req.session.email = usuarionuevo.email;
            
            //Lo mando a la home con la session ya iniciada
             return res.redirect('/');
+        } else {
+            return res.render('user/register', { errors : errors.errors });
         }
-        return res.render('user/register', { errors : errors.errors});
     },
 
     login: (req, res) =>{
@@ -45,13 +47,16 @@ const controller ={
         
         //Si no hay errores, quiere decir que encontró al usuario en la BD
         if (errors.isEmpty()){
-            
             if (req.body.checkRecordarme){
                 //Guardo en una cookie el usuario que se registró asi ya queda logueado en la aplicación
-                res.cookie('email', usuarionuevo.email, {maxAge: 60 * 60 * 24});
+                res.cookie('email', req.body.email, { maxAge: 60 * 60 * 24 });
+            } else {
+                req.session.email = req.body.email;
             }
+            return res.redirect('/');
+        } else {
+            return res.render('user/login', { errors : errors.errors });
         }
-        return res.render('user/login', { errors : errors.errors});
     }
 
 };

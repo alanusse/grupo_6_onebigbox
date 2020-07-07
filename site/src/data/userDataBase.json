@@ -78,5 +78,13 @@
   "email": "jesica@gmail.com",
   "password": "$2a$10$OEj5ss8J0iVsGw.zJEmfuuk5hsbAHFVf5bil66vkCajp/wUeKrA/e",
   "avatar": "default.png"
+ },
+ {
+  "id": 11,
+  "nombre": "Agustín",
+  "apellido": "Lanusse",
+  "email": "agustin@gmail.com",
+  "password": "$2a$10$PQUKmBodxVpSu2jzEUajYO6bdJwv.MRrtiBEVzCwEvR9QS6tscCVK",
+  "avatar": "default.png"
  }
 ]
