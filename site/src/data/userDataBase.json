@@ -86,5 +86,21 @@
   "email": "agustin@gmail.com",
   "password": "$2a$10$PQUKmBodxVpSu2jzEUajYO6bdJwv.MRrtiBEVzCwEvR9QS6tscCVK",
   "avatar": "default.png"
+ },
+ {
+  "id": 12,
+  "nombre": "Facundo",
+  "apellido": "Martin",
+  "email": "facumartinn@gmail.com",
+  "password": "$2a$10$BCH73JEx0uIxH36jo7INGO/GDpHu9SGYrtREV4C6MY90ttTmrzHX6",
+  "avatar": "avatar-1594148953771.png"
+ },
+ {
+  "id": 13,
+  "nombre": "Claudio",
+  "apellido": "Dominguez",
+  "email": "claudiodom@gmail.com",
+  "password": "$2a$10$Qww814N38iu7JmXp6dgeqOa3rVFT6C.Uo6nn6M/JyWdgN7soysKoi",
+  "avatar": "avatar-1594149446973.png"
  }
 ]

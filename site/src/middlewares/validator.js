@@ -1,5 +1,7 @@
-const bcrypt = require('bcryptjs')
-const {body} = require('express-validator');
+const path = require('path');
+const bcrypt = require('bcryptjs');
+const { body } = require('express-validator');
+
 
 //Llamo al modelo de Usuarios para validarlo en el LOGIN
 const jsonModel = require('../models/jsonModel');
@@ -31,6 +33,32 @@ module.exports = {
             .bail()
             .isLength( { min:4, max:10})
             .withMessage('La contraseña debe tener un mínimo de 4 y un máximo de 10 caracteres'),
+        body("avatar")
+            .custom((value, { req }) => {
+              if (req.file) {
+                return true;
+              } else {
+                return false;
+              }
+            })
+            .withMessage("Imagen obligatoria")
+            .bail()
+            .custom((value, { req }) => {
+              if (req.file) {
+                const acceptedExtensions = [".jpg", ".jpeg", ".png"];
+      
+                const ext = path.extname(req.file.originalname);
+      
+                if (acceptedExtensions.includes(ext)) {
+                  return true;
+                } else {
+                  return false;
+                }
+              } else {
+                return true;
+              }
+            })
+            .withMessage("Extension invalida"),        
     ],
     login: [
         body('email')

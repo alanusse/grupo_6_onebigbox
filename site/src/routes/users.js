@@ -26,7 +26,21 @@ let storage = multer.diskStorage({
   }
 })
  
-let upload = multer({ storage: storage })
+let upload = multer({ 
+  storage: storage,
+
+  fileFilter: (req, file, cb) => {
+
+    const acceptedExtensions = ['.jpg', '.jpeg', '.png'];
+    const ext = path.extname(file.originalname);
+
+    if(!acceptedExtensions.includes(ext)){
+      req.file = file;
+    }
+    cb(null, acceptedExtensions.includes(ext));
+  }
+
+});
 
 //  Routeador del login
 router.get('/', userController.login);
