@@ -6,5 +6,23 @@
   "email": "jesica@gmail.com",
   "password": "$2a$10$sKzHVFDx/aT9lWYzOY2wX.OneX8xLU1J.fjDOt1I4MQc4ZlABzqme",
   "avatar": "avatar-1594218800776.jpg"
+  "password": "$2a$10$aaDgt7mqIQBWOQMnDCIQbuyKw5Mrv0c4R9VvsvjQrdix3dHncQnfC",
+  "avatar": "image-1593609027952.png"
+ },
+ {
+  "id": 2,
+  "nombre": "facundo",
+  "apellido": "martin",
+  "email": "facumartinn@gmail.com",
+  "password": "$2a$10$LssIx6s6mEofmQdB2pQ2NuqGZoHR6Hs/MV97OkaCpEaXjdZLHUxu2",
+  "avatar": "avatar-1594213101167.png"
+ },
+ {
+  "id": 3,
+  "nombre": "facundo",
+  "apellido": "martin",
+  "email": "facumartinn3@gmail.com",
+  "password": "$2a$10$sNrqBxB1dKeOyahZAtoC4.D30NKldXuYrkwxg72.J/IfWiyy1j/2y",
+  "avatar": "avatar-1594213832613.png"
  }
 ]

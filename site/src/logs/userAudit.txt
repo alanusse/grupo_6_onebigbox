@@ -293,7 +293,6 @@
  El usuario ingresó a la ruta: /user/register
  El usuario ingresó a la ruta: /
  El usuario ingresó a la ruta: /
-<<<<<<< HEAD:site/src/logs/userAudit.txt
  El usuario ingresó a la ruta: /user
  El usuario ingresó a la ruta: /user
  El usuario ingresó a la ruta: /
@@ -328,34 +327,6 @@
  El usuario ingresó a la ruta: /
  El usuario ingresó a la ruta: /
  El usuario ingresó a la ruta: /
-=======
- El usuario ingresó a la ruta: /favicon.ico
- El usuario ingresó a la ruta: /
- El usuario ingresó a la ruta: /planes
- El usuario ingresó a la ruta: /user
- El usuario ingresó a la ruta: /user
- El usuario ingresó a la ruta: /user
- El usuario ingresó a la ruta: /cart
- El usuario ingresó a la ruta: /cart
- El usuario ingresó a la ruta: /user
- El usuario ingresó a la ruta: /cart
- El usuario ingresó a la ruta: /user
- El usuario ingresó a la ruta: /user
- El usuario ingresó a la ruta: /user
- El usuario ingresó a la ruta: /user/register
- El usuario ingresó a la ruta: /user/register
- El usuario ingresó a la ruta: /user/register
- El usuario ingresó a la ruta: /
- El usuario ingresó a la ruta: /
- El usuario ingresó a la ruta: /nosotros
- El usuario ingresó a la ruta: /howtouse
- El usuario ingresó a la ruta: /recetas
- El usuario ingresó a la ruta: /planes
- El usuario ingresó a la ruta: /
- El usuario ingresó a la ruta: /
- El usuario ingresó a la ruta: /
- El usuario ingresó a la ruta: /planes
->>>>>>> de418f4fae6b1e6c67dc5a887600bc94cf1fd3c6:site/src/logs/userlogs.txt
  El usuario ingresó a la ruta: /
  El usuario ingresó a la ruta: /
  El usuario ingresó a la ruta: /
@@ -692,6 +663,7 @@
  El usuario ingresó a la ruta: /user/register
  El usuario ingresó a la ruta: /user/register
  El usuario ingresó a la ruta: /user/register
+<<<<<<< HEAD
  El usuario ingresó a la ruta: /
  El usuario ingresó a la ruta: /favicon.ico
  El usuario ingresó a la ruta: /recetas
@@ -827,10 +799,53 @@
  El usuario ingresó a la ruta: /planes/detail/1
  El usuario ingresó a la ruta: /planes/agregarAlCarrito/1
  El usuario ingresó a la ruta: /planes/agregarAlCarrito/1
+=======
+<<<<<<< HEAD
+ El usuario ingresó a la ruta: /
+ El usuario ingresó a la ruta: /favicon.ico
+ El usuario ingresó a la ruta: /user
+ El usuario ingresó a la ruta: /user/register
+ El usuario ingresó a la ruta: /user/register
+ El usuario ingresó a la ruta: /user/register
+ El usuario ingresó a la ruta: /user/register
+ El usuario ingresó a la ruta: /
+ El usuario ingresó a la ruta: /user
+ El usuario ingresó a la ruta: /user/register
+ El usuario ingresó a la ruta: /user/register
+ El usuario ingresó a la ruta: /user/register
+ El usuario ingresó a la ruta: /
  El usuario ingresó a la ruta: /user
  El usuario ingresó a la ruta: /user/register
  El usuario ingresó a la ruta: /user/register
  El usuario ingresó a la ruta: /
+ El usuario ingresó a la ruta: /
+ El usuario ingresó a la ruta: /user
+ El usuario ingresó a la ruta: /user/register
+ El usuario ingresó a la ruta: /user/register
+ El usuario ingresó a la ruta: /user/register
+ El usuario ingresó a la ruta: /
+ El usuario ingresó a la ruta: /user
+ El usuario ingresó a la ruta: /user/register
+ El usuario ingresó a la ruta: /user/register
+ El usuario ingresó a la ruta: /
+ El usuario ingresó a la ruta: /user
+ El usuario ingresó a la ruta: /user/register
+ El usuario ingresó a la ruta: /user/register
+ El usuario ingresó a la ruta: /
+ El usuario ingresó a la ruta: /user
+ El usuario ingresó a la ruta: /user/register
+ El usuario ingresó a la ruta: /user/register
+ El usuario ingresó a la ruta: /
+ El usuario ingresó a la ruta: /user
+ El usuario ingresó a la ruta: /user/register
+ El usuario ingresó a la ruta: /user/register
+ El usuario ingresó a la ruta: /
+>>>>>>> a3749d05a2fef95f195149b4b339a375049e071c
+ El usuario ingresó a la ruta: /user
+ El usuario ingresó a la ruta: /user/register
+ El usuario ingresó a la ruta: /user/register
+ El usuario ingresó a la ruta: /
+<<<<<<< HEAD
  El usuario ingresó a la ruta: /planes
  El usuario ingresó a la ruta: /planes/detail/1
  El usuario ingresó a la ruta: /cart/agregarAlCarrito/1
@@ -841,3 +856,59 @@
  El usuario ingresó a la ruta: /
  El usuario ingresó a la ruta: /user
  El usuario ingresó a la ruta: /user
+=======
+ El usuario ingresó a la ruta: /
+ El usuario ingresó a la ruta: /user
+ El usuario ingresó a la ruta: /user/register
+ El usuario ingresó a la ruta: /user/register
+=======
+ El usuario ingresó a la ruta: /planes
+ El usuario ingresó a la ruta: /
+>>>>>>> 77c73388666c12882ce5e63f578321143a9dfdc7
+ El usuario ingresó a la ruta: /user
+ El usuario ingresó a la ruta: /user
+ El usuario ingresó a la ruta: /
+ El usuario ingresó a la ruta: /user/logout
+ El usuario ingresó a la ruta: /
+ El usuario ingresó a la ruta: /
+<<<<<<< HEAD
+ El usuario ingresó a la ruta: /user
+ El usuario ingresó a la ruta: /user/register
+ El usuario ingresó a la ruta: /user/register
+ El usuario ingresó a la ruta: /
+ El usuario ingresó a la ruta: /
+ El usuario ingresó a la ruta: /
+ El usuario ingresó a la ruta: /user
+ El usuario ingresó a la ruta: /user
+ El usuario ingresó a la ruta: /
+ El usuario ingresó a la ruta: /
+ El usuario ingresó a la ruta: /
+ El usuario ingresó a la ruta: /
+ El usuario ingresó a la ruta: /
+ El usuario ingresó a la ruta: /
+ El usuario ingresó a la ruta: /
+ El usuario ingresó a la ruta: /
+=======
+ El usuario ingresó a la ruta: /sss
+ El usuario ingresó a la ruta: /sss
+ El usuario ingresó a la ruta: /sss
+ El usuario ingresó a la ruta: /sss
+ El usuario ingresó a la ruta: /
+ El usuario ingresó a la ruta: /planes
+ El usuario ingresó a la ruta: /sss
+ El usuario ingresó a la ruta: /ssss
+ El usuario ingresó a la ruta: /sss
+ El usuario ingresó a la ruta: /sss
+ El usuario ingresó a la ruta: /sss
+ El usuario ingresó a la ruta: /sss
+ El usuario ingresó a la ruta: /sss
+ El usuario ingresó a la ruta: /sss
+ El usuario ingresó a la ruta: /sss
+ El usuario ingresó a la ruta: /sss
+ El usuario ingresó a la ruta: /sss
+ El usuario ingresó a la ruta: /sss
+ El usuario ingresó a la ruta: /sss
+ El usuario ingresó a la ruta: /sss
+>>>>>>> 77c73388666c12882ce5e63f578321143a9dfdc7
+ El usuario ingresó a la ruta: /
+>>>>>>> a3749d05a2fef95f195149b4b339a375049e071c
