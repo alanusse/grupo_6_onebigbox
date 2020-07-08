@@ -692,3 +692,32 @@
  El usuario ingresó a la ruta: /user/register
  El usuario ingresó a la ruta: /user/register
  El usuario ingresó a la ruta: /user/register
+ El usuario ingresó a la ruta: /planes
+ El usuario ingresó a la ruta: /
+ El usuario ingresó a la ruta: /user
+ El usuario ingresó a la ruta: /user
+ El usuario ingresó a la ruta: /
+ El usuario ingresó a la ruta: /user/logout
+ El usuario ingresó a la ruta: /
+ El usuario ingresó a la ruta: /
+ El usuario ingresó a la ruta: /sss
+ El usuario ingresó a la ruta: /sss
+ El usuario ingresó a la ruta: /sss
+ El usuario ingresó a la ruta: /sss
+ El usuario ingresó a la ruta: /
+ El usuario ingresó a la ruta: /planes
+ El usuario ingresó a la ruta: /sss
+ El usuario ingresó a la ruta: /ssss
+ El usuario ingresó a la ruta: /sss
+ El usuario ingresó a la ruta: /sss
+ El usuario ingresó a la ruta: /sss
+ El usuario ingresó a la ruta: /sss
+ El usuario ingresó a la ruta: /sss
+ El usuario ingresó a la ruta: /sss
+ El usuario ingresó a la ruta: /sss
+ El usuario ingresó a la ruta: /sss
+ El usuario ingresó a la ruta: /sss
+ El usuario ingresó a la ruta: /sss
+ El usuario ingresó a la ruta: /sss
+ El usuario ingresó a la ruta: /sss
+ El usuario ingresó a la ruta: /
