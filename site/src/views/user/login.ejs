@@ -16,9 +16,13 @@
             <main class="login-page-main">
                 <form action="#" method="post">
                     <% if (typeof errors != "undefined" ) { %>
-                        <ul>
+                        <ul style="background-color: #ff6868;
+                        padding: 20px;
+                        border-radius: 10px;">
                             <% errors.forEach(function(element){ %>
-                                <li>
+                                <li style="color: #fff;
+                                list-style: disc;
+                                margin-left: 20px;">
                                     <%= element.msg %> 
                                 </li>                            
                             <% }) %>

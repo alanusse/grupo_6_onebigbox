@@ -912,3 +912,36 @@
 >>>>>>> 77c73388666c12882ce5e63f578321143a9dfdc7
  El usuario ingresó a la ruta: /
 >>>>>>> a3749d05a2fef95f195149b4b339a375049e071c
+
+ El usuario ingresó a la ruta: /user
+ El usuario ingresó a la ruta: /user/register
+ El usuario ingresó a la ruta: /user/register
+ El usuario ingresó a la ruta: /howtouse
+ El usuario ingresó a la ruta: /
+ El usuario ingresó a la ruta: /user
+ El usuario ingresó a la ruta: /user
+ El usuario ingresó a la ruta: /user
+ El usuario ingresó a la ruta: /user
+ El usuario ingresó a la ruta: /user
+ El usuario ingresó a la ruta: /user
+ El usuario ingresó a la ruta: /user
+ El usuario ingresó a la ruta: /user
+ El usuario ingresó a la ruta: /user
+ El usuario ingresó a la ruta: /user
+ El usuario ingresó a la ruta: /user
+ El usuario ingresó a la ruta: /user
+ El usuario ingresó a la ruta: /user
+ El usuario ingresó a la ruta: /user
+ El usuario ingresó a la ruta: /user
+ El usuario ingresó a la ruta: /user
+ El usuario ingresó a la ruta: /user
+ El usuario ingresó a la ruta: /user
+ El usuario ingresó a la ruta: /user
+ El usuario ingresó a la ruta: /user
+ El usuario ingresó a la ruta: /user/register
+ El usuario ingresó a la ruta: /user/register
+ El usuario ingresó a la ruta: /user/register
+ El usuario ingresó a la ruta: /user/register
+ El usuario ingresó a la ruta: /user
+ El usuario ingresó a la ruta: /user
+ El usuario ingresó a la ruta: /user

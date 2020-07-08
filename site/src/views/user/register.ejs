@@ -16,9 +16,13 @@
             <main class="register-page-main">
                 <form action="/user/register" method="post" enctype="multipart/form-data">
                     <% if (typeof errors != "undefined" ) { %>
-                        <ul>
+                        <ul style="background-color: #ff6868;
+                        padding: 20px;
+                        border-radius: 10px;">
                             <% errors.forEach(function(element){ %>
-                                <li>
+                                <li style="color: #fff;
+                                list-style: disc;
+                                margin-left: 20px;">
                                     <%= element.msg %> 
                                 </li>                            
                             <% }) %>
