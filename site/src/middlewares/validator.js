@@ -26,7 +26,26 @@ module.exports = {
             .withMessage('El campo email es obligatorio')
             .bail()
             .isEmail()
-            .withMessage('El mail del usuario debe tener formato de eMail'),
+            .withMessage('El mail del usuario debe tener formato de eMail')
+            .bail()
+            .custom(function(value, {req}){
+              let users = usersModel.leerJson();
+              //Código para validar mail
+
+              const user = users.find(function(user) {
+                  return user.email == value
+              })
+              
+              if(user){
+                
+                return false;
+              }else{
+                
+                return true;
+              }
+          })
+          .withMessage('Email ya está registrado'),
+
         body('password')
             .notEmpty()
             .withMessage('El campo password es obligatorio')

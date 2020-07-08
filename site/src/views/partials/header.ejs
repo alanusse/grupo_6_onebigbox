@@ -6,7 +6,11 @@
                 <li class="items"><a href="/recetas">Recetas</a></li>
                 <li class="items"><a href="/howtouse">Como funciona?</a></li>
                 <li class="items"><a href="/nosotros">Nosotros</a></li>
-                <li class="user"><a href="/user"><i class="far fa-user"></i></a></li>
+                <% if (locals.user) { %>
+                    <li class="user logueado"><a href="#"><i class="fas fa-user"></i></a>Hola, <%= locals.user.nombre %>!</li>
+                <% } else { %>
+                    <li class="user"><a href="/user"><i class="far fa-user"></i></a></li>
+                <% } %> 
                 <li class="user"><a href="#"><i class="far fa-heart"></i></a></li>
                 <li class="user"><a href="/cart"><i class="fas fa-shopping-basket"></i></a></li>
                 <% if (locals.user) { %>

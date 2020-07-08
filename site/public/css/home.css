@@ -845,6 +845,12 @@ h3.selected-plans {
     width: auto;
     margin: 0 5px;
     order: 4;
+    font-size: 10px;
+}
+
+.header-nav ul li.logueado {
+    display: flex;
+    flex-direction: column;
 }
 
 .header-nav ul li a {
