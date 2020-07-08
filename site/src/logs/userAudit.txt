@@ -692,6 +692,7 @@
  El usuario ingresó a la ruta: /user/register
  El usuario ingresó a la ruta: /user/register
  El usuario ingresó a la ruta: /user/register
+<<<<<<< HEAD
  El usuario ingresó a la ruta: /
  El usuario ingresó a la ruta: /favicon.ico
  El usuario ingresó a la ruta: /user
@@ -739,12 +740,17 @@
  El usuario ingresó a la ruta: /user
  El usuario ingresó a la ruta: /user/register
  El usuario ingresó a la ruta: /user/register
+=======
+ El usuario ingresó a la ruta: /planes
+ El usuario ingresó a la ruta: /
+>>>>>>> 77c73388666c12882ce5e63f578321143a9dfdc7
  El usuario ingresó a la ruta: /user
  El usuario ingresó a la ruta: /user
  El usuario ingresó a la ruta: /
  El usuario ingresó a la ruta: /user/logout
  El usuario ingresó a la ruta: /
  El usuario ingresó a la ruta: /
+<<<<<<< HEAD
  El usuario ingresó a la ruta: /user
  El usuario ingresó a la ruta: /user/register
  El usuario ingresó a la ruta: /user/register
@@ -761,4 +767,26 @@
  El usuario ingresó a la ruta: /
  El usuario ingresó a la ruta: /
  El usuario ingresó a la ruta: /
+=======
+ El usuario ingresó a la ruta: /sss
+ El usuario ingresó a la ruta: /sss
+ El usuario ingresó a la ruta: /sss
+ El usuario ingresó a la ruta: /sss
+ El usuario ingresó a la ruta: /
+ El usuario ingresó a la ruta: /planes
+ El usuario ingresó a la ruta: /sss
+ El usuario ingresó a la ruta: /ssss
+ El usuario ingresó a la ruta: /sss
+ El usuario ingresó a la ruta: /sss
+ El usuario ingresó a la ruta: /sss
+ El usuario ingresó a la ruta: /sss
+ El usuario ingresó a la ruta: /sss
+ El usuario ingresó a la ruta: /sss
+ El usuario ingresó a la ruta: /sss
+ El usuario ingresó a la ruta: /sss
+ El usuario ingresó a la ruta: /sss
+ El usuario ingresó a la ruta: /sss
+ El usuario ingresó a la ruta: /sss
+ El usuario ingresó a la ruta: /sss
+>>>>>>> 77c73388666c12882ce5e63f578321143a9dfdc7
  El usuario ingresó a la ruta: /
