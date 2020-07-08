@@ -9,4 +9,5 @@ router.get('/', planesController.root);
 router.get('/detail/:planid', planesController.detail);
 
 
+
 module.exports = router;

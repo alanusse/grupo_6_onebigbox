@@ -35,13 +35,13 @@ module.exports = (archivo)=>{
         generateId: function(newData){
             //Función que genera un ID para el nuevo elemento del Json
 
-             //Leo el Json de los usuarios para obtener el ultimo ID
-             let usuarios = this.leerJson();
-             
-             //Me posiciono en el ultimo registro del array de usuarios, tomo el id que tiene ese registro y le sumo 1
-             newData.id = usuarios[usuarios.length - 1].id + 1;
+            //Leo el Json de los usuarios para obtener el ultimo ID
+            let oldData = this.leerJson();
             
-             //No retorno nada porque albaceno el valor en el mismo objeto que me enviaron por parámetro
+            // Valido si el Json tiene datos preguntando por la cantidad de registros que tiene la variable. SI no tiene datos, quiere decir que es el primer registro, por lo tanto le asigno directamente el número 1
+            //Me posiciono en el ultimo registro del array de usuarios, tomo el id que tiene ese registro y le sumo 1
+            newData.id =  (oldData.length > 0)? oldData[oldData.length - 1].id + 1 : 1
+            //No retorno nada porque almaceno el valor en el mismo objeto que me enviaron por parámetro
         },
         findById: function (id) {
             const allData = this.leerJson();   
@@ -57,8 +57,7 @@ module.exports = (archivo)=>{
             const allData = this.leerJson();   
 
             const objeto = allData.find(filtro);
-            console.log(objeto);
-
+            
             return objeto;
          },
 

@@ -1,8 +1,10 @@
 const jsonModel = require('../models/jsonModel');
 const planesModel = jsonModel('planesDataBase');
 
+
 const instructivoModel = jsonModel('instructionsDataBase');
 const recetasModel = jsonModel('recetasDataBase');
+
 
 
 const controller ={
@@ -33,7 +35,6 @@ const controller ={
         
         return res.render('planes-detail', {plan, recetas, precioTotal });
     }
-
 };
 
 module.exports = controller;

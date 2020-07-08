@@ -18,7 +18,8 @@
         <div class="container-receta" >
         
             <div >
-                <img src="/img/planes/plan-familiar.png" alt="plan familiar">
+                <img src= "/img/planes/<%- plan.image %>" alt= <%- plan.plan %> >
+                
             </div>
             <div >
                 <ul>
@@ -31,8 +32,11 @@
                     <li class="envios">Envios Gratis</li>
                     
                 </ul>
+
                 <ul>
-                    <li class="recetas-boton-carrito"><a href="#" class="btn-home btn-d-block btn-naranja">Agregar al carrito</a></li>
+                    <form method="POST" class="recetas-boton-carrito" action="/cart/agregarAlCarrito/<%- plan.id %>" >
+                        <button type="submit" class="btn-home btn-d-block btn-naranja">Agregar al carrito  </button>
+                    </form>
                 </ul>
             </div>
         </div>

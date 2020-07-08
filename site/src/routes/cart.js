@@ -5,6 +5,7 @@ var router = express.Router();
 const cartController = require('../controller/cartController');
 
 //Redirijo al controlador de planes
-router.get('/', cartController.root); 
+router.get('/', cartController.root);
+router.post('/agregarAlCarrito/:planid', cartController.agregarAlCarrito),
 
 module.exports = router;

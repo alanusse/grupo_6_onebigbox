@@ -53,8 +53,6 @@ const controller ={
             //Borro la contraseña por seguridad
             delete user.password;
 
-            console.log('Valor que tiene el check Recordarme: ' + req.body.checkRecordarme);
-          
             req.session.user = user;
 
             if (req.body.checkRecordarme){
