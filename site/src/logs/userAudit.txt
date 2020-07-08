@@ -945,3 +945,27 @@
  El usuario ingresó a la ruta: /user
  El usuario ingresó a la ruta: /user
  El usuario ingresó a la ruta: /user
+ El usuario ingresó a la ruta: /planes
+ El usuario ingresó a la ruta: /user
+ El usuario ingresó a la ruta: /user
+ El usuario ingresó a la ruta: /user
+ El usuario ingresó a la ruta: /user/register
+ El usuario ingresó a la ruta: /cart
+ El usuario ingresó a la ruta: /
+ El usuario ingresó a la ruta: /user
+ El usuario ingresó a la ruta: /user
+ El usuario ingresó a la ruta: /user/register
+ El usuario ingresó a la ruta: /user/register
+ El usuario ingresó a la ruta: /user/register
+ El usuario ingresó a la ruta: /user/register
+ El usuario ingresó a la ruta: /
+ El usuario ingresó a la ruta: /
+ El usuario ingresó a la ruta: /
+ El usuario ingresó a la ruta: /user
+ El usuario ingresó a la ruta: /cart
+ El usuario ingresó a la ruta: /user
+ El usuario ingresó a la ruta: /user
+ El usuario ingresó a la ruta: /
+ El usuario ingresó a la ruta: /
+ El usuario ingresó a la ruta: /
+ El usuario ingresó a la ruta: /

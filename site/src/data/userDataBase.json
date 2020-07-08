@@ -22,5 +22,13 @@
   "email": "facumartinn3@gmail.com",
   "password": "$2a$10$sNrqBxB1dKeOyahZAtoC4.D30NKldXuYrkwxg72.J/IfWiyy1j/2y",
   "avatar": "avatar-1594213832613.png"
+ },
+ {
+  "id": 4,
+  "nombre": "prueba",
+  "apellido": "prueba",
+  "email": "prueba@gmail.com",
+  "password": "$2a$10$MDsQv1KCBWLYkuka/3N40eyRb9uKZBs1iVpS./7f194USSMxLpE0W",
+  "avatar": "avatar-1594229823054.jpg"
  }
 ]
