@@ -15,7 +15,9 @@
             <p>NO HAY USUARIO LOGUEADO</p>
         <% } %>
         <!-- Valido Usuario Logueado  -->
-        
+         <!-- Separo en un array los ingredientes y los pasos para luego recorrerlo  -->
+        <% let ingredientes = receta.ingredientes.split('|');%>
+        <% let pasos = receta.pasos.split('|'); %>          
 
             <div class="detalle-receta-conteiner" >
                 <img src= "/img/recetas/<%- receta.image %>" alt= <%- receta.plan %> >
