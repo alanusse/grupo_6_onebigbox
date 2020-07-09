@@ -82,7 +82,8 @@ module.exports = {
     login: [
         body('email')
             .notEmpty()
-            .withMessage('El campo email es obligatorio').bail()
+            .withMessage('El correo electrónico es obligatorio')
+            .bail()
             .custom(function(value, {req}){
                 let users = usersModel.leerJson();
                 //Código para validar mail y contraseña
@@ -97,9 +98,9 @@ module.exports = {
                     return false
                 }
             })
-            .withMessage('Email y contrasenia no coinciden'),
+            .withMessage('El correo electrónico o la contraseña no coinciden'),
         body('password')
             .notEmpty()
-            .withMessage('El campo password es obligatorio')
+            .withMessage('La contraseña es obligatoria')
     ]
 }

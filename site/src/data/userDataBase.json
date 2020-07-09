@@ -1,26 +1,3 @@
 [
- {
-  "id": 2,
-  "nombre": "facundo",
-  "apellido": "martin",
-  "email": "facumartinn@gmail.com",
-  "password": "$2a$10$LssIx6s6mEofmQdB2pQ2NuqGZoHR6Hs/MV97OkaCpEaXjdZLHUxu2",
-  "avatar": "avatar-1594213101167.png"
- },
- {
-  "id": 3,
-  "nombre": "facundo",
-  "apellido": "martin",
-  "email": "facumartinn3@gmail.com",
-  "password": "$2a$10$sNrqBxB1dKeOyahZAtoC4.D30NKldXuYrkwxg72.J/IfWiyy1j/2y",
-  "avatar": "avatar-1594213832613.png"
- },
- {
-  "id": 4,
-  "nombre": "jesica",
-  "apellido": "jesica",
-  "email": "jesica@gmail.com",
-  "password": "$2a$10$/eQSWpX75VYQ4EifZjOXOOh8o5gaYu6szNRt8jYApptTXwDAsvbYa",
-  "avatar": "default.png"
- }
+
 ]
