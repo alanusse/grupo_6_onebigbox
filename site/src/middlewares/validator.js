@@ -53,7 +53,7 @@ module.exports = {
             .isLength( { min:4, max:10})
             .withMessage('La contraseña debe tener un mínimo de 4 y un máximo de 10 caracteres'),
         body("avatar")
-            .custom((value, { req }) => {
+            /*.custom((value, { req }) => {
               if (req.file) {
                 return true;
               } else {
@@ -61,7 +61,7 @@ module.exports = {
               }
             })
             .withMessage("Imagen obligatoria")
-            .bail()
+            .bail()*/
             .custom((value, { req }) => {
               if (req.file) {
                 const acceptedExtensions = [".jpg", ".jpeg", ".png"];

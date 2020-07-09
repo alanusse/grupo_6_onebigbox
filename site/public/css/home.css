@@ -632,6 +632,55 @@ h2.title {
 
 /*Fin del LOGIN*/
 
+/*DETALLE DE LA RECETA*/
+.detalle-receta-conteiner{
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-flow: column wrap;
+    flex-flow: column wrap;
+    width: 100%;
+    
+}
+.detalle-receta-conteiner img {
+    height: 50%;
+    opacity: 80%;
+}
+.detalle-receta-content {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    /* border: 1px solid var(--dark-grey);*/
+    border-radius: 15px;
+    padding: 20px 20px;
+    margin-bottom: 40px;
+    max-width: 60%;
+    width: 60%; 
+    margin-left: 20%;
+  
+   }
+
+.detalle-receta-titulo {
+    color: var(--dark-blue);
+    font-weight: 700;
+    font-size: 20px;
+    text-align: center;
+}
+.detalle-receta-subtitulo {
+    font-size: 16px;
+    color: var(--dark-blue);
+    padding: 10px 12px;
+}
+
+.detalle-receta-description {
+    font-size: 11px;
+    color: var(--dark-blue);
+    padding: 5px 12px;
+    text-align: justify;
+}
+
+
+/** FIN DEL DETALLE DE LA RECETA*/
+
 /* CARRITO */
 h1.cart-title {
     text-transform: uppercase;

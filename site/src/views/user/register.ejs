@@ -24,9 +24,9 @@
                             <% }) %>
                         </ul>
                     <% } %>                     
-                    <input type="text" name="nombre" id="nombre" placeholder="Nombre">
-                    <input type="text" name="apellido" id="apellido" placeholder="Apellido">
-                    <input type="email" name="email" id="email" placeholder="Correo electrónico">
+                    <input type="text" name="nombre" id="nombre" placeholder="Nombre" value="<%= typeof old == 'undefined' ? null : old.nombre %>">
+                    <input type="text" name="apellido" id="apellido" placeholder="Apellido" value="<%= typeof old == 'undefined' ? null : old.apellido %>" >
+                    <input type="email" name="email" id="email" placeholder="Correo electrónico" value="<%= typeof old == 'undefined' ? null : old.email %>" >
                     <input type="password" name="password" id="password" placeholder="Contraseña">    
                     <div class="file">
                         <i class="fas fa-upload"></i>

@@ -14,10 +14,20 @@ const controller ={
         //Buscar el ID de la receta que viene por parámeto
         let receta = recetasModel.findById(req.params.recetaId);
         
-        console.log(receta);
-        console.log(receta.length);
+        let ingredientes = receta.ingredientes.split('|');
+        let pasos = receta.pasos.split('|');
 
-        return res.render('receta-detail', {receta});
+        console.log(ingredientes);
+        console.log(pasos);
+        
+        /* Para validar si tiene contenido la variable
+        if (receta){
+            console.log('Tiene receta');
+        }else{
+            console.log('No tiene receta')
+        }
+        */
+        return res.render('receta-detail', {receta, ingredientes, pasos});
     }
 };
 module.exports = controller;

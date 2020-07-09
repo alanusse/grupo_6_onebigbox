@@ -27,11 +27,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../public'))); 
-app.use(session({secret: "Mensaje Secreto"}));
+//app.use(session({secret: "Mensaje Secreto"}));
+app.use(session({ secret: "Mensaje Secreto", resave: false, saveUninitialized: false}));
 
 
 //********** LOUEO **********
-app.use(userAudit);
+//app.use(userAudit);
 
 // ** Middleware para la sessión **
 app.use(userSession);
