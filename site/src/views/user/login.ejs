@@ -29,8 +29,8 @@
                         </ul>
                     <% } %>     
                     <div class="contenedor-imputs">
-                        <input type="text" name="email" id = "email" placeholder="Email"> </input>
-                        <input type="password" name = "password"id="password" placeholder ="Contraseña"></input>
+                        <input type="text" name="email" id = "email" placeholder="Email" value="<%= typeof old == 'undefined' ? null : old.email %>"> </imput>
+                        <input type="text" name = "password"id="password" placeholder ="Contraseña"></imput>
                         <!-- <label id="recordarEmail"> <input type="checkbox" name = "Recordarme" id="recordarEmail"></imput> Recordarme</label> -->
                         <div class="login-checkbox-rememberme">
                             <input id="checkRecordarme" name = "checkRecordarme" type="checkbox"> <label for="checkRecordarme"> Recordarme</label>

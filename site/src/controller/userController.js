@@ -15,7 +15,7 @@ const controller ={
         if (errors.isEmpty()){
             
             // Creo el objeto Usuario
-            let usuarionuevo = {
+            let user = {
                 id : '', 
                 nombre : req.body.nombre,
                 apellido : req.body.apellido,
@@ -24,17 +24,18 @@ const controller ={
                 avatar:  (req.file)? req.file.filename : 'default.png'
             }
             // Inserto en el array el nuevo usuario
-            usersModel.guardarUno(usuarionuevo);
+            usersModel.guardarUno(user);
            
             //Guardo en una cookie el usuario que se registró asi ya queda logueado en la aplicación
             //Guardo los datos del usuario en sesión
-            req.session.user = usuarionuevo;
-
-           
+            delete user.password;
+            req.session.user = user;
+          
            //Lo mando a la home con la session ya iniciada
             return res.redirect('/');
         } else {
-            return res.render('user/register', { errors : errors.errors });
+            return res.render('user/register', { errors : errors.errors, old: req.body });
+            //return res.render("user/register", { errors: errors.mapped(), old: req.body }); -> Como lo hizo Gonza
         }
     },
 
@@ -57,11 +58,12 @@ const controller ={
 
             if (req.body.checkRecordarme){
                 //Guardo en una cookie el usuario que se registró asi ya queda logueado en la aplicación. Tercer parámetro es el tiempo, lo establecido ahi es para que dure UN DIA
+               
                 res.cookie('email', user.email, {maxAge: 1000 * 60 * 60 * 24});
             }
             return res.redirect('/');
         }
-        return res.render('user/login', { errors : errors.errors});
+        return res.render('user/login', { errors : errors.errors, old: req.body});
     },
 
     logout: (req, res) =>{

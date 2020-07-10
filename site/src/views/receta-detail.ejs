@@ -15,30 +15,44 @@
             <p>NO HAY USUARIO LOGUEADO</p>
         <% } %>
         <!-- Valido Usuario Logueado  -->
-        
+         <!-- Separo en un array los ingredientes y los pasos para luego recorrerlo  -->
+        <% let ingredientes = receta.ingredientes.split('|');%>
+        <% let pasos = receta.pasos.split('|'); %>          
 
-            <div >
+            <div class="detalle-receta-conteiner" >
                 <img src= "/img/recetas/<%- receta.image %>" alt= <%- receta.plan %> >
+            
+                <div class ="detalle-receta-content" >
+                    <div>
+                        <h2 class = "detalle-receta-titulo"><%- receta.titulo %></h2>
+                    </div>
+                    <div >
+                        <p class = "detalle-receta-description"><%- receta.description %></p>
+                    </div>
+                    <div>
+                        <h2 class = "detalle-receta-subtitulo">Ingredientes</h2>
+                        <ul>
+                            <% ingredientes.forEach(element => { %>
+                                <li class="detalle-receta-description"> <%-element %>  </li>
+                            <% }) %>
+                          
+                        </ul>
+                    </div>
+                    <div>
+                        <h2 class = "detalle-receta-subtitulo">Pasos</h2>
+                        <ul>
+                            <% pasos.forEach(element => { %>
+                                <li class="detalle-receta-description"> <%-element %>  </li>
+                            <% }) %>
+                            
+                        </ul>
+                    </div>
+                    <div>
+                        <h2 class = "detalle-receta-subtitulo">Tiempo de Cocción</h2>
+                        <p class = "detalle-receta-description"><%- receta.tiempopreparacion %></p>
+                    </div>
+                </div>
             </div>
-
-            <div>
-                <div>
-                    <h2><%- receta.titulo %></h2>
-                </div>
-                <div>
-                    <h2>Description</h2>
-                    <p><%- receta.description %></p>
-                </div>
-                <div>
-                    <h2>Ingredientes</h2>
-                    <p><%- receta.ingredientes %></p>
-                </div>
-                <div>
-                    <h2>Pasos</h2>
-                    <p><%- receta.pasos %></p>
-                </div>
-            </div>
-
     </section>   
     <!-- footer -->
 	<%- include('partials/footer') %>

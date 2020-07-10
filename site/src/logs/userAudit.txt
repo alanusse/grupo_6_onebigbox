@@ -332,7 +332,6 @@
  El usuario ingresó a la ruta: /
  El usuario ingresó a la ruta: /
  El usuario ingresó a la ruta: /
-<<<<<<< HEAD:site/src/logs/userAudit.txt
  El usuario ingresó a la ruta: /
  El usuario ingresó a la ruta: /
  El usuario ingresó a la ruta: /user/logout
@@ -345,12 +344,7 @@
  El usuario ingresó a la ruta: /user/logout
  El usuario ingresó a la ruta: /user/logout
  El usuario ingresó a la ruta: /user/undefined
-=======
- El usuario ingresó a la ruta: /user
- El usuario ingresó a la ruta: /user
- El usuario ingresó a la ruta: /recetas
  El usuario ingresó a la ruta: /
- El usuario ingresó a la ruta: /user
  El usuario ingresó a la ruta: /user
  El usuario ingresó a la ruta: /user
  El usuario ingresó a la ruta: /
@@ -358,66 +352,11 @@
  El usuario ingresó a la ruta: /user
  El usuario ingresó a la ruta: /
  El usuario ingresó a la ruta: /
->>>>>>> de418f4fae6b1e6c67dc5a887600bc94cf1fd3c6:site/src/logs/userlogs.txt
- El usuario ingresó a la ruta: /
- El usuario ingresó a la ruta: /user
- El usuario ingresó a la ruta: /user
- El usuario ingresó a la ruta: /
-<<<<<<< HEAD:site/src/logs/userAudit.txt
- El usuario ingresó a la ruta: /user/logout
- El usuario ingresó a la ruta: /
- El usuario ingresó a la ruta: /user
- El usuario ingresó a la ruta: /user
- El usuario ingresó a la ruta: /
-=======
- El usuario ingresó a la ruta: /user
- El usuario ingresó a la ruta: /user
- El usuario ingresó a la ruta: /
- El usuario ingresó a la ruta: /
->>>>>>> de418f4fae6b1e6c67dc5a887600bc94cf1fd3c6:site/src/logs/userlogs.txt
  El usuario ingresó a la ruta: /user
  El usuario ingresó a la ruta: /user/register
  El usuario ingresó a la ruta: /user/register
  El usuario ingresó a la ruta: /user/register
  El usuario ingresó a la ruta: /user/register
-<<<<<<< HEAD:site/src/logs/userAudit.txt
- El usuario ingresó a la ruta: /user/register
- El usuario ingresó a la ruta: /user/register
- El usuario ingresó a la ruta: /
- El usuario ingresó a la ruta: /user/logout
- El usuario ingresó a la ruta: /
- El usuario ingresó a la ruta: /user
- El usuario ingresó a la ruta: /user
- El usuario ingresó a la ruta: /
- El usuario ingresó a la ruta: /user/logout
- El usuario ingresó a la ruta: /
- El usuario ingresó a la ruta: /user
- El usuario ingresó a la ruta: /user
- El usuario ingresó a la ruta: /user
- El usuario ingresó a la ruta: /
- El usuario ingresó a la ruta: /user
- El usuario ingresó a la ruta: /user
- El usuario ingresó a la ruta: /
- El usuario ingresó a la ruta: /
- El usuario ingresó a la ruta: /user/logout
- El usuario ingresó a la ruta: /
- El usuario ingresó a la ruta: /
- El usuario ingresó a la ruta: /user
- El usuario ingresó a la ruta: /user
- El usuario ingresó a la ruta: /
- El usuario ingresó a la ruta: /user
- El usuario ingresó a la ruta: /user
- El usuario ingresó a la ruta: /
- El usuario ingresó a la ruta: /
- El usuario ingresó a la ruta: /user
- El usuario ingresó a la ruta: /user
- El usuario ingresó a la ruta: /
- El usuario ingresó a la ruta: /user
- El usuario ingresó a la ruta: /user
- El usuario ingresó a la ruta: /
- El usuario ingresó a la ruta: /
- El usuario ingresó a la ruta: /planes
-=======
  El usuario ingresó a la ruta: /
  El usuario ingresó a la ruta: /
  El usuario ingresó a la ruta: /user
@@ -458,16 +397,10 @@
  El usuario ingresó a la ruta: /
  El usuario ingresó a la ruta: /howtouse
  El usuario ingresó a la ruta: /
->>>>>>> de418f4fae6b1e6c67dc5a887600bc94cf1fd3c6:site/src/logs/userlogs.txt
  El usuario ingresó a la ruta: /
  El usuario ingresó a la ruta: /
  El usuario ingresó a la ruta: /user
  El usuario ingresó a la ruta: /user
-<<<<<<< HEAD:site/src/logs/userAudit.txt
- El usuario ingresó a la ruta: /
- El usuario ingresó a la ruta: /
- El usuario ingresó a la ruta: /
-=======
  El usuario ingresó a la ruta: /user
  El usuario ingresó a la ruta: /user
  El usuario ingresó a la ruta: /
@@ -476,7 +409,6 @@
  El usuario ingresó a la ruta: /howtouse
  El usuario ingresó a la ruta: /
  El usuario ingresó a la ruta: /user
->>>>>>> de418f4fae6b1e6c67dc5a887600bc94cf1fd3c6:site/src/logs/userlogs.txt
  El usuario ingresó a la ruta: /
  El usuario ingresó a la ruta: /
  El usuario ingresó a la ruta: /user

@@ -49,6 +49,7 @@ module.exports = (archivo)=>{
             const objeto = allData.find(function(elemento){
                return elemento.id == id;
             })
+            
             return objeto;
          },
 
