@@ -30,5 +30,13 @@
   "email": "prueba@gmail.com",
   "password": "$2a$10$MDsQv1KCBWLYkuka/3N40eyRb9uKZBs1iVpS./7f194USSMxLpE0W",
   "avatar": "avatar-1594229823054.jpg"
+ },
+ {
+  "id": 5,
+  "nombre": "prueba2",
+  "apellido": "prueba2",
+  "email": "prueba2@gmail.com",
+  "password": "$2a$10$tKOvF..CJk7ZdMxgT0TGbuaYyrmUlaD50mJ3av7aALwHheLFR0BES",
+  "avatar": "avatar-1594343352839.jpg"
  }
 ]
