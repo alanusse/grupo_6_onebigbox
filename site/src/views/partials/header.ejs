@@ -7,7 +7,7 @@
                 <li class="items"><a href="/howtouse">Como funciona?</a></li>
                 <li class="items"><a href="/nosotros">Nosotros</a></li>
                 <% if (locals.user) { %>
-                    <li class="user logueado"><a href="#"><i class="fas fa-user"></i></a>Hola, <%= locals.user.nombre %>!</li>
+                    <li class="user"><a href="/user"><img class="img-user-avatar" src="img/avatar/<%= locals.user.avatar %>" alt="user-avatar"></a></li>
                 <% } else { %>
                     <li class="user"><a href="/user"><i class="far fa-user"></i></a></li>
                 <% } %> 

@@ -107,6 +107,7 @@ img {
     box-sizing: border-box;
     background: url(/img/home.png);
     background-size: cover;
+    background-position: bottom;
     width: 100%;
     height: 600px;
     
@@ -875,6 +876,7 @@ h3.selected-plans {
     color: var(--dark-blue);
     cursor: default;
     user-select: none;
+    max-width: 800px;
 }
 
 #idLogo{
@@ -897,10 +899,23 @@ h3.selected-plans {
     font-size: 10px;
 }
 
-.header-nav ul li.logueado {
+.header-nav ul li.user .img-user-avatar {
+    border-radius: 100%;
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border: 2px solid var(--dark-blue);
+    transition: .3s;
+}
+
+.header-nav ul li.user .img-user-avatar:hover {
+    transform: scale(1.1);
+}
+
+/* .header-nav ul li.logueado {
     display: flex;
     flex-direction: column;
-}
+} */
 
 .header-nav ul li a {
     color: var(--dark-blue);

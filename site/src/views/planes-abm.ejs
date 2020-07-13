@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- Include Head -->
+<%- include('partials/head', {title: 'Listado de Planes'}) %>
+
+<body>
+    <!-- Header -->
+	<%- include('partials/header') %>
+	<!-- /Header -->
+    <section class="nuestros-box">
+        <ul>
+            <% if (locals.user) { %>
+                <li> USUARIO LOGUEADO: <%= locals.user.email %> </li>
+            <% }else{ %>
+                <li>NO HAY USUARIO LOGUEADO</li>
+            <% } %>
+            <li class="title">NUESTRO PLANES</li>
+            <li class="description">Nuestros planes incluyen recetas creadas por nuestros chefs pensadas para tu salud</li>
+            <li><a href="#" class="btn-home btn-d-block btn-naranja">CREAR NUEVO PLAN</a></li>
+        </ul>
+        <main class="boxes lista-boxes">
+            <% planes.forEach(plan => { %>
+             
+                <div class="box box-full">
+                    <ul>
+                        <li><img src="/img/planes/<%= plan.image %> " alt="plan familiar"></li>
+                        <li class="title"><%= plan.plan %></li>
+                        <li class="description"><%= plan.description %> </li>
+                        <li><a href="#" class="btn-home btn-d-block btn-naranja">MODIFICAR</a></li>
+                        <li><a href="#" class="btn-home btn-d-block btn-naranja">ELIMINAR</a></li>
+                    </ul>
+                </div>
+
+            <% }) %>
+            
+        </main>
+    </section>
+    <section class="instructive">
+        <% instructive.forEach(step => { %>
+        <ul class="steps">
+            <li class="title"><%= step.instruction %> </li>
+            <li><img src="/img/instructivo/<%= step.image %>" alt="click"></li>
+            <li class="description"><%= step.description %></li>
+        </ul>
+        <% }) %>
+    </section>
+    <!-- footer -->
+	<%- include('partials/footer') %>
+	<!-- /footer -->
+</body>
+</html>
