@@ -29,6 +29,9 @@ const controller ={
             //Guardo en una cookie el usuario que se registró asi ya queda logueado en la aplicación
             //Guardo los datos del usuario en sesión
             delete user.password;
+
+            //req.session.destroy();
+
             req.session.user = user;
           
            //Lo mando a la home con la session ya iniciada

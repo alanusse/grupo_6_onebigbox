@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon ./src/bin/www"
+    "start": "nodemon ./src/bin/www  --ignore ./src/data"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
@@ -16,6 +16,8 @@
     "express-validator": "^6.6.0",
     "http-errors": "~1.6.3",
     "morgan": "~1.9.1",
-    "multer": "^1.4.2"
+    "multer": "^1.4.2",
+    "mysql2": "^2.1.0",
+    "sequelize": "^6.3.3"
   }
 }

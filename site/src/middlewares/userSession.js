@@ -8,7 +8,7 @@ const log = (req, res, next) => {
     // Valido si está logueado o no
     if (req.session.user){
         res.locals.user = req.session.user; // Le doy a la variable todos los datos que tiene guardado session
-      
+
         return next();
     }else if(req.cookies.email){
         let user = usersModel.findBySomething(element => element.email == req.cookies.email);
