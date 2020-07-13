@@ -11,22 +11,22 @@ module.exports = {
     register: [
         body('nombre')
             .notEmpty()
-            .withMessage('El campo nombre es obligatorio')
+            .withMessage('El nombre es obligatorio')
             .bail()
-            .isLength( { min:4})
+            .isLength({ min: 4 })
             .withMessage('El nombre debe tener un mínimo de 4 caracteres'),
         body('apellido')
             .notEmpty()
-            .withMessage('El campo apellido es obligatorio')
+            .withMessage('El apellido es obligatorio')
             .bail()
-            .isLength( { min:4})
-            .withMessage('El Apellido debe tener un mínimo de 4 caracteres'),
+            .isLength( { min: 4 })
+            .withMessage('El apellido debe tener un mínimo de 4 caracteres'),
         body('email')
             .notEmpty()
-            .withMessage('El campo email es obligatorio')
+            .withMessage('El correo electrónico es obligatorio')
             .bail()
             .isEmail()
-            .withMessage('El mail del usuario debe tener formato de eMail')
+            .withMessage('El correo electrónico no es válido')
             .bail()
             .custom(function(value, {req}){
               let users = usersModel.leerJson();
@@ -44,16 +44,16 @@ module.exports = {
                 return true;
               }
           })
-          .withMessage('Email ya está registrado'),
+          .withMessage('El correo electrónico ya está registrado'),
 
         body('password')
             .notEmpty()
-            .withMessage('El campo password es obligatorio')
+            .withMessage('La contraseña es obligatoria')
             .bail()
             .isLength( { min:4, max:10})
             .withMessage('La contraseña debe tener un mínimo de 4 y un máximo de 10 caracteres'),
         body("avatar")
-            .custom((value, { req }) => {
+            /*.custom((value, { req }) => {
               if (req.file) {
                 return true;
               } else {
@@ -61,7 +61,7 @@ module.exports = {
               }
             })
             .withMessage("Imagen obligatoria")
-            .bail()
+            .bail()*/
             .custom((value, { req }) => {
               if (req.file) {
                 const acceptedExtensions = [".jpg", ".jpeg", ".png"];
@@ -77,7 +77,7 @@ module.exports = {
                 return true;
               }
             })
-            .withMessage("Extension invalida"),        
+            .withMessage("La extensión de la imágen no es válida (extensiones permitidas: .jpg, .jpeg y .png)"),        
     ],
     login: [
         body('email')
