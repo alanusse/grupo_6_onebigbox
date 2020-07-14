@@ -19,8 +19,9 @@ CREATE TABLE recipes (
 	id int unsigned primary key auto_increment,
     titulo VARCHAR (255),
     description TEXT,
-    tiempopreparacion SMALLINT DEFAULT 0,
     pasos TEXT,
+    ingredientes varchar (255),
+    tiempopreparacion SMALLINT DEFAULT 0,
     precio DECIMAL (8,2),
     image VARCHAR (255),
     planId INT UNSIGNED DEFAULT NULL, -- Cuando no tiene plan asociado, va a ser NULL

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- Include Head -->
+<%- include('partials/head', {title: 'Listado de Recetas'}) %>
+
+<body>
+    <!-- Header -->
+	<%- include('partials/header') %>
+	<!-- /Header -->
+    <section class="nuestros-box">
+        <% if (locals.user) { %>
+            <p> USUARIO LOGUEADO: <%= locals.user.email %> </p>
+        <% }else{ %>
+            <p>NO HAY USUARIO LOGUEADO</p>
+        <% } %>
+        <div>
+            <h2 class="title">- PLAN PERSONALIZADO - </h2>
+            <h2 class="title"> ELEGÍ TUS RECETAS FAVORITAS </h2>
+        </div>
+        <main class="boxes lista-boxes">
+            <% recetas.forEach(receta => { %>
+             
+                <div class="box box-full">
+                    <ul>
+                        <li><img src="/img/recetas/<%= receta.image %> " alt="<%= receta.titulo %> "></li>
+                        <li class="title"><%= receta.titulo %></li>
+                        <li><a href=# class="btn-home btn-d-block btn-naranja">AGREGAR AL CARRITO</a></li>
+                    </ul>
+                </div>
+
+            <% }) %>
+            
+        </main>
+    </section>
+    
+    <!-- footer -->
+	<%- include('partials/footer') %>
+	<!-- /footer -->
+</body>
+</html>
