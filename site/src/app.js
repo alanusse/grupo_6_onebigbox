@@ -16,6 +16,9 @@ var cartRouter = require('./routes/cart');
 var recetasRouter = require('./routes/recetas');
 var planesABM = require('./routes/planesAbm');
 
+var adminRouter = require('./routes/admin');
+
+
 var app = express();
 
 // view engine setup
@@ -45,6 +48,7 @@ app.use('/user', usersRouter);
 app.use('/planes', planesListRouter);
 app.use('/cart', cartRouter );
 app.use('/recetas', recetasRouter);
+app.use('/admin', adminRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

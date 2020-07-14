@@ -1,20 +1,26 @@
 <!DOCTYPE html>
 <html lang="es">
+<html lang="es">
 <!-- Include Head -->
-<%- include('partials/head', {title: 'Listado de Recetas'}) %>
-
+<%- include('../partials/head', {title: 'Listado de Recetas'}) %>
 <body>
     <!-- Header -->
-	<%- include('partials/header') %>
+	<%- include('../partials/header-admin') %>
 	<!-- /Header -->
     <section class="nuestros-box">
+  
         <% if (locals.user) { %>
             <p> USUARIO LOGUEADO: <%= locals.user.email %> </p>
         <% }else{ %>
             <p>NO HAY USUARIO LOGUEADO</p>
         <% } %>
+        
         <div>
-            <h2 class="title">NUESTRAS RECETAS</h2>
+            <h2 class="title">RECETAS</h2>
+            
+        </div>
+        <div>
+            <li><a href="#" class="btn-home btn-d-block btn-naranja">AGREGAR NUEVA RECETA</a></li>
         </div>
         <main class="boxes lista-boxes">
             <% recetas.forEach(receta => { %>
@@ -23,16 +29,17 @@
                     <ul>
                         <li><img src="/img/recetas/<%= receta.image %> " alt="<%= receta.titulo %> "></li>
                         <li class="title"><%= receta.titulo %></li>
-                        <li><a href="recetas/detail/<%= receta.id %>" class="btn-home btn-d-block btn-naranja">VER RECETA</a></li>
+                        <li><a href="#" class="btn-home btn-d-block btn-naranja">MODIFICAR RECETA</a></li>
+                        <li><a href="#" class="btn-home btn-d-block btn-naranja">ELIMINAR RECETA</a></li>
                     </ul>
                 </div>
             <% }) %>
             
         </main>
     </section>
-    
-    <!-- footer -->
-	<%- include('partials/footer') %>
-	<!-- /footer -->
+
+<!-- footer -->
+<%- include('../partials/footer') %>
+<!-- /footer -->
 </body>
 </html>
