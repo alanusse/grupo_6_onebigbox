@@ -2,17 +2,17 @@
 
 USE  BDONEBIGBOX;
 
-CREATE TABLE user (
+CREATE TABLE users (
 	id int unsigned primary key auto_increment,
     name VARCHAR (255),
     lastname VARCHAR (255),
     email VARCHAR (50) NOT NULL,
 	password VARCHAR (255) NOT NULL,
     avatar VARCHAR (255),
-    rolDescription varchar (50), -- USER o ADMIN
+    admin TINYINT, -- USER o ADMIN
     createdAt DATETIME DEFAULT CURRENT_TIMESTAMP, -- Fecha de Alta
-    updateAt DATETIME ON UPDATE CURRENT_TIMESTAMP, -- Fecha de Modificación
-    deleteAt DATETIME -- Fecha de borrado del registro. Cuando se haga un select * from user where deleteAt is not null
+    updatedAt DATETIME ON UPDATE CURRENT_TIMESTAMP, -- Fecha de Modificación
+    deletedAt DATETIME -- Fecha de borrado del registro. Cuando se haga un select * from user where deleteAt is not null
 );
 
 CREATE TABLE recipes (
@@ -24,10 +24,10 @@ CREATE TABLE recipes (
     tiempopreparacion SMALLINT DEFAULT 0,
     precio DECIMAL (8,2),
     image VARCHAR (255),
-    planId INT UNSIGNED DEFAULT NULL, -- Cuando no tiene plan asociado, va a ser NULL
+    planId INT UNSIGNED,
 	createdAt DATETIME DEFAULT CURRENT_TIMESTAMP, -- Fecha de Alta
-    updateAt DATETIME ON UPDATE CURRENT_TIMESTAMP, -- Fecha de Modificación
-    deleteAt DATETIME -- Fecha de borrado del registro. Cuando se haga un select * from user where deleteAt is not null
+    updatedAt DATETIME ON UPDATE CURRENT_TIMESTAMP, -- Fecha de Modificación
+    deletedAt DATETIME -- Fecha de borrado del registro. Cuando se haga un select * from user where deleteAt is not null
 );
 
 CREATE TABLE plans (
@@ -36,22 +36,15 @@ CREATE TABLE plans (
 	description TEXT,
 	image VARCHAR (255),
     createdAt DATETIME DEFAULT CURRENT_TIMESTAMP, -- Fecha de Alta
-    updateAt DATETIME ON UPDATE CURRENT_TIMESTAMP, -- Fecha de Modificación
-    deleteAt DATETIME -- Fecha de borrado del registro. Cuando se haga un select * from user where deleteAt is not null
+    updatedAt DATETIME ON UPDATE CURRENT_TIMESTAMP, -- Fecha de Modificación
+    deletedAt DATETIME -- Fecha de borrado del registro. Cuando se haga un select * from user where deleteAt is not null
     
 );
 
-CREATE TABLE instructions (
+CREATE TABLE items(
 	id int unsigned primary key auto_increment,
-    instruction VARCHAR (255),
-    description text,
-    image VARCHAR (255)
-);
-
-CREATE TABLE carts(
-	id int unsigned primary key auto_increment,
-    userId	INT,
-	recipeId INT UNSIGNED ,
+    userId	INT UNSIGNED,
+	recipeId INT UNSIGNED,
     recipeTitulo VARCHAR (255),
 	recipePrecio DECIMAL (8,2),
     recipeCant SMALLINT,
@@ -60,16 +53,34 @@ CREATE TABLE carts(
 	planDescription TEXT,
 	planImage VARCHAR (255),
     totalPrice DECIMAL (8,2),
-    purchaseId INT UNSIGNED,
-    createdAt DATETIME DEFAULT CURRENT_TIMESTAMP, -- Fecha de Alta
-    updateAt DATETIME ON UPDATE CURRENT_TIMESTAMP, -- Fecha de Modificación
-    deleteAt DATETIME -- Fecha de borrado del registro. Cuando se haga un select * from user where deleteAt is not null
+    purchaseId INT UNSIGNED DEFAULT NULL,
+	createdAt DATETIME DEFAULT CURRENT_TIMESTAMP, -- Fecha de Alta
+    updatedAt DATETIME ON UPDATE CURRENT_TIMESTAMP, -- Fecha de Modificación
+    deletedAt DATETIME -- Fecha de borrado del registro. Cuando se haga un select * from user where deleteAt is not null
 );
 
 CREATE TABLE  purchases(
 	id int unsigned primary key auto_increment,
-    orderNumber INT, 
+    orderNumber INT UNSIGNED,
+    userId INT UNSIGNED,
 	createdAt DATETIME DEFAULT CURRENT_TIMESTAMP, -- Fecha de Alta
-    updateAt DATETIME ON UPDATE CURRENT_TIMESTAMP, -- Fecha de Modificación
-    deleteAt DATETIME -- Fecha de borrado del registro. Cuando se haga un select * from user where deleteAt is not null
+    updatedAt DATETIME ON UPDATE CURRENT_TIMESTAMP, -- Fecha de Modificación
+    deletedAt DATETIME -- Fecha de borrado del registro. Cuando se haga un select * from user where deleteAt is not null
 );
+
+
+ALTER TABLE recipes
+ADD FOREIGN KEY (planId) REFERENCES plans(id);
+
+ALTER TABLE items
+ADD FOREIGN KEY (userId) REFERENCES users(id);
+
+ALTER TABLE items
+ADD FOREIGN KEY (purchaseId) REFERENCES purchases(id);
+
+ALTER TABLE purchases
+ADD FOREIGN KEY (userId) REFERENCES users(id);
+
+-- items - user
+-- items - purchases
+-- users - purchases

@@ -17,18 +17,7 @@ module.exports = (sequelize, DataTypes) =>{
         },
         image: {
             type: DataTypes.STRING
-        },
-        createdAt: {
-            type: DataTypes.DATE
-        },
-        updateAt: {
-            type: DataTypes.DATE,
-            defaultValue: DataTypes.NOW
-        },
-        deleteAt: {
-            type: DataTypes.DATE       
-        },
-
+        }
     };
 
     let config = {

@@ -14,9 +14,6 @@ module.exports = (sequelize, DataTypes) => {
         description: {
             type: DataTypes.TEXT
         },
-        description: {
-            type: DataTypes.TEXT
-        },
         tiempopreparacion: {
             type: DataTypes.INTEGER
         },
@@ -34,16 +31,6 @@ module.exports = (sequelize, DataTypes) => {
         },
         planId: {
             type: DataTypes.INTEGER
-        },
-        createdAt: {
-            type: DataTypes.DATE
-        },
-        updateAt: {
-            type: DataTypes.DATE,
-            defaultValue: DataTypes.NOW
-        },
-        deleteAt: {
-            type: DataTypes.DATE       
         }
     };
 

@@ -9,18 +9,12 @@
 	<!-- /Header -->
     <section class="nuestros-box">
   
-        <% if (locals.user) { %>
-            <p> USUARIO LOGUEADO: <%= locals.user.email %> </p>
-        <% }else{ %>
-            <p>NO HAY USUARIO LOGUEADO</p>
-        <% } %>
-        
         <div>
             <h2 class="title">RECETAS</h2>
             
         </div>
         <div>
-            <li><a href="#" class="btn-home btn-d-block btn-naranja">AGREGAR NUEVA RECETA</a></li>
+            <li><a href="./recetas/abm-recetas-alta" class="btn-home btn-d-block btn-naranja">AGREGAR NUEVA RECETA</a></li>
         </div>
         <main class="boxes lista-boxes">
             <% recetas.forEach(receta => { %>
@@ -38,8 +32,5 @@
         </main>
     </section>
 
-<!-- footer -->
-<%- include('../partials/footer') %>
-<!-- /footer -->
 </body>
 </html>

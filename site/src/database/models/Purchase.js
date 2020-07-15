@@ -9,16 +9,6 @@ module.exports = (sequelize, DataTypes) => {
         },
         orderNumber: {
             type: DataTypes.INTEGER
-        },
-        createdAt: {
-            type: DataTypes.DATE
-        },
-        updateAt: {
-            type: DataTypes.DATE,
-            defaultValue: DataTypes.NOW
-        },
-        deleteAt: {
-            type: DataTypes.DATE       
         }
     };
 

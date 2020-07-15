@@ -39,16 +39,6 @@ module.exports = (sequelize, DataTypes) => {
         },
         purchaseId: {
             type: DataTypes.INTEGER
-        },
-        createdAt: {
-            type: DataTypes.DATE
-        },
-        updateAt: {
-            type: DataTypes.DATE,
-            defaultValue: DataTypes.NOW
-        },
-        deleteAt: {
-            type: DataTypes.DATE       
         }
     };
 

@@ -35,7 +35,11 @@ module.exports = {
     "database": "bdonebigbox",
     "host": "127.0.0.1",
     "port": "3306",
-    "dialect": "mysql"
+    "dialect": "mysql",
+    "define": {
+      "underscored": false,
+      "paranoid": true
+    }
   },
   "test": {
     "username": "root",
@@ -44,6 +48,7 @@ module.exports = {
     "host": "127.0.0.1",
     "port": "3306",
     "dialect": "mysql"
+    
   },
   "production": {
     "username": "root",
@@ -52,5 +57,6 @@ module.exports = {
     "host": "127.0.0.1",
     "port": "3306",
     "dialect": "mysql"
+   
   }
 }

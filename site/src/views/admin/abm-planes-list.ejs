@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
 <!-- Include Head -->
-<%- include('partials/head', {title: 'Listado de Planes'}) %>
+<%- include('../partials/head', {title: 'Listado de Planes'}) %>
 
 <body>
     <!-- Header -->
-	<%- include('partials/header') %>
+	<%- include('../partials/header-admin') %>
 	<!-- /Header -->
     <section class="nuestros-box">
         <ul>
@@ -35,17 +35,5 @@
             
         </main>
     </section>
-    <section class="instructive">
-        <% instructive.forEach(step => { %>
-        <ul class="steps">
-            <li class="title"><%= step.instruction %> </li>
-            <li><img src="/img/instructivo/<%= step.image %>" alt="click"></li>
-            <li class="description"><%= step.description %></li>
-        </ul>
-        <% }) %>
-    </section>
-    <!-- footer -->
-	<%- include('partials/footer') %>
-	<!-- /footer -->
 </body>
 </html>

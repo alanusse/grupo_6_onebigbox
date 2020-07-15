@@ -35,9 +35,7 @@ module.exports = {
               const user = users.find(function(user) {
                   return user.email == value
               })
-              
               if(user){
-                
                 return false;
               }else{
                 
@@ -45,7 +43,6 @@ module.exports = {
               }
           })
           .withMessage('El correo electrónico ya está registrado'),
-
         body('password')
             .notEmpty()
             .withMessage('La contraseña es obligatoria')
@@ -102,5 +99,45 @@ module.exports = {
         body('password')
             .notEmpty()
             .withMessage('La contraseña es obligatoria')
+    ],
+    altaReceta: [
+      body('titulo')
+        .notEmpty()
+        .withMessage('Debe ingresar un título'),
+      body('description')
+        .notEmpty()
+        .withMessage('Debe ingresar una descripción'),
+      body('tiempopreparacion')
+        .notEmpty()
+        .withMessage('Debe ingresar el tiempo de preparación de la receta')
+        .isNumeric()
+        .withMessage('El tiempo de preparación debe ser un número'),
+      body('ingredientes')
+        .notEmpty()
+        .withMessage('Debe ingresar los ingredientes de la receta'),
+      body('precio')
+        .notEmpty()
+        .withMessage('Debe ingresar el precio de la receta')
+        .isNumeric()
+        .withMessage('El precio de la receta debe ser un número'),
+      body('planId')
+        .notEmpty()
+        .withMessage('La receta debe estar asociada a un plan'),
+      body('image')
+        .custom((value, { req }) => {
+          if (req.file) {
+            const acceptedExtensions = [".jpg", ".jpeg", ".png"];
+            const ext = path.extname(req.file.originalname);
+            if (acceptedExtensions.includes(ext)) {
+              return true;
+            } else {
+              return false;
+            }
+          } else {
+            return true;
+          }
+        })
+        .withMessage("La extensión de la imágen no es válida (extensiones permitidas: .jpg, .jpeg y .png)"),        
     ]
+
 }

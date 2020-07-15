@@ -25,20 +25,9 @@ module.exports = (sequelize, DataTypes) =>{
         avatar: {
             type: DataTypes.STRING
         },
-        rolDescription: {
+        admin: {
             type: DataTypes.TINYINT
-        },
-        createdAt: {
-            type: DataTypes.DATE
-        },
-        updateAt: {
-            type: DataTypes.DATE,
-            defaultValue: DataTypes.NOW
-        },
-        deleteAt: {
-            type: DataTypes.DATE       
-        },
-
+        }
     };
 
     let config = {

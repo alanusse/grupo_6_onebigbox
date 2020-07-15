@@ -14,6 +14,8 @@ const controller ={
         //const instructive = leerJson(instructionsFilePath);
         const instructive = instructivoModel.leerJson();
 
+      
+
         return res.render('home', {instructive, emailUsuarioLogueado});
     },
     howtouse: (req, res) => {

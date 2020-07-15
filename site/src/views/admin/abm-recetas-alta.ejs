@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<html lang="es">
+<!-- Include Head -->
+<%- include('../partials/head', {title: 'Alta Receta'}) %>
+<body>
+      <!-- Header -->
+	<%- include('../partials/header-admin') %>
+	<!-- /Header -->
+    <main>
+        <!-- Agregar despues en el FORM para la imagen:  -->
+        <form action="./abm-recetas-alta" method="post" enctype="multipart/form-data" >
+            <input type="" name="titulo" id="titulo" placeholder="Titulo de la Receta" >
+            <input type="" name="description" id="description" placeholder="Description" >
+            <input type="" name="tiempopreparacion" id="tiempopreparacion" placeholder="Tiempo de Preparación">
+            <input type="" name="pasos" id="pasos" placeholder="Pasos"> 
+            <input type="" name="ingredientes" id="ingredientes" placeholder="Ingredientes"> 
+            <input type="" name="precio" id="precio" placeholder="Precio">
+            <select name="planId" id="planId">
+                <option value="1">PLAN FAMILIAR</option>
+                <option value="2">PLAN EQUILIBRADO</option>
+                <option value="3">PLAN VEGETARIANO</option>
+            </select>
+
+            <div class="">
+                <i class=""></i>
+                <p>Imagen Receta</p>
+                <input type="file" name="image" id="image">
+            </div>
+
+            <input type="submit" value="Registrarse">
+        </form>
+
+    </main>
+
+</body>
+</html>
