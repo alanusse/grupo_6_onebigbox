@@ -30,6 +30,8 @@ const controller ={
                 password : bcrypt.hashSync(req.body.password, 10),
                 avatar:  (req.file)? req.file.filename : 'default.png'
             }*/
+
+
             db.users.create({ 
                 name : req.body.nombre,
                 lastname : req.body.apellido,
@@ -38,8 +40,10 @@ const controller ={
                 avatar:  (req.file)? req.file.filename : 'default.png'
             }).catch(err => console.log(err))
             
-            req.session.user = user;
-            res.redirect('/');
+            delete req.body.password;
+            req.session.user = req.body;
+
+            return res.redirect('/');
             
             // Inserto en el array el nuevo usuario
             //usersModel.guardarUno(user);
