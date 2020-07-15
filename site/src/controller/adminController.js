@@ -5,7 +5,7 @@ const planes = {
     PLAN_EQUILIBRADO: 2,
     PLAN_VEGETARIANO: 3,
     PLAN_PERSONALIZADO: 4
-}
+};
 
 const controller ={
     root: (req, res) => {
@@ -16,14 +16,8 @@ const controller ={
         db.recipes.findAll()
             .then((recetas) => {
                 return res.render('admin/abm-recetas-list', {recetas});
-               // return res.render('user/login');
-               // return res.render('admin/abm-recetas-list', {recetas});
             })
-            .catch((reason) => {
-                console.log(reason);
-            })
-    }
-
+        }
 };
 
 module.exports = controller;

@@ -60,7 +60,6 @@ const controller ={
 
          /* **** CODIGO PARA DB ***** */
         
-        
         let planBuscado = req.params.planid;
         // El plan 4 es el plan personalizado
 
