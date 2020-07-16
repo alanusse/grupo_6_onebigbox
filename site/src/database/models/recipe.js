@@ -39,7 +39,16 @@ module.exports = (sequelize, DataTypes) => {
         timestamps: false
     };
 
-    const receipes = sequelize.define(alias, cols, config);
+    const Receipe = sequelize.define(alias, cols, config);
 
-    return receipes;
+    //Hago la asociación con la tabla asociada. En la foreignKey va el nombre de la columna de la clave de la tabla asociada
+    Receipe.associate = function(models) {
+        Receipe.hasMany(models.plans, {
+            foreignKey: 'id',
+            as: 'planes'
+        });
+    };
+
+
+    return Receipe;
 }

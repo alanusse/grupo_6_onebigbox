@@ -64,24 +64,24 @@ const controller ={
         // El plan 4 es el plan personalizado
 
         if (planBuscado != planes.PLAN_PERSONALIZADO){
-            db.plans.findByPk(planBuscado)
-            .then((plan)  => {
-                // Busco las recetas asociadas a ese plan
-                db.recipes.findAll({
+            
+            db.plans.findByPk(planBuscado, {
+                include: [{association: 'receta'}]
+            })
+            .then((plan) => {
+                //Calculo el precio total del plan consultando en la BD de recetas por el Plan elegido
+                db.recipes.sum('precio', {
                     where: {
                         planId: planBuscado
                     }
-                }).then((recetas) => {
-                      //Calculo el precio que tendrá el plan según la cantidad de recetas que tiene el mismo
-                    let precioTotal = recetas.reduce(function(total, element){
-                        return total += element.precio;
-                    }, 0);
-                    return res.render('planes-detail', {plan, recetas, precioTotal });
+                }).then((precioTotal)=>{
+                    console.log('El precio de devuelve la base es:'+ parseFloat(precioTotal));
+                    return res.render('planes-detail', {plan, precioTotal });
                 })                
+                .catch(reason => { 
+                    console.log(reason);
+                })
             })
-            .catch(reason => { 
-                console.log(reason);
-            });
         }else{
             db.recipes.findAll()
             .then((recetas) => {

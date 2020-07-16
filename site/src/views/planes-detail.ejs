@@ -27,7 +27,7 @@
                     <li class="precio">Precio Total del plan: <%- precioTotal %>  </li>
                     <li class="description"> <%- plan.description %> </li>
                     <li class="incluye">Incluye: Ingredientes medidos + Recetas. Platos completos y equilibrados. Postres saludables</li>
-                    <li class="cantidad"> Cantidad Recetas que contiene el Plan:  <%- recetas.length %> </li>
+                    <li class="cantidad"> Cantidad Recetas que contiene el Plan:  <%- plan.receta.length %> </li>
 
                     <li class="envios">Envios Gratis</li>
                     
@@ -42,7 +42,7 @@
         </div>
     </main>
     
-    <% if (recetas.length>0) { %>
+    <% if (plan.receta.length>0) { %>
         
         <!-- Listado de Recetas Pertenecientes al Plan que se está buscando-->
         <section class="nuestros-box">
@@ -50,7 +50,7 @@
                 <h2 class="title">Recetas del Plan</h2>
             </div>
             <main class="boxes lista-boxes">
-                <% recetas.forEach(receta => { %>
+                <% plan.receta.forEach(receta => { %>
                 
                     <div class="box box-full">
                         <ul>
