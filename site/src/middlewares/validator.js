@@ -138,6 +138,28 @@ module.exports = {
           }
         })
         .withMessage("La extensión de la imágen no es válida (extensiones permitidas: .jpg, .jpeg y .png)"),        
+    ], 
+    altaPlan: [
+      body('plan')
+        .notEmpty()
+        .withMessage('Debe ingresar el nombre del Plan'),
+      body('description')
+        .notEmpty()
+        .withMessage('El plan debe contener una descripción'),
+      body('image')
+      .custom((value, { req }) => {
+        if (req.file) {
+          const acceptedExtensions = [".jpg", ".jpeg", ".png"];
+          const ext = path.extname(req.file.originalname);
+          if (acceptedExtensions.includes(ext)) {
+            return true;
+          } else {
+            return false;
+          }
+        } else {
+          return true;
+        }
+      })
+      .withMessage("La extensión de la imágen no es válida (extensiones permitidas: .jpg, .jpeg y .png)"),
     ]
-
 }

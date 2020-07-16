@@ -47,6 +47,8 @@ let storage = multer.diskStorage({
 const adminController = require('../controller/adminController');
 //Routers de los Planes
 router.get('/planes', adminController.planes);
+router.get('/planes/abm-planes-alta', adminController.altaPlan);
+router.post('/planes/abm-planes-alta', upload.single('image'), validator.altaPlan, adminController.registrarPlan);
 
 
 //Routers de las Recetas

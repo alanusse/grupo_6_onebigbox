@@ -21,6 +21,20 @@ const controller ={
             console.log(motivo);
         })
     },
+    altaPlan: (req, res) => {
+        return res.render('admin/abm-planes-alta');
+    },
+    registrarPlan: (req, res) => {
+        console.log(req.file);
+        // Inserto en la base de datos lo que el usuario ingresó
+        db.plans.create({
+            plan: req.body.plan,
+            description: req.body.description,
+            image: (req.file)? req.file.filename:'image1.png',
+        });
+
+        return res.redirect('/admin/planes'); 
+    },
     recetas: (req, res) => {
         db.recipes.findAll()
             .then((recetas) => {

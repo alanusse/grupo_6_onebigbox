@@ -1064,6 +1064,72 @@ footer {
 }
 /* FOOTER */
 
+/* ADMIN */
+
+.admin-planes-alta form .titulo{
+    display: flex;
+    width: 50%;
+    margin: 15px 0;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+}
+.admin-planes-alta form .description {
+    display: flex;
+    width: 60%;
+    height: 150px;
+    resize: none;
+    margin: 15px 0;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.admin-planes-alta form input:last-of-type {
+    margin-bottom: 0;
+}
+
+.admin-planes-alta form input::placeholder {
+    color: #acacac;
+}
+
+.admin-planes-alta form input[type="submit"] {
+    color: #fff;
+    background-color: var(--orange);
+    text-transform: uppercase;
+    font-weight: 600;
+    transition: ease-in-out .3s;
+}
+
+.admin-planes-alta form input[type="submit"]:hover {
+    transform: scale(1.1);
+}
+#image {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+}
+.file-image {
+    position: relative;
+    display: inline-block;
+    font-size: 16px;
+    margin: 15px 0;
+    padding: 10px;
+    color: #acacac;
+    background-color: white;
+    border-radius: 8px;
+    text-align: center;
+    width: 30%;
+}
+
+/* ADMIN */
 
 
 @media (max-width: 425px) {
