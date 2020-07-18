@@ -45,8 +45,14 @@ const controller ={
             })
         },
     altaReceta: (req, res) => {
-        
-        return res.render('admin/abm-recetas-alta');
+        //Busco los planes que existen en la BD para cargar el combo
+        db.plans.findAll()
+        .then((planes) => {
+            return res.render('admin/abm-recetas-alta', {planes});
+        })
+        .catch((motivo) => {
+            console.log(motivo);
+        })
     },
     registrarReceta: (req, res) => {
         console.log(req.file);

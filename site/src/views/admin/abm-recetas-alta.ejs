@@ -1,37 +1,46 @@
 <!DOCTYPE html>
 <html lang="es">
-<html lang="es">
 <!-- Include Head -->
 <%- include('../partials/head', {title: 'Alta Receta'}) %>
 <body>
       <!-- Header -->
 	<%- include('../partials/header-admin') %>
 	<!-- /Header -->
-    <main>
-        <!-- Agregar despues en el FORM para la imagen:  -->
-        <form action="./abm-recetas-alta" method="post" enctype="multipart/form-data" >
-            <input type="" name="titulo" id="titulo" placeholder="Titulo de la Receta" >
-            <input type="" name="description" id="description" placeholder="Description" >
-            <input type="" name="tiempopreparacion" id="tiempopreparacion" placeholder="Tiempo de Preparación">
-            <input type="" name="pasos" id="pasos" placeholder="Pasos"> 
-            <input type="" name="ingredientes" id="ingredientes" placeholder="Ingredientes"> 
-            <input type="" name="precio" id="precio" placeholder="Precio">
-            <select name="planId" id="planId">
-                <option value="1">PLAN FAMILIAR</option>
-                <option value="2">PLAN EQUILIBRADO</option>
-                <option value="3">PLAN VEGETARIANO</option>
-            </select>
+    <div class="container admin-container-alta">
+        <main class="admin-page-main">
+            <form action="./abm-recetas-alta" method="post" enctype="multipart/form-data" >
+                <h3> NUEVA RECETA</h3>
+                
+                <input type="text" name="titulo" id="titulo" placeholder="Titulo de la Receta" required>
+                <textarea class="multi-text" name="description" id="description" placeholder="Description de la receta" required ></textarea>
+                <textarea name="ingredientes" class="multi-text" id="ingredientes" placeholder="Indique los ingredientes de la receta, separando cada uno con un pipe (|). Ejemplo: Tomate|Albhaca|Fideos" required></textarea>
+                <textarea name="pasos"class="multi-text"  id="pasos" placeholder="Indique los pasos de la receta, separando cada uno con un pipe (|). Ejemplo: 1. Cocinar los fideos.|2. Una vez listos colarlos y agregarle los tomates cortados junto con la Albhaca" required ></textarea>
+                <input type="text" name="tiempopreparacion" id="tiempopreparacion" placeholder="Tiempo de Paración (En minutos)"required>
+                <input type="text" name="precio" id="precio" placeholder="Precio"required>
+                <div class="seleccion">
+                    <P>SELECCIONE EL PLAN</P>
+                    <div class="admin-combo-plan">
+                        <select name="planId" id="planId">
+                            <% planes.forEach(plan => { %>
+                                <option value="<%- plan.id%>" > <%- plan.plan %> </option>
+                            <% }) %>
+                        </select>
+                    </div>
+                </div>
+                <div class="upload-file">
+                    <i class="fas fa-upload"></i>
+                    <p>Imagen para la receta</p>
+                    <input type="file" name="image" id="image">
+                </div>
 
-            <div class="">
-                <i class=""></i>
-                <p>Imagen Receta</p>
-                <input type="file" name="image" id="image">
-            </div>
-
-            <input type="submit" value="Registrarse">
-        </form>
-
-    </main>
+                <div class = "admin-botones">
+                    <input type="submit" class = "admin-cancelar" value="CANCELAR">
+                    <input type="submit" class = "admin-crear" value="CREAR">
+                </div>
+            </form>
+        </main>
+    </div>
+  
 
 </body>
 </html>
