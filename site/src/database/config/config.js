@@ -1,4 +1,4 @@
-/* cCONNFIGURACIÓN MAC */
+/* cCONNFIGURACIÓN MAC 
 module.exports = {
   "development": {
       "username": "root",
@@ -25,9 +25,9 @@ module.exports = {
       "dialect":  "mysql"
   }
 }
+*/
 
-
-/** CONFIGURACIÓN WINDOWS
+/** CONFIGURACIÓN WINDOWS */
 module.exports = {
   "development": {
     "username": "root",
@@ -60,4 +60,3 @@ module.exports = {
    
   }
 }
-*/

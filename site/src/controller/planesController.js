@@ -75,7 +75,7 @@ const controller ={
                         planId: planBuscado
                     }
                 }).then((precioTotal)=>{
-                    console.log('El precio de devuelve la base es:'+ parseFloat(precioTotal));
+                    // console.log('El precio de devuelve la base es:'+ parseFloat(precioTotal));
                     return res.render('planes-detail', {plan, precioTotal });
                 })                
                 .catch(reason => { 

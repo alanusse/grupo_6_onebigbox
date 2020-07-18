@@ -1,20 +1,15 @@
 <!DOCTYPE html>
 <html lang="es">
-<html lang="es">
 <!-- Include Head -->
 <%- include('../partials/head', {title: 'Listado de Recetas'}) %>
 <body>
     <!-- Header -->
 	<%- include('../partials/header-admin') %>
 	<!-- /Header -->
-    <section class="nuestros-box">
-  
-        <div>
+    <section  >
+        <div class = "admin-nueva-receta">
             <h2 class="title">RECETAS</h2>
-            
-        </div>
-        <div>
-            <li><a href="./recetas/abm-recetas-alta" class="btn-home btn-d-block btn-naranja">AGREGAR NUEVA RECETA</a></li>
+            <li><a href="./recetas/abm-recetas-alta" class="btn-home btn-d-block btn-nueva-receta">AGREGAR NUEVA RECETA</a></li>
         </div>
         <main class="boxes lista-boxes">
             <% recetas.forEach(receta => { %>
@@ -22,8 +17,8 @@
                     <ul>
                         <li><img src="/img/recetas/<%= receta.image %> " alt="<%= receta.titulo %> "></li>
                         <li class="title"><%= receta.titulo %></li>
-                        <li><a href="/admin/recetas/abm-recetas-modificacion/<%= receta.id %>" class="btn-home btn-d-block btn-naranja">MODIFICAR RECETA</a></li>
-                        <li><a href="#" class="btn-home btn-d-block btn-naranja">ELIMINAR RECETA</a></li>
+                        <li><a href="/admin/recetas/abm-recetas-modificacion/<%= receta.id %>" class="btn-home btn-d-block btn-modificar">MODIFICAR </a></li>
+                        <li><a href="#" class="btn-home btn-d-block btn-eliminar">ELIMINAR </a></li>
                     </ul>
                 </div>
             <% }) %>
