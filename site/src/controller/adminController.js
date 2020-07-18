@@ -1,4 +1,5 @@
 const db = require('../database/models');
+const { validationResult } = require('express-validator');
 
 const planes = {
     PLAN_FAMILIAR: 1,
@@ -63,6 +64,53 @@ const controller ={
         });
 
         return res.redirect('/admin/recetas'); 
+    },
+    modificarRecetaGet: (req, res) => {
+        db.recipes.findByPk(req.params.id)
+        .then(data => {
+            if(data != null) {
+                return res.render('admin/abm-recetas-modificacion', { data });
+            } else {
+                return res.redirect('/admin/recetas');
+            }
+        })
+        .catch(error => {
+            return res.redirect('/admin/recetas');
+        })
+    },
+    modificarRecetaPost: (req, res) => {
+        let errors = validationResult(req);
+        if(errors.isEmpty()) {
+            db.recipes.update({
+                titulo: req.body.title,
+                description: req.body.description,
+                ingredientes: req.body.ingredients,
+                pasos: req.body.preparation,
+                tiempopreparacion: req.body.preparationtime,
+                precio: req.body.price,
+                // planId: req.body.recipeplan // Error con foreignkey del plan en recetas
+            },
+            {
+                where: {
+                    id: req.params.id
+                }
+            })
+            .catch(error => {
+                console.log(error);
+            })
+            console.log('Datos de receta actualizados!')
+            return res.redirect('/admin/recetas');
+        } else {
+            let data = {
+                titulo: req.body.title,
+                description: req.body.description,
+                ingredientes: req.body.ingredients,
+                pasos: req.body.preparation,
+                tiempopreparacion: req.body.preparationtime,
+                precio: req.body.price
+            }
+            return res.render('admin/abm-recetas-modificacion', { data, errors: errors.errors });
+        }
     }
 };
 

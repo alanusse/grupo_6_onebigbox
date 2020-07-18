@@ -18,12 +18,11 @@
         </div>
         <main class="boxes lista-boxes">
             <% recetas.forEach(receta => { %>
-             
                 <div class="box box-full">
                     <ul>
                         <li><img src="/img/recetas/<%= receta.image %> " alt="<%= receta.titulo %> "></li>
                         <li class="title"><%= receta.titulo %></li>
-                        <li><a href="#" class="btn-home btn-d-block btn-naranja">MODIFICAR RECETA</a></li>
+                        <li><a href="/admin/recetas/abm-recetas-modificacion/<%= receta.id %>" class="btn-home btn-d-block btn-naranja">MODIFICAR RECETA</a></li>
                         <li><a href="#" class="btn-home btn-d-block btn-naranja">ELIMINAR RECETA</a></li>
                     </ul>
                 </div>
