@@ -1128,7 +1128,6 @@ footer {
     width: 30%;
 }
 
-<<<<<<< HEAD
 form.recipe-update {
     display: flex;
     flex-wrap: wrap;
@@ -1271,7 +1270,6 @@ form.recipe-update select#recipe-plan:focus {
     border-bottom: 3px solid var(--orange);
     box-shadow: 0px 5px 15px 0px rgba(0,0,0,0.2);
 }
-=======
 /*Recetas*/
 
 /*Lista Recetas*/
@@ -1422,7 +1420,6 @@ select {
     width: 40%;
 }
 /*Recetas*/
->>>>>>> a936fb035d268c01b7862b300e1e0e0b3c98e879
 /* ADMIN */
 
 
