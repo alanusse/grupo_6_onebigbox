@@ -6,4 +6,13 @@
             <li class="items"><a href="/admin/recetas">Recetas</a></li>            
         </ul>
     </nav>
+    <script>
+        $(document).ready(function(){
+            $('.menu-btn').click(function(){
+                $('.items').toggleClass('show');
+                $('.user').toggleClass('show');
+                $('ul li').toggleClass('hide');
+            })
+        })
+    </script>
 </header>

@@ -24,6 +24,6 @@ VALUES (
 'Carne picada de ternera|Tomate cherry|Vinagre balsámico|Tomate seco deshidratado|Brotes espinaca|Pasas sultanas|Rúcula|Queso camembert|Cebolla',
 30,
 100,
-3,
+2,
 'image1.png'
 );

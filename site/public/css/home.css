@@ -382,7 +382,6 @@ h2.title {
     border-radius: 8px;
     text-align: center;
     width: 100%;
-   
 }
 #avatar {
     position: absolute;
@@ -1129,6 +1128,301 @@ footer {
     width: 30%;
 }
 
+<<<<<<< HEAD
+form.recipe-update {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #e2e2e2;
+    border-radius: 10px;
+}
+
+form.recipe-update h1 {
+    flex-basis: 100%;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 22px;
+}
+
+form.recipe-update input {
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px 15px;
+    border-radius: 0 5px 5px 0;
+    border: 1px solid #909090;
+    outline: none;
+    transition: .3s;
+    color: #393939;
+    font-size: 15px;
+    position: relative;
+}
+
+form.recipe-update span {
+    display: flex;
+    flex-basis: 100%;
+}
+
+form.recipe-update span i {
+    margin: auto 0;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #909090;
+    border-right: none;
+    border-radius: 5px 0 0 5px;
+    height: 42px;
+}
+
+form.recipe-update input#price {
+    width: 100%;
+}
+
+form.recipe-update input#preparation-time {
+    width: 100%;
+    margin-right: 10px;
+}
+
+form.recipe-update select#recipe-plan {
+    flex-basis: calc(33.3% - 10px);
+    margin: 10px 0 10px 10px;
+    border-radius: 5px;
+    padding: 10px 15px;
+    height: 40px;
+    outline: none;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+form.recipe-update textarea#preparation {
+    width: 100%;
+    height: 250px;
+    resize: none;
+    margin: 10px 0;
+    padding: 10px 15px;
+    border: 1px solid #909090;
+    border-radius: 5px;
+    color: #393939;
+    font-size: 15px;
+    outline: none;
+    transition: .3s;
+}
+
+form.recipe-update label.recipe-img {
+    flex-basis: 100%;
+    text-align: center;
+    position: relative;
+    padding: 10px 15px;
+    margin: 10px 0;
+    border: 1px solid #909090;
+    border-radius: 5px;
+    height: 40px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+form.recipe-update label.recipe-img:hover {
+    box-shadow: 0px 5px 15px 0px rgba(0,0,0,0.2);
+}
+
+form.recipe-update .form-33 {
+    flex-basis: calc(33.3% - 10px);
+}
+
+form.recipe-update .form-33-medium {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+form.recipe-update label.recipe-img i {
+    margin-right: 10px;
+}
+
+form.recipe-update input.recipe-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+}
+
+form.recipe-update input[type="submit"] {
+    flex-basis: 20%;
+    margin-left: auto;
+    background-color: #56ca31;
+    color: #fff;
+    border-radius: 5px;
+    transition: .3s;
+}
+
+form.recipe-update input[type="submit"]:hover {
+    box-shadow: 0px 5px 15px 0px rgba(0,0,0,0.2);
+}
+
+form.recipe-update input[type="text"]:focus,
+form.recipe-update input[type="number"]:focus,
+form.recipe-update textarea#preparation:focus,
+form.recipe-update select#recipe-plan:focus {
+    border-color: #fff;
+    border-bottom: 3px solid var(--orange);
+    box-shadow: 0px 5px 15px 0px rgba(0,0,0,0.2);
+}
+=======
+/*Recetas*/
+
+/*Lista Recetas*/
+
+.btn-modificar{
+    background-color: #77D353;
+}
+.btn-eliminar{
+    background-color: #F95F62
+}
+.admin-nueva-receta{
+    display: flex;
+    align-items: baseline;
+    flex-direction: row;
+    padding-left: 10%;
+}
+.btn-nueva-receta{
+    background-color: #77D353;
+}
+.seleccion{
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    color: var(--dark-grey);
+    background-color: white;
+    width: 90%;
+    margin: 15px 0;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+}
+/*Oculto el combo*/
+select {
+    background: transparent;
+    border: none;
+    font-size: 14px;
+    height: 30px;
+    padding: 5px;
+    width: 250px;
+ }
+/*Saco los bordes de las casillas de ingreso de datos*/
+ select:focus{ outline: none;}
+ input:focus{ outline: none;}
+ textarea:focus{ outline: none;}
+ 
+.admin-combo-plan{      
+    border:1px solid #d9d9d9;
+    height:10%;
+    width: 230px;
+    overflow: hidden;
+    position:relative;
+    margin-left: 1%;
+}
+.admin-combo-plan::after{
+    content:"\025be";
+    display:table-cell;
+    text-align:center;
+    padding-top:7px;
+    width:30px;
+    height:30px;
+    background-color:#d9d9d9;
+    position:absolute;
+    top:0;
+    right:0px;
+    pointer-events: none;
+}
+
+/*Alta Recetas*/
+.admin-container-alta {
+    padding: 20px 20px 50px 100px;
+    max-width: 90%;
+    background-color: var(--light-grey);
+}
+.admin-page-main form input  {
+    display: block;
+    width: 90%;
+    margin: 15px 0;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+}
+.admin-page-main form textarea {
+    display: flex;
+    width: 90%;
+    height: 150px;
+    resize: none;
+    margin: 15px 0;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+}
+.admin-page-main form input:last-of-type {
+    margin-bottom: 0;
+}
+.admin-page-main form input::placeholder {
+    color: #acacac;
+}
+.admin-page-main form textarea::placeholder {
+    color: #acacac;
+}
+.admin-page-main .register-separator {
+    display: block;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 300;
+    margin: 20px 0;
+}
+.upload-file{
+    position: relative;
+    font-size: 16px;
+    flex-direction: column;
+    padding: 10px;
+    color: #acacac;
+    background-color: white;
+    border-radius: 8px;
+    text-align: center;
+    width: 30%;
+}
+.admin-botones{
+    display: flex;
+    align-items: baseline;
+    flex-direction: row;
+    width: 90%;
+    justify-content: space-around;
+    align-content: center;
+    width: 50%;
+    margin-left: 40%;
+    
+}
+.admin-botones .admin-crear{
+    color: #fff;
+    background-color: #77D353;
+    text-transform: uppercase;
+    font-weight: 600;
+    transition: ease-in-out .3s;
+    width: 40%;
+
+}
+.admin-botones .admin-cancelar{
+    color: #fff;
+    background-color:#708293;
+    text-transform: uppercase;
+    font-weight: 600;
+    transition: ease-in-out .3s;
+    width: 40%;
+}
+/*Recetas*/
+>>>>>>> a936fb035d268c01b7862b300e1e0e0b3c98e879
 /* ADMIN */
 
 
@@ -1162,12 +1456,6 @@ footer {
         margin-top: 10px;
     }
 
-    .boxes {
-        flex-direction: column;
-        margin: 30px 10%;
-        justify-content: center;
-        align-items: center;
-    }
 
     .home-planes{
         margin: 30px 0;

@@ -161,5 +161,37 @@ module.exports = {
         }
       })
       .withMessage("La extensión de la imágen no es válida (extensiones permitidas: .jpg, .jpeg y .png)"),
-    ]
+    ],
+  updateRecipe: [
+    body('title')
+    .notEmpty()
+    .withMessage('El título es obligatorio'),
+    body('description')
+    .notEmpty()
+    .withMessage('La descripción es obligatoria'),
+    body('ingredients')
+    .notEmpty()
+    .withMessage('Los ingredientes de la receta son obligatorios'),
+    body('preparation')
+    .notEmpty()
+    .withMessage('La preparación de la receta es obligatoria'),
+    body('preparationtime')
+    .notEmpty()
+    .withMessage('El tiempo de preparación es obligatorio')
+    .bail()
+    .isNumeric()
+    .withMessage('El tiempo de preparación tiene que ser numérico')
+    .bail()
+    .isLength({ min: 1 })
+    .withMessage('El tiempo de preparación no puede ser menor a 1 minuto'),
+    body('price')
+    .notEmpty()
+    .withMessage('El precio no puede estar vacío')
+    .bail()
+    .isNumeric()
+    .withMessage('El precio tiene que ser numérico')
+    .bail()
+    .isLength()
+    .withMessage('El precio no puede ser menor a $1'),
+  ]
 }

@@ -55,8 +55,10 @@ router.post('/planes/abm-planes-alta', upload.single('image'), validator.altaPla
 router.get('/', adminController.root);
 router.get('/recetas', adminController.recetas);
 router.get('/recetas/abm-recetas-alta', adminController.altaReceta);
+router.get('/recetas/abm-recetas-modificacion/:id', adminController.modificarRecetaGet);
 
 router.post('/recetas/abm-recetas-alta',upload.single('image'), validator.altaReceta, adminController.registrarReceta);
+router.post('/recetas/abm-recetas-modificacion/:id', validator.updateRecipe, adminController.modificarRecetaPost);
 
 
 module.exports = router;
