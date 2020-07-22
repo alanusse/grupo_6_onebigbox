@@ -94,7 +94,7 @@ const controller ={
                 pasos: req.body.preparation,
                 tiempopreparacion: req.body.preparationtime,
                 precio: req.body.price,
-                // planId: req.body.recipeplan // Error con foreignkey del plan en recetas
+                planId: req.body.recipeplan
             },
             {
                 where: {
@@ -117,6 +117,14 @@ const controller ={
             }
             return res.render('admin/abm-recetas-modificacion', { data, errors: errors.errors });
         }
+    },
+    eliminarRecetaPost: (req, res) => {
+        db.recipes.destroy({
+            where: {
+                id: req.params.id
+            }
+        });
+        return res.redirect('/admin/recetas');
     }
 };
 

@@ -59,6 +59,7 @@ router.get('/recetas/abm-recetas-modificacion/:id', adminController.modificarRec
 
 router.post('/recetas/abm-recetas-alta',upload.single('image'), validator.altaReceta, adminController.registrarReceta);
 router.post('/recetas/abm-recetas-modificacion/:id', validator.updateRecipe, adminController.modificarRecetaPost);
+router.post('/recetas/eliminar-receta/:id', adminController.eliminarRecetaPost);
 
 
 module.exports = router;

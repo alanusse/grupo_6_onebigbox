@@ -1249,16 +1249,39 @@ form.recipe-update input.recipe-img {
     padding: 0;
 }
 
-form.recipe-update input[type="submit"] {
-    flex-basis: 20%;
+.update-action-btns {
+    display: flex;
+    flex-basis: 100%;
+    max-width: 350px;
+    justify-content: space-between;
     margin-left: auto;
+}
+
+form.recipe-update input[type="submit"] {
+    flex-basis: calc(50% - 20px);
     background-color: #56ca31;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+form.recipe-update .update-action-btns a {
+    flex-basis: calc(50% - 20px);
+    margin: 10px 0;
+    padding: 10px 15px;
+    text-align: center;
+    font-size: 15px;
+    background-color: #ff4d4d;
+    border-radius: 0 5px 5px 0;
+    border: 1px solid #909090;
     color: #fff;
     border-radius: 5px;
     transition: .3s;
 }
 
-form.recipe-update input[type="submit"]:hover {
+form.recipe-update input[type="submit"]:hover,
+form.recipe-update .update-action-btns a:hover {
     box-shadow: 0px 5px 15px 0px rgba(0,0,0,0.2);
 }
 
@@ -1276,9 +1299,13 @@ form.recipe-update select#recipe-plan:focus {
 
 .btn-modificar{
     background-color: #77D353;
+    font-size: 15px;
 }
 .btn-eliminar{
-    background-color: #F95F62
+    background-color: #F95F62;
+    border: none;
+    font-size: 15px;
+    cursor: pointer;
 }
 .admin-nueva-receta{
     display: flex;
