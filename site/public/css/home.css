@@ -67,9 +67,13 @@ img {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    height: 300px;
+    margin: auto 0;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 15px;
     margin-right: 50px;
-    padding-bottom: 100px;
 }
+
 .slogan li {
     margin-bottom: 10px;
 }
@@ -1460,7 +1464,7 @@ select {
     .slogan {
         justify-content: center;
         margin: auto;
-        padding-bottom: 212px;
+        background-color: transparent;
     }
 
     section ul li.title {
@@ -1572,7 +1576,7 @@ select {
     .slogan {
         justify-content: center;
         margin: auto;
-        padding-bottom: 350px;
+        background-color: transparent;
     }
 
     section ul li.title {
