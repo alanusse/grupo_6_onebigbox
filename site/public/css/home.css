@@ -67,9 +67,13 @@ img {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    height: 300px;
+    margin: auto 0;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 15px;
     margin-right: 50px;
-    padding-bottom: 100px;
 }
+
 .slogan li {
     margin-bottom: 10px;
 }
@@ -1064,6 +1068,77 @@ footer {
 /* FOOTER */
 
 /* ADMIN */
+/* Admin login */
+.admin-login {
+    width: 100%;
+    max-width: 400px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.admin-login form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: #dddddd;
+    padding: 30px;
+    border-radius: 6px;
+    box-shadow: 0px 10px 20px 1px rgba(0,0,0,0.13);
+    transition: .5s;
+}
+
+.admin-login form:hover {
+    box-shadow: 0px 10px 20px 1px rgba(0,0,0,0.16);
+}
+
+.admin-login form img {
+    max-width: 130px;
+    margin: 0 auto 20px auto;
+    display: block;
+}
+
+.admin-login form .admin-login-email,
+.admin-login form .admin-login-password {
+    width: calc(100% - 28px);
+    margin-bottom: 25px;
+}
+
+.admin-login form input[type="text"],
+.admin-login form input[type="password"] {
+    width: calc(100% - 28px);
+    margin-left: 5px;
+    border: 2px solid transparent;
+    background-color: #eeeeee;
+    border-radius: 20px;
+    padding: 5px 10px;
+    transition: ease-in-out .4s;
+}
+
+.admin-login form input[type="text"]:focus,
+.admin-login form input[type="password"]:focus {
+    border-color: var(--orange);
+}
+
+.admin-login form div i {
+    font-size: 18px;
+    color: #5c5c5c;
+}
+
+.admin-login form input[type="submit"] {
+    padding: 10px 40px;
+    background-color: var(--orange);
+    color: #fff;
+    border: 2px solid transparent;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: ease-in-out .3s;
+}
+
+.admin-login form input[type="submit"]:hover {
+    border-color: #d8845d;
+}
+
+/* /Admin login/ */
 
 .admin-planes-alta form .titulo{
     display: flex;
@@ -1276,16 +1351,39 @@ form.recipe-update input.recipe-img {
     padding: 0;
 }
 
-form.recipe-update input[type="submit"] {
-    flex-basis: 20%;
+.update-action-btns {
+    display: flex;
+    flex-basis: 100%;
+    max-width: 350px;
+    justify-content: space-between;
     margin-left: auto;
+}
+
+form.recipe-update input[type="submit"] {
+    flex-basis: calc(50% - 20px);
     background-color: #56ca31;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+form.recipe-update .update-action-btns a {
+    flex-basis: calc(50% - 20px);
+    margin: 10px 0;
+    padding: 10px 15px;
+    text-align: center;
+    font-size: 15px;
+    background-color: #ff4d4d;
+    border-radius: 0 5px 5px 0;
+    border: 1px solid #909090;
     color: #fff;
     border-radius: 5px;
     transition: .3s;
 }
 
-form.recipe-update input[type="submit"]:hover {
+form.recipe-update input[type="submit"]:hover,
+form.recipe-update .update-action-btns a:hover {
     box-shadow: 0px 5px 15px 0px rgba(0,0,0,0.2);
 }
 
@@ -1303,9 +1401,13 @@ form.recipe-update select#recipe-plan:focus {
 
 .btn-modificar{
     background-color: #77D353;
+    font-size: 15px;
 }
 .btn-eliminar{
-    background-color: #F95F62
+    background-color: #F95F62;
+    border: none;
+    font-size: 15px;
+    cursor: pointer;
 }
 .admin-nueva-receta{
     display: flex;
@@ -1473,7 +1575,7 @@ select {
     .slogan {
         justify-content: center;
         margin: auto;
-        padding-bottom: 212px;
+        background-color: transparent;
     }
 
     section ul li.title {
@@ -1585,7 +1687,7 @@ select {
     .slogan {
         justify-content: center;
         margin: auto;
-        padding-bottom: 350px;
+        background-color: transparent;
     }
 
     section ul li.title {

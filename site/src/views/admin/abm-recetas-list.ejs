@@ -18,7 +18,7 @@
                         <li><img src="/img/recetas/<%= receta.image %> " alt="<%= receta.titulo %> "></li>
                         <li class="title"><%= receta.titulo %></li>
                         <li><a href="/admin/recetas/abm-recetas-modificacion/<%= receta.id %>" class="btn-home btn-d-block btn-modificar">MODIFICAR </a></li>
-                        <li><a href="#" class="btn-home btn-d-block btn-eliminar">ELIMINAR </a></li>
+                        <li><form action="/admin/recetas/eliminar-receta/<%= receta.id %>" method="POST"><input type="submit" class="btn-home btn-d-block btn-eliminar" value="Eliminar"></form></li>
                     </ul>
                 </div>
             <% }) %>
