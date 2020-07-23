@@ -1,5 +1,6 @@
 const db = require('../database/models');
 const { validationResult } = require('express-validator');
+const bcrypt = require('bcryptjs');
 
 const planes = {
     PLAN_FAMILIAR: 1,
@@ -8,10 +9,38 @@ const planes = {
     PLAN_PERSONALIZADO: 4
 };
 
-const controller ={
-    root: (req, res) => {
-        //return res.redirect('/admin/planes'); 
-        return res.redirect('/admin/planes'); 
+const controller = {
+    adminLogin: (req, res) => {
+        let errors = validationResult(req);
+
+        if(errors.isEmpty()) {
+            db.users.findOne({
+                where: {
+                    email: req.body.email
+                }
+            })
+            .then(data => {
+                if(data !== null) {
+                    if(bcrypt.compareSync(req.body.password, data.password)) {
+                        if(data.admin != 0) {
+                            req.session.admin = req.body.email;
+                            return res.redirect('/admin/planes');
+                        } else {
+                            errors.errors.push({ msg: 'Esta sección es únicamente para administradores' });
+                            return res.render('admin/admin-login', { errors: errors.errors });
+                        }
+                    } else {
+                        errors.errors.push({ msg: 'El correo electrónico o la contraseña son incorrectos' });
+                        return res.render('admin/admin-login', { errors: errors.errors });
+                    }
+                } else {
+                    errors.errors.push({ msg: 'No se encontró una cuenta con esas credenciales' });
+                    return res.render('admin/admin-login', { errors: errors.errors });
+                }
+            })
+        } else {
+            return res.render('admin/admin-login', { errors: errors.errors });
+        }
     },
     planes: (req, res) => {
         db.plans.findAll()

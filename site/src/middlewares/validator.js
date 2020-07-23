@@ -5,6 +5,7 @@ const { body } = require('express-validator');
 
 //Llamo al modelo de Usuarios para validarlo en el LOGIN
 const jsonModel = require('../models/jsonModel');
+const db = require('../database/models');
 const usersModel = jsonModel('userDataBase');
 
 module.exports = {
@@ -193,5 +194,19 @@ module.exports = {
     .bail()
     .isLength()
     .withMessage('El precio no puede ser menor a $1'),
+  ],
+  adminLogin: [
+    body('email')
+    .notEmpty()
+    .withMessage('Debes ingresar un correo electrónico')
+    .bail()
+    .isEmail()
+    .withMessage('El correo electrónico no es válido'),
+    body('password')
+    .notEmpty()
+    .withMessage('Debes ingresar una contraseña')
+    .bail()
+    .isLength({ min: 5 })
+    .withMessage('Ingresa una contraseña de almenos 5 caracteres')
   ]
 }
