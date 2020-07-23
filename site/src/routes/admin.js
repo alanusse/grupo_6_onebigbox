@@ -3,16 +3,10 @@ var router = express.Router();
 
 const multer = require('multer');
 const path = require('path');
-<<<<<<< HEAD
-
-const validator = require('../middlewares/validator');
-
-=======
 const validator = require('../middlewares/validator');
 const adminCheck = require('../middlewares/adminCheck');
 
 router.use(adminCheck);
->>>>>>> 87a6c4cd13004a0b3a04494b5d2f88477ea7eb6c
 
 // Copio el código del multer
 let storage = multer.diskStorage({
