@@ -1207,6 +1207,33 @@ form.recipe-update textarea#preparation {
     transition: .3s;
 }
 
+form.recipe-update textarea#description {
+    width: 100%;
+    height: 250px;
+    resize: none;
+    margin: 10px 0;
+    padding: 10px 15px;
+    border: 1px solid #909090;
+    border-radius: 5px;
+    color: #393939;
+    font-size: 15px;
+    outline: none;
+    transition: .3s;
+}
+
+form.recipe-update textarea#pasos {
+    width: 100%;
+    height: 250px;
+    resize: none;
+    margin: 10px 0;
+    padding: 10px 15px;
+    border: 1px solid #909090;
+    border-radius: 5px;
+    color: #393939;
+    font-size: 15px;
+    outline: none;
+    transition: .3s;
+}
 form.recipe-update label.recipe-img {
     flex-basis: 100%;
     text-align: center;
@@ -1302,7 +1329,31 @@ form.recipe-update select#recipe-plan:focus {
     border-radius: 8px;
     font-size: 16px;
 }
-/*Oculto el combo*/
+.admin-botones{
+    display: flex;
+    align-items: baseline;
+    flex-direction: row;
+    justify-content: space-around;
+    align-content: center;
+    width: 50%;
+    margin-left: 70%;
+}
+
+form.recipe-update input#crear {
+    color: #fff;
+    background-color: #77D353;
+    text-transform: uppercase;
+    font-weight: 600;
+    transition: ease-in-out .3s;
+}
+form.recipe-update input#cancelar {
+    color: #fff;
+    background-color:#708293;
+    text-transform: uppercase;
+    font-weight: 600;
+    transition: ease-in-out .3s;
+}
+/*Oculto el combo
 select {
     background: transparent;
     border: none;
@@ -1311,7 +1362,8 @@ select {
     padding: 5px;
     width: 250px;
  }
-/*Saco los bordes de las casillas de ingreso de datos*/
+ */
+/*Saco los bordes de las casillas de ingreso de datos
  select:focus{ outline: none;}
  input:focus{ outline: none;}
  textarea:focus{ outline: none;}
@@ -1337,8 +1389,10 @@ select {
     right:0px;
     pointer-events: none;
 }
+*/
 
 /*Alta Recetas*/
+/*
 .admin-container-alta {
     padding: 20px 20px 50px 100px;
     max-width: 90%;
@@ -1402,23 +1456,9 @@ select {
     margin-left: 40%;
     
 }
-.admin-botones .admin-crear{
-    color: #fff;
-    background-color: #77D353;
-    text-transform: uppercase;
-    font-weight: 600;
-    transition: ease-in-out .3s;
-    width: 40%;
+*/
 
-}
-.admin-botones .admin-cancelar{
-    color: #fff;
-    background-color:#708293;
-    text-transform: uppercase;
-    font-weight: 600;
-    transition: ease-in-out .3s;
-    width: 40%;
-}
+
 /*Recetas*/
 /* ADMIN */
 

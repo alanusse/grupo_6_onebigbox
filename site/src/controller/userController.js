@@ -21,17 +21,6 @@ const controller ={
      
         if (errors.isEmpty()){
             
-            /*// Creo el objeto Usuario
-            let user = {
-                id : '', 
-                nombre : req.body.nombre,
-                apellido : req.body.apellido,
-                email : req.body.email,
-                password : bcrypt.hashSync(req.body.password, 10),
-                avatar:  (req.file)? req.file.filename : 'default.png'
-            }*/
-
-
             db.users.create({ 
                 name : req.body.nombre,
                 lastname : req.body.apellido,

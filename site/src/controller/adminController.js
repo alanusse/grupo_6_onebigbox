@@ -56,20 +56,35 @@ const controller ={
         })
     },
     registrarReceta: (req, res) => {
-        console.log(req.file);
-        // Inserto en la base de datos lo que el usuario ingresó
-        db.recipes.create({
-            titulo: req.body.titulo,
-            description: req.body.description,
-            tiempopreparacion: req.body.tiempopreparacion,
-            pasos:req.body.pasos,
-            ingredientes:req.body.ingredientes ,
-            precio: req.body.precio ,
-            image: (req.file)? req.file.filename:'image1.png',
-            planId: req.body.planId,
-        });
+        
+        console.log('entró al post');
 
-        return res.redirect('/admin/recetas'); 
+        let errors = validationResult(req);
+        
+        console.log(errors);
+
+        if (errors.isEmpty()){
+                
+            // Inserto en la base de datos lo que el usuario ingresó
+            db.recipes.create({
+                titulo: req.body.titulo,
+                description: req.body.description,
+                tiempopreparacion: req.body.preparationtime,
+                pasos:req.body.pasos,
+                ingredientes:req.body.ingredientes ,
+                precio:req.body.precio ,
+                image:req.file.filename,
+                planId:req.body.recipeplan,
+            });
+
+            return res.redirect('/admin/recetas'); 
+        }else{
+            
+            db.plans.findAll()
+            .then((planes) => {
+                return res.render('admin/abm-recetas-alta', {planes, errors : errors.errors, old: req.body});
+            })
+        }
     },
     modificarRecetaGet: (req, res) => {
         db.recipes.findByPk(req.params.id)
@@ -86,6 +101,7 @@ const controller ={
     },
     modificarRecetaPost: (req, res) => {
         let errors = validationResult(req);
+        console.log(req.body)
         if(errors.isEmpty()) {
             db.recipes.update({
                 titulo: req.body.title,

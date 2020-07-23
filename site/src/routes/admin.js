@@ -3,8 +3,8 @@ var router = express.Router();
 
 const multer = require('multer');
 const path = require('path');
-const validator = require('../middlewares/validator');
 
+const validator = require('../middlewares/validator');
 
 
 // Copio el código del multer
@@ -42,7 +42,6 @@ let storage = multer.diskStorage({
   });
 
 // ** Código de multer
-
 // ************ Controller Require ************
 const adminController = require('../controller/adminController');
 //Routers de los Planes
@@ -57,7 +56,7 @@ router.get('/recetas', adminController.recetas);
 router.get('/recetas/abm-recetas-alta', adminController.altaReceta);
 router.get('/recetas/abm-recetas-modificacion/:id', adminController.modificarRecetaGet);
 
-router.post('/recetas/abm-recetas-alta',upload.single('image'), validator.altaReceta, adminController.registrarReceta);
+router.post('/recetas/abm-recetas-alta', upload.single('image'), validator.altaReceta, adminController.registrarReceta);
 router.post('/recetas/abm-recetas-modificacion/:id', validator.updateRecipe, adminController.modificarRecetaPost);
 
 

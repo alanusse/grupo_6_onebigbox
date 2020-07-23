@@ -1,46 +1,67 @@
 <!DOCTYPE html>
 <html lang="es">
 <!-- Include Head -->
-<%- include('../partials/head', {title: 'Alta Receta'}) %>
+<%- include('../partials/head', {title: 'Alta receta - One Big Box'}) %>
 <body>
       <!-- Header -->
 	<%- include('../partials/header-admin') %>
 	<!-- /Header -->
-    <div class="container admin-container-alta">
-        <main class="admin-page-main">
-            <form action="./abm-recetas-alta" method="post" enctype="multipart/form-data" >
-                <h3> NUEVA RECETA</h3>
-                
-                <input type="text" name="titulo" id="titulo" placeholder="Titulo de la Receta" required>
-                <textarea class="multi-text" name="description" id="description" placeholder="Description de la receta" required ></textarea>
-                <textarea name="ingredientes" class="multi-text" id="ingredientes" placeholder="Indique los ingredientes de la receta, separando cada uno con un pipe (|). Ejemplo: Tomate|Albhaca|Fideos" required></textarea>
-                <textarea name="pasos"class="multi-text"  id="pasos" placeholder="Indique los pasos de la receta, separando cada uno con un pipe (|). Ejemplo: 1. Cocinar los fideos.|2. Una vez listos colarlos y agregarle los tomates cortados junto con la Albhaca" required ></textarea>
-                <input type="text" name="tiempopreparacion" id="tiempopreparacion" placeholder="Tiempo de Paración (En minutos)"required>
-                <input type="text" name="precio" id="precio" placeholder="Precio"required>
-                <div class="seleccion">
-                    <P>SELECCIONE EL PLAN</P>
-                    <div class="admin-combo-plan">
-                        <select name="planId" id="planId">
-                            <% planes.forEach(plan => { %>
-                                <option value="<%- plan.id%>" > <%- plan.plan %> </option>
-                            <% }) %>
-                        </select>
-                    </div>
-                </div>
-                <div class="upload-file">
-                    <i class="fas fa-upload"></i>
-                    <p>Imagen para la receta</p>
-                    <input type="file" name="image" id="image">
-                </div>
+   
+    <form action="./abm-recetas-alta" method="post" enctype="multipart/form-data"  class="recipe-update" >
+        <h1> NUEVA RECETA</h1>
+        
+        <% if (typeof errors != 'undefined') { %>
+            <span>
+                <ul style="background-color: #ff6868; padding: 15px 20px; border-radius: 10px; width: 100%;">
+                    <% errors.forEach(error => { %>
+                        <li style="color: #fff; list-style: disc; margin-left: 20px; font-size: 14px;"><%= error.msg %></li>
+                    <% }) %>
+                </ul>
+            </span>
+        <% } %>
 
-                <div class = "admin-botones">
-                    <input type="submit" class = "admin-cancelar" value="CANCELAR">
-                    <input type="submit" class = "admin-crear" value="CREAR">
-                </div>
-            </form>
-        </main>
-    </div>
-  
+        <span >
+            <i class="fas fa-utensils"></i>
+            <input type="text" name="titulo" id="titulo" placeholder="Titulo de la Receta" required value="<%= typeof old == 'undefined' ? null : old.titulo %>">
+        </span>
+        
+        <textarea name="description"class="multi-text"  id="description" placeholder="Description de la receta" required><%= typeof old == 'undefined' ? null : old.description %></textarea>
 
+        <span>
+            <i class="fas fa-carrot"></i>
+            <input type="ingredientes" name="ingredientes" id="ingredientes" placeholder="Ingredientes de la Receta. Separar cada uno con pipes (|)" required value="<%= typeof old == 'undefined' ? null : old.ingredientes %>">>
+        </span>
+
+        <textarea name="pasos"class="multi-text"  id="pasos" placeholder="Indique los pasos de la receta, separando cada uno con un pipe (|). Ejemplo: 1. Cocinar los fideos.|2. Una vez listos colarlos y agregarle los tomates cortados junto con la Albhaca" required><%= typeof old == 'undefined' ? null : old.pasos %></textarea>
+        
+        <span class="form-33">
+            <i class="far fa-clock"></i>
+            <input type="text" name="preparationtime" id="preparation-time" placeholder="Tiempo de Paración (En minutos)" required value="<%= typeof old == 'undefined' ? null : old.preparationtime %>">
+        </span>
+        <span class="form-33 form-33-medium">
+            <i class="fas fa-dollar-sign"></i>
+            <input type="text" name="precio" id="precio" placeholder="Precio"required value="<%= typeof old == 'undefined' ? null : old.precio %>">
+        </span>
+        
+        <select name="recipeplan" id="recipe-plan">
+            <% planes.forEach(plan => { %>
+                <% if (plan.plan != 'PLAN PERSONALIZADO' ) { %>
+                    <option value="<%- plan.id%>" > <%- plan.plan %> </option>
+                <% } %>
+            <% }) %>
+
+        </select>
+    
+
+        <label for="recipe-img" class="recipe-img">
+            <i class="fas fa-upload"></i>Cargar imagen
+            <input type="file" name="image" id="image">
+        </label>
+
+        <div class = "admin-botones">
+            <input type="submit" id="cancelar" value="CANCELAR">
+            <input type="submit" id="crear" value="CREAR">
+        </div>
+    </form>
 </body>
 </html>
