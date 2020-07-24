@@ -48,7 +48,10 @@ const adminController = require('../controller/adminController');
 //Routers de los Planes
 router.get('/planes', adminController.planes);
 router.get('/planes/abm-planes-alta', adminController.altaPlan);
+router.get('/planes/abm-planes-modificacion/:id', adminController.modificarPlanGet);
+
 router.post('/planes/abm-planes-alta', upload.single('image'), validator.altaPlan, adminController.registrarPlan);
+router.post('/planes/abm-planes-modificacion/:id', adminController.modificarPlanPost);
 
 
 //Routers de las Recetas

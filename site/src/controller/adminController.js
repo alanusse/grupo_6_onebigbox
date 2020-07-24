@@ -36,6 +36,33 @@ const controller ={
 
         return res.redirect('/admin/planes'); 
     },
+    modificarPlanGet: (req, res) => {
+        db.plans.findByPk(req.params.id)
+        .then((plan) => {
+            console.log(plan);
+            return res.render('admin/abm-planes-modificacion', {plan});
+        })
+    },
+    modificarPlanPost: (req, res) => {
+        console.log(req.params.url);
+        console.log(req.body.plan);
+        console.log(req.body.description);
+        
+        db.plans.update({
+            plan: req.body.plan,
+            description: req.body.description,
+            image: req.file.filename
+        }, 
+        {
+            where: {
+                id: req.params.id
+            }
+        })
+
+
+        return res.redirect('/admin');
+
+    },
     recetas: (req, res) => {
         db.recipes.findAll()
             .then((recetas) => {

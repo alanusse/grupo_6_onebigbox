@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- Include Head -->
+<%- include('../partials/head', {title: 'Alta Plan'}) %>
+<body>
+      <!-- Header -->
+	<%- include('../partials/header-admin') %>
+	<!-- /Header -->
+    <main class="admin-planes-alta">
+        <!-- Agregar despues en el FORM para la imagen:  -->
+        <form  action="/admin/planes/abm-planes-modificacion/<%= plan.id %>" method="POST" enctype="">
+            <input class="titulo" type="text" name="plan" id="plan" placeholder="Nombre del Plan" value="<%= plan.plan %>">
+            <textarea class="description" name="description" rows="10" cols="50" id="description" placeholder="Descripcion"><%= plan.description %></textarea>
+            <div class="file-image">
+                <i class="fas fa-upload"></i>
+                <p>Cargar Imagen: <%= plan.image %> </p>
+                <input type="file" name="image" id="image">
+            </div>
+            <input class="btn-home btn-d-block btn-naranja" type="submit" value="Modificar">
+        </form>
+
+    </main>
+
+</body>
+</html>
+
