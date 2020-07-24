@@ -25,7 +25,7 @@ module.exports = {
   }
 }
 
-// /** CONFIGURACIÓN WINDOWS */
+/** CONFIGURACIÓN WINDOWS */
 // module.exports = {
 //   "development": {
 //     "username": "root",

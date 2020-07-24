@@ -4,8 +4,9 @@ var router = express.Router();
 const multer = require('multer');
 const path = require('path');
 const validator = require('../middlewares/validator');
+const adminCheck = require('../middlewares/adminCheck');
 
-
+router.use(adminCheck);
 
 // Copio el código del multer
 let storage = multer.diskStorage({
@@ -42,26 +43,32 @@ let storage = multer.diskStorage({
   });
 
 // ** Código de multer
-
 // ************ Controller Require ************
 const adminController = require('../controller/adminController');
+
+router.get('/', (req, res) => res.redirect('/admin/planes'));
+
+//Routers de admins
+router.get('/login', (req, res) => res.render('admin/admin-login'));
+router.post('/login', validator.adminLogin, adminController.adminLogin);
+
 //Routers de los Planes
 router.get('/planes', adminController.planes);
 router.get('/planes/abm-planes-alta', adminController.altaPlan);
 router.get('/planes/abm-planes-modificacion/:id', adminController.modificarPlanGet);
 
 router.post('/planes/abm-planes-alta', upload.single('image'), validator.altaPlan, adminController.registrarPlan);
-router.post('/planes/abm-planes-modificacion/:id', adminController.modificarPlanPost);
+router.post('/planes/abm-planes-modificacion/:id', validator.updatePlan,adminController.modificarPlanPost);
 
 
 //Routers de las Recetas
-router.get('/', adminController.root);
 router.get('/recetas', adminController.recetas);
 router.get('/recetas/abm-recetas-alta', adminController.altaReceta);
 router.get('/recetas/abm-recetas-modificacion/:id', adminController.modificarRecetaGet);
 
-router.post('/recetas/abm-recetas-alta',upload.single('image'), validator.altaReceta, adminController.registrarReceta);
+router.post('/recetas/abm-recetas-alta', upload.single('image'), validator.altaReceta, adminController.registrarReceta);
 router.post('/recetas/abm-recetas-modificacion/:id', validator.updateRecipe, adminController.modificarRecetaPost);
+router.post('/recetas/eliminar-receta/:id', adminController.eliminarRecetaPost);
 
 
 module.exports = router;

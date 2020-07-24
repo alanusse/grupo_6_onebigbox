@@ -26,7 +26,7 @@ module.exports = (sequelize, DataTypes) =>{
             type: DataTypes.STRING
         },
         admin: {
-            type: DataTypes.TINYINT
+            type: DataTypes.BOOLEAN
         }
     };
 

@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-    let alias = 'purchases';
+    let alias = 'Purchases';
 
     let cols = {
         id: {
@@ -9,15 +9,25 @@ module.exports = (sequelize, DataTypes) => {
         },
         orderNumber: {
             type: DataTypes.INTEGER
+        },
+        userId: {
+            type: DataTypes.INTEGER
         }
     };
 
     let config = {
         tableName: 'purchases', // El nombre de la tabla hay que ponerlo acá solo si no coincide con el nombre anteriormente usado. En este caso coincide pero lo pongo por buena práctica
-        timestamps: false
+        timestamps: true
     };
 
     const Purchase = sequelize.define(alias, cols, config);
+
+    Purchase.associate = models => {
+        Purchase.belongsTo(models.users, {
+            alias: 'userPurchase',
+            foreignKey: 'userId'
+        })
+    };
 
     return Purchase;
 };

@@ -1,5 +1,6 @@
 const db = require('../database/models');
 const { validationResult } = require('express-validator');
+const bcrypt = require('bcryptjs');
 
 const planes = {
     PLAN_FAMILIAR: 1,
@@ -8,10 +9,38 @@ const planes = {
     PLAN_PERSONALIZADO: 4
 };
 
-const controller ={
-    root: (req, res) => {
-        //return res.redirect('/admin/planes'); 
-        return res.redirect('/admin/planes'); 
+const controller = {
+    adminLogin: (req, res) => {
+        let errors = validationResult(req);
+
+        if(errors.isEmpty()) {
+            db.users.findOne({
+                where: {
+                    email: req.body.email
+                }
+            })
+            .then(data => {
+                if(data !== null) {
+                    if(bcrypt.compareSync(req.body.password, data.password)) {
+                        if(data.admin != 0) {
+                            req.session.admin = req.body.email;
+                            return res.redirect('/admin/planes');
+                        } else {
+                            errors.errors.push({ msg: 'Esta sección es únicamente para administradores' });
+                            return res.render('admin/admin-login', { errors: errors.errors });
+                        }
+                    } else {
+                        errors.errors.push({ msg: 'El correo electrónico o la contraseña son incorrectos' });
+                        return res.render('admin/admin-login', { errors: errors.errors });
+                    }
+                } else {
+                    errors.errors.push({ msg: 'No se encontró una cuenta con esas credenciales' });
+                    return res.render('admin/admin-login', { errors: errors.errors });
+                }
+            })
+        } else {
+            return res.render('admin/admin-login', { errors: errors.errors });
+        }
     },
     planes: (req, res) => {
         db.plans.findAll()
@@ -45,8 +74,7 @@ const controller ={
     },
     modificarPlanPost: (req, res) => {
         console.log(req.params.url);
-        console.log(req.body.plan);
-        console.log(req.body.description);
+        
         
         db.plans.update({
             plan: req.body.plan,
@@ -58,10 +86,7 @@ const controller ={
                 id: req.params.id
             }
         })
-
-
         return res.redirect('/admin');
-
     },
     recetas: (req, res) => {
         db.recipes.findAll()
@@ -83,20 +108,35 @@ const controller ={
         })
     },
     registrarReceta: (req, res) => {
-        console.log(req.file);
-        // Inserto en la base de datos lo que el usuario ingresó
-        db.recipes.create({
-            titulo: req.body.titulo,
-            description: req.body.description,
-            tiempopreparacion: req.body.tiempopreparacion,
-            pasos:req.body.pasos,
-            ingredientes:req.body.ingredientes ,
-            precio: req.body.precio ,
-            image: (req.file)? req.file.filename:'image1.png',
-            planId: req.body.planId,
-        });
+        
+        console.log('entró al post');
 
-        return res.redirect('/admin/recetas'); 
+        let errors = validationResult(req);
+        
+        console.log(errors);
+
+        if (errors.isEmpty()){
+                
+            // Inserto en la base de datos lo que el usuario ingresó
+            db.recipes.create({
+                titulo: req.body.titulo,
+                description: req.body.description,
+                tiempopreparacion: req.body.preparationtime,
+                pasos:req.body.pasos,
+                ingredientes:req.body.ingredientes ,
+                precio:req.body.precio ,
+                image:req.file.filename,
+                planId:req.body.recipeplan,
+            });
+
+            return res.redirect('/admin/recetas'); 
+        }else{
+            
+            db.plans.findAll()
+            .then((planes) => {
+                return res.render('admin/abm-recetas-alta', {planes, errors : errors.errors, old: req.body});
+            })
+        }
     },
     modificarRecetaGet: (req, res) => {
         db.recipes.findByPk(req.params.id)
@@ -113,6 +153,7 @@ const controller ={
     },
     modificarRecetaPost: (req, res) => {
         let errors = validationResult(req);
+        console.log(req.body)
         if(errors.isEmpty()) {
             db.recipes.update({
                 titulo: req.body.title,
@@ -121,7 +162,7 @@ const controller ={
                 pasos: req.body.preparation,
                 tiempopreparacion: req.body.preparationtime,
                 precio: req.body.price,
-                // planId: req.body.recipeplan // Error con foreignkey del plan en recetas
+                planId: req.body.recipeplan
             },
             {
                 where: {
@@ -144,6 +185,14 @@ const controller ={
             }
             return res.render('admin/abm-recetas-modificacion', { data, errors: errors.errors });
         }
+    },
+    eliminarRecetaPost: (req, res) => {
+        db.recipes.destroy({
+            where: {
+                id: req.params.id
+            }
+        });
+        return res.redirect('/admin/recetas');
     }
 };
 

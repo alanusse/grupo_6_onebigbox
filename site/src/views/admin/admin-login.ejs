@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- include('../partials/head', { title: 'Admin Login - One Big Box' }) %> 
+</head>
+<body>
+    <%- include('../partials/header') %>
+
+    <main class="admin-login">
+        <form action="/admin/login" method="POST">
+            <% if (typeof errors != 'undefined') { %>
+                <ul style="flex-basis: 100%;
+                background-color: #ff6868;
+                border-radius: 5px;
+                padding: 10px 20px 10px 40px;
+                margin-bottom: 20px;">
+                    <% errors.forEach(error => { %>
+                        <li style="list-style: disc;
+                        color: #fff;
+                        font-size: 14px;"><%= error.msg %> </li>
+                    <% }) %>
+                </ul>
+            <% } %>
+
+            <img src="/img/admin/admin-login-img.svg" alt="login-img">
+
+            <div class="admin-login-email">
+                <i class="fas fa-envelope"></i>
+                <input type="text" name="email" id="admin-email" placeholder="Correo electrónico">
+            </div>
+
+            <div class="admin-login-password">
+                <i class="fas fa-key"></i>
+                <input type="password" name="password" id="admin-password" placeholder="Contraseña">
+            </div>
+
+            <input type="submit" value="Acceder">
+        </form>
+    </main>
+
+    <%- include('../partials/footer') %> 
+</body>
+</html>
