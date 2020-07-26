@@ -4,7 +4,7 @@ const usersModel = jsonModel('userDataBase');
 const log = (req, res, next) => {
     
     res.locals.user = false; // Inicializo la variable en FALSE para que por defecto sea false
-   
+ 
     // Valido si está logueado o no
     if (req.session.user){
         res.locals.user = req.session.user; // Le doy a la variable todos los datos que tiene guardado session

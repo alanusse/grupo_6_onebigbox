@@ -16,9 +16,6 @@ var cartRouter = require('./routes/cart');
 var recetasRouter = require('./routes/recetas');
 var adminRouter = require('./routes/admin');
 
-var adminRouter = require('./routes/admin');
-
-
 var app = express();
 
 // view engine setup
@@ -43,6 +40,7 @@ app.use(userSession);
 
 
 //********** ACCESO A LAS RUTAS **********
+
 app.use('/', homeRouter);
 app.use('/user', usersRouter);
 app.use('/planes', planesListRouter);

@@ -20,13 +20,6 @@ const planes = {
 const controller ={
     root: (req, res) => {
        
-       /* **** CODIGO PARA JSON *****
-        // Leo los JSON de Planes e Instructivo para mostrarlo por pantalla
-       let planes = planesModel.leerJson();
-       let instructive = instructivoModel.leerJson();
-       return res.render('planes-list', {planes, instructive});
-        **** CODIGO PARA JSON ***** */
-
        /* **** CODIGO PARA DB ***** */
        db.plans.findAll()
        .then((planes)  => {
@@ -40,31 +33,10 @@ const controller ={
     },
 
     detail: (req, res)=>{
-          /* **** CODIGO PARA JSON *****
-        //Leo el JSON de recetas
-        let recetasJson = recetasModel.leerJson();
-        //Busco el plan con el ID del parámetro
-        let plan = planesModel.findById(req.params.planid);
-        // Recetas que hay en la base con el id de Plan enviado por parámetro
-        let recetas = recetasJson.filter(element => {
-                  return element.idplan == req.params.planid;
-        });
-        //Calculo el precio que tendrá el plan según la cantidad de recetas que tiene el mismo
-        let precioTotal = recetas.reduce(function(total, element){
-            return total += element.precio;
-        }, 0);
-        
-        return res.render('planes-detail', {plan, recetas, precioTotal });
-         **** CODIGO PARA JSON ***** */
-
-
-         /* **** CODIGO PARA DB ***** */
-        
         let planBuscado = req.params.planid;
         // El plan 4 es el plan personalizado
 
         if (planBuscado != planes.PLAN_PERSONALIZADO){
-            
             db.plans.findByPk(planBuscado, {
                 include: [{association: 'receta'}]
             })
@@ -91,8 +63,6 @@ const controller ={
                 console.log(reason);
             })
         }
-       
-         /* **** CODIGO PARA DB ***** */
     }
 };
 

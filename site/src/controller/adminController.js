@@ -1,4 +1,5 @@
 const db = require('../database/models');
+
 const { validationResult } = require('express-validator');
 const bcrypt = require('bcryptjs');
 
@@ -170,6 +171,29 @@ const controller = {
             }
         });
         return res.redirect('/admin/recetas');
+    },
+    listarUsuarios: (req, res) =>{
+        //Obtengo todos los usuarios de la base de datos
+        db.users.findAll()
+            .then(function(users){
+                console.log(users);
+                return res.render('admin/abm-users-list', {users});
+            })
+            .catch(error =>{
+                console.log(error);
+            })
+    },
+    editarUsuario: (req, res) => {
+        console.log('entro en el get de editarUsuario');
+        db.users.findByPk({
+            where: {
+                id: req.params.id
+            }
+        })
+        .then(function(user){
+            console.log('entró al then');
+            return res.render('admin/abm-users-modificacion', {user});
+        })
     }
 };
 

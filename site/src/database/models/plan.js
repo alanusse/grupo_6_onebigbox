@@ -20,7 +20,7 @@ module.exports = (sequelize, DataTypes) =>{
 
     const Plan = sequelize.define(alias, cols, config);
 
-    //Hago la asociación con la tabla asociada. En la foreignKey va el nombre de la columna de la clave de la tabla asociada
+    //Hago la asociación con la tabla relacionada. En la foreignKey va el nombre de la columna de la clave de la tabla asociada
     Plan.associate = function(models) {
         Plan.hasMany(models.recipes, {
             foreignKey: 'planId',

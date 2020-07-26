@@ -43,7 +43,7 @@ module.exports = (sequelize, DataTypes) => {
 
     //Hago la asociación con la tabla asociada. En la foreignKey va el nombre de la columna de la clave de la tabla asociada
     Receipe.associate = function(models) {
-        Receipe.hasMany(models.plans, {
+        Receipe.belongsTo(models.plans, {
             foreignKey: 'id',
             as: 'planes'
         });

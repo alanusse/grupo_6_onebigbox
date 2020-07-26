@@ -11,13 +11,12 @@ const validator = require('../middlewares/validator');
 
 // Copio el código del multer
 let storage = multer.diskStorage({
-  
   destination: function (req, file, cb) {
+    
     cb(null, path.resolve(__dirname+ '../../../public/img/avatar'))
   },
   filename: function (req, file, cb) {
-    console.log(file);
-    console.log(req.body.avatar);
+    
     if (file){
       cb(null, file.fieldname + '-' + Date.now()+path.extname(file.originalname))
     }else{
@@ -28,9 +27,7 @@ let storage = multer.diskStorage({
  
 let upload = multer({ 
   storage: storage,
-
   fileFilter: (req, file, cb) => {
-
     const acceptedExtensions = ['.jpg', '.jpeg', '.png'];
     const ext = path.extname(file.originalname);
 
@@ -39,7 +36,7 @@ let upload = multer({
     }
     cb(null, acceptedExtensions.includes(ext));
   }
-
+  
 });
 
 //  Routeador del login

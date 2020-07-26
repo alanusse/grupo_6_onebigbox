@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- Include Head -->
+<%- include('../partials/head', {title: 'Admin Lista de Usuarios - One Big Box'}) %>
+<body>
+    <!-- Header -->
+    <%- include('../partials/header-admin') %>
+    <!-- /Header -->
+    <section  class="admin-user-list">
+        <div>
+            <h2 class="title"> LISTA DE USUARIOS </h2>
+        </div>
+
+        <% if (typeof errors != 'undefined') { %>
+            <span>
+                <ul style="background-color: #ff6868; padding: 15px 20px; border-radius: 10px; width: 100%;">
+                    <% errors.forEach(error => { %>
+                        <li style="color: #fff; list-style: disc; margin-left: 20px; font-size: 14px;"><%= error.msg %></li>
+                    <% }) %>
+                </ul>
+            </span>
+        <% } %>
+
+        <%if (users) { %>
+        <main class="boxes lista-boxes-users">
+              
+            <% users.forEach(user  => { %>
+                <div class="users-box users-box-full">
+                    <ul>
+                        <li><img src="/img/avatar/<%= user.avatar %> " alt="<%= user.name + ' ' + user.lastname %> "></li>
+                        <li class="title"><%= user.name + ' ' + user.lastname %></li>
+                        <li>
+                            <a href="/admin/users/abm-users-modificacion/<%= user.id %>" class="btn-admin"><i class="far fa-edit" ></i> <p>Editar</p></a>
+                           
+                        </li>
+                        <li>
+                            <form action="#" method="POST">
+                            <a href="#" class="btn-admin"><i class="far fa-trash-alt"></i><p>Eliminar</p></a>
+                            
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+            <% }) %>
+            
+        </main>
+        <%} else {%>
+            <span>
+                <ul style="background-color: #ff6868; padding: 15px 20px; border-radius: 10px; width: 100%;">
+                    <li style="color: #fff; list-style: disc; margin-left: 20px; font-size: 14px;">No hay usuarios en la Base de datos</li>
+                </ul>
+            </span>
+        <%}%>
+    </section  >
+</body>
+</html>

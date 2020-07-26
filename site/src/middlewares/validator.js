@@ -1,12 +1,7 @@
 const path = require('path');
 const bcrypt = require('bcryptjs');
 const { body } = require('express-validator');
-
-
-//Llamo al modelo de Usuarios para validarlo en el LOGIN
-const jsonModel = require('../models/jsonModel');
 const db = require('../database/models');
-const usersModel = jsonModel('userDataBase');
 
 module.exports = {
     register: [
@@ -30,20 +25,17 @@ module.exports = {
             .withMessage('El correo electrónico no es válido')
             .bail()
             .custom(function(value, {req}){
-              let users = usersModel.leerJson();
-              //Código para validar mail
-
-              const user = users.find(function(user) {
-                  return user.email == value
-              })
-              if(user){
-                return false;
-              }else{
-                
-                return true;
-              }
-          })
-          .withMessage('El correo electrónico ya está registrado'),
+              return db.users.findOne({
+                  where: {
+                      email: value
+                  }
+              }).then(user => {
+                if (user){
+                  //Acá tengo el usuario encontrado en la base de datos. Por l cual, no podría registrarse con un mail existente
+                  return Promise.reject('Usuario ya existe');
+                }
+              });
+            }),  
         body('password')
             .notEmpty()
             .withMessage('La contraseña es obligatoria')
@@ -51,7 +43,8 @@ module.exports = {
             .isLength( { min:4, max:10})
             .withMessage('La contraseña debe tener un mínimo de 4 y un máximo de 10 caracteres'),
         body("avatar")
-            /*.custom((value, { req }) => {
+            /* CODIGO PARA IMAGEN OBLIGATORIA
+            .custom((value, { req }) => {
               if (req.file) {
                 return true;
               } else {
@@ -63,9 +56,7 @@ module.exports = {
             .custom((value, { req }) => {
               if (req.file) {
                 const acceptedExtensions = [".jpg", ".jpeg", ".png"];
-      
                 const ext = path.extname(req.file.originalname);
-      
                 if (acceptedExtensions.includes(ext)) {
                   return true;
                 } else {
@@ -82,21 +73,18 @@ module.exports = {
             .notEmpty()
             .withMessage('El correo electrónico es obligatorio')
             .bail()
-            .custom(function(value, {req}){
-                let users = usersModel.leerJson();
-                //Código para validar mail y contraseña
-    
-                const user = users.find(function(user) {
-                    return user.email == value
+            .custom( function(value, {req}){
+                return db.users.findOne({
+                    where: { email: value }
                 })
-                if(user){
-                    // seguimos preguntando
-                    return bcrypt.compareSync(req.body.password, user.password);
-                } else {
-                    return false
-                }
-            })
-            .withMessage('El correo electrónico o la contraseña no coinciden'),
+                .then(user => {
+                    if(user){
+                      return (bcrypt.compareSync(req.body.password, user.password))|| Promise.reject('Email o contraseña Inválida');
+                    }else{
+                      return Promise.reject('Email no encontrado');
+                    }
+                })
+            }),            
         body('password')
             .notEmpty()
             .withMessage('La contraseña es obligatoria'),

@@ -26,7 +26,7 @@ module.exports = (sequelize, DataTypes) =>{
             type: DataTypes.STRING
         },
         admin: {
-            type: DataTypes.BOOLEAN
+            type: DataTypes.BOOLEAN // USER: 0 o ADMIN:1
         }
     };
 
@@ -35,8 +35,8 @@ module.exports = (sequelize, DataTypes) =>{
         timestamps: false
     };
 
-    const user = sequelize.define(alias, cols, config);
+    const User = sequelize.define(alias, cols, config);
 
-    return user;
+    return User;
 
 }
