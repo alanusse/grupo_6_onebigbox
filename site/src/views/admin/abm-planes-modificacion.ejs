@@ -1,26 +1,41 @@
 <!DOCTYPE html>
 <html lang="es">
-<!-- Include Head -->
 <%- include('../partials/head', {title: 'Alta Plan'}) %>
 <body>
-      <!-- Header -->
 	<%- include('../partials/header-admin') %>
-	<!-- /Header -->
-    <main class="admin-planes-alta">
-        <!-- Agregar despues en el FORM para la imagen:  -->
-        <form  action="/admin/planes/abm-planes-modificacion/<%= plan.id %>" method="POST" enctype="">
-            <input class="titulo" type="text" name="plan" id="plan" placeholder="Nombre del Plan" value="<%= plan.plan %>">
-            <textarea class="description" name="description" rows="10" cols="50" id="description" placeholder="Descripcion"><%= plan.description %></textarea>
-            <div class="file-image">
-                <i class="fas fa-upload"></i>
-                <p>Cargar Imagen: <%= plan.image %> </p>
-                <input type="file" name="image" id="image">
-            </div>
-            <input class="btn-home btn-d-block btn-naranja" type="submit" value="Modificar">
-        </form>
 
-    </main>
+    <form action="/admin/planes/abm-planes-modificacion/<%= plan.id %>" method="POST" class="recipe-update" enctype="multipart/form-data">
+        <h1>Modificar Plan</h1>
+        
+        <% if (typeof errors != 'undefined') { %>
+            <span>
+                <ul style="background-color: #ff6868; padding: 15px 20px; border-radius: 10px; width: 100%">
+                    <% errors.forEach(error => { %>
+                        <li style="color: #fff; list-style: disc; margin-left: 20px; font-size: 14px;"><%= error.msg %></li>
+                    <% }) %>
+                </ul>
+            </span>
+        <% } %>
+        
+        <span>
+            <i class="fas fa-box-open"></i>
+            <input type="text" name="plan" id="plan" placeholder="Nombre del Plan" value="<%= plan.plan %>">
+        </span>
 
+        <span>
+            <i class="fas fa-sticky-note"></i>
+            <input type="text" name="description" id="description" placeholder="Descripción" value="<%= plan.description %>">
+        </span>
+        
+        <label for="recipe-img" class="recipe-img">
+            <i class="fas fa-upload"></i>Cargar imagen
+            <input type="file" name="image" id="image" class="recipe-img">
+        </label>
+
+        <div class="update-action-btns">
+            <a href="/admin/planes">Cancelar</a>
+            <input type="submit" value="Modificar Plan">
+        </div>
+    </form>
 </body>
 </html>
-

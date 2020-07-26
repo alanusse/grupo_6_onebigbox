@@ -1409,13 +1409,13 @@ form.recipe-update select#recipe-plan:focus {
     font-size: 15px;
     cursor: pointer;
 }
-.admin-nueva-receta{
+.admin-nueva {
     display: flex;
     align-items: baseline;
     flex-direction: row;
     padding-left: 10%;
 }
-.btn-nueva-receta{
+.btn-nuevo{
     background-color: #77D353;
 }
 .seleccion{

@@ -29,7 +29,7 @@
 
         <span>
             <i class="fas fa-carrot"></i>
-            <input type="ingredientes" name="ingredientes" id="ingredientes" placeholder="Ingredientes de la Receta. Separar cada uno con pipes (|)" required value="<%= typeof old == 'undefined' ? null : old.ingredientes %>">>
+            <input type="ingredientes" name="ingredientes" id="ingredientes" placeholder="Ingredientes de la Receta. Separar cada uno con pipes (|)" required value="<%= typeof old == 'undefined' ? null : old.ingredientes %>">
         </span>
 
         <textarea name="pasos"class="multi-text"  id="pasos" placeholder="Indique los pasos de la receta, separando cada uno con un pipe (|). Ejemplo: 1. Cocinar los fideos.|2. Una vez listos colarlos y agregarle los tomates cortados junto con la Albhaca" required><%= typeof old == 'undefined' ? null : old.pasos %></textarea>

@@ -54,19 +54,19 @@ router.post('/login', validator.adminLogin, adminController.adminLogin);
 
 //Routers de los Planes
 router.get('/planes', adminController.planes);
-router.get('/planes/abm-planes-alta', adminController.altaPlan);
+router.get('/planes/abm-planes-alta', adminController.altaPlanGet);
 router.get('/planes/abm-planes-modificacion/:id', adminController.modificarPlanGet);
 
-router.post('/planes/abm-planes-alta', upload.single('image'), validator.altaPlan, adminController.registrarPlan);
-router.post('/planes/abm-planes-modificacion/:id', validator.updatePlan,adminController.modificarPlanPost);
-
+router.post('/planes/abm-planes-alta', upload.single('image'), validator.altaPlan, adminController.altaPlanPost);
+router.post('/planes/abm-planes-modificacion/:id', upload.single('image'), validator.updatePlan, adminController.modificarPlanPost);
+router.post('/planes/eliminar-plan/:id', adminController.eliminarPlanPost);
 
 //Routers de las Recetas
 router.get('/recetas', adminController.recetas);
-router.get('/recetas/abm-recetas-alta', adminController.altaReceta);
+router.get('/recetas/abm-recetas-alta', adminController.altaRecetaGet);
 router.get('/recetas/abm-recetas-modificacion/:id', adminController.modificarRecetaGet);
 
-router.post('/recetas/abm-recetas-alta', upload.single('image'), validator.altaReceta, adminController.registrarReceta);
+router.post('/recetas/abm-recetas-alta', upload.single('image'), validator.altaReceta, adminController.altaRecetaPost);
 router.post('/recetas/abm-recetas-modificacion/:id', validator.updateRecipe, adminController.modificarRecetaPost);
 router.post('/recetas/eliminar-receta/:id', adminController.eliminarRecetaPost);
 
