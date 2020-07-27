@@ -16,7 +16,6 @@ const rolUsuario = {
     ADMIN: 1
 };
 
-
 const controller ={
     register: (req, res) =>{
        return res.render('user/register');
@@ -60,7 +59,10 @@ const controller ={
             .then(function(resultado){
                 //Borro la contraseña
                 delete resultado.dataValues.password;
-                req.session.user = resultado.dataValues; 
+                req.session.user = resultado.dataValues;
+                
+                req.session.admin = resultado.dataValues.admin;
+
                 if (req.body.checkRecordarme){
                     //Guardo en una cookie el usuario que se registró asi ya queda logueado en la aplicación. Tercer parámetro es el tiempo, lo establecido ahi es para que dure UN DIA
                     res.cookie('email', uresultado.dataValues.email, {maxAge: 1000 * 60 * 60 * 24});

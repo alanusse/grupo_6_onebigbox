@@ -1,16 +1,22 @@
-
 module.exports = (sequelize, DataTypes) =>{
 
     let alias = 'plans';
 
     let cols = {
-        id: {type: DataTypes.INTEGER,
+        id: {
+            type: DataTypes.INTEGER,
             autoIncrement: true,
             primaryKey: true
         },
-        plan: {type: DataTypes.STRING},
-        description: {type: DataTypes.TEXT},
-        image: {type: DataTypes.STRING}
+        plan: {
+            type: DataTypes.STRING
+        }, 
+        description: {
+            type: DataTypes.TEXT
+        },
+        image: {
+            type: DataTypes.STRING
+        }
     };
 
     let config = {

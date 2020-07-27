@@ -29,16 +29,8 @@
                     <ul>
                         <li><img src="/img/avatar/<%= user.avatar %> " alt="<%= user.name + ' ' + user.lastname %> "></li>
                         <li class="title"><%= user.name + ' ' + user.lastname %></li>
-                        <li>
-                            <a href="/admin/users/abm-users-modificacion/<%= user.id %>" class="btn-admin"><i class="far fa-edit" ></i> <p>Editar</p></a>
-                           
-                        </li>
-                        <li>
-                            <form action="#" method="POST">
-                            <a href="#" class="btn-admin"><i class="far fa-trash-alt"></i><p>Eliminar</p></a>
-                            
-                            </form>
-                        </li>
+                        <li><a href="/admin/users/abm-users-modificacion/<%= user.id %>" class="btn-home btn-d-block btn-naranja btn-modificar">MODIFICAR</a></li>
+                        <li><form action="/admin/users/abm-users-eliminar/<%= user.id %>" method="POST"><input type="submit" class="btn-home btn-d-block btn-eliminar" value="Eliminar"></form></li>
                     </ul>
                 </div>
             <% }) %>

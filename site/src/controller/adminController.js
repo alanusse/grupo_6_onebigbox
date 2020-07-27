@@ -11,6 +11,7 @@ const planes = {
 };
 
 const controller = {
+
     adminLogin: (req, res) => {
         let errors = validationResult(req);
 
@@ -43,6 +44,7 @@ const controller = {
             return res.render('admin/admin-login', { errors: errors.errors });
         }
     },
+
     planes: (req, res) => {
         db.plans.findAll()
         .then((planes) => {
@@ -52,20 +54,85 @@ const controller = {
             console.log(motivo);
         })
     },
-    altaPlan: (req, res) => {
+
+    altaPlanGet: (req, res) => {
         return res.render('admin/abm-planes-alta');
     },
-    registrarPlan: (req, res) => {
-        console.log(req.file);
-        // Inserto en la base de datos lo que el usuario ingresó
-        db.plans.create({
-            plan: req.body.plan,
-            description: req.body.description,
-            image: (req.file)? req.file.filename:'image1.png',
-        });
 
+    altaPlanPost: (req, res) => {
+        console.log(req.file);
+        let errors = validationResult(req);
+        console.log(errors);
+
+        if (errors.isEmpty()){
+            // Inserto en la base de datos lo que el usuario ingresó
+            db.plans.create({
+                plan: req.body.plan,
+                description: req.body.description,
+                image: (req.file)? req.file.filename:'image1.png',
+            });
+        }else{
+            db.plans.findAll()
+            .then((planes) => {
+                return res.render('admin/abm-planes-alta', {planes, errors : errors.errors, old: req.body});
+            })
+        }
         return res.redirect('/admin/planes'); 
     },
+
+    modificarPlanGet: (req, res) => {
+        db.plans.findByPk(req.params.id)
+        .then(plan => {
+            if(plan != null) {
+                return res.render('admin/abm-planes-modificacion', { plan });
+            } else {
+                return res.redirect('/admin/planes');
+            }
+        })
+        .catch(error => {
+            return res.redirect('/admin/planes');
+        })
+    },
+
+    modificarPlanPost: (req, res) => {    
+        
+        let errors = validationResult(req);
+        console.log(req.body)
+        if(errors.isEmpty()) {
+            db.plans.update({
+                plan: req.body.plan,
+                description: req.body.description,
+                image: req.file.filename,
+            },
+            {
+                where: {
+                    id: req.params.id
+                }
+            })
+            //.catch(error => {
+            //    console.log(error);
+            //})
+            console.log('Datos de plan actualizados!')
+            return res.redirect('/admin/planes');
+        } else {
+            let plan = {
+                plan: req.body.plan,
+                description: req.body.description,
+                image: req.file.filename,
+            }
+            return res.render('admin/abm-planes-modificacion', { plan, errors: errors.errors });
+        }
+    },
+
+    eliminarPlanPost: (req, res) => {
+        db.plans.destroy({
+            where: {
+                id: req.params.id
+            }
+        });
+        return res.redirect('/admin/planes');
+    },
+
     recetas: (req, res) => {
         db.recipes.findAll()
             .then((recetas) => {
@@ -74,8 +141,9 @@ const controller = {
             .catch((motivo) => {
                 console.log(motivo);
             })
-        },
-    altaReceta: (req, res) => {
+    },
+
+    altaRecetaGet: (req, res) => {
         //Busco los planes que existen en la BD para cargar el combo
         db.plans.findAll()
         .then((planes) => {
@@ -85,7 +153,8 @@ const controller = {
             console.log(motivo);
         })
     },
-    registrarReceta: (req, res) => {
+
+    altaRecetaPost: (req, res) => {
         
         console.log('entró al post');
 
@@ -108,6 +177,7 @@ const controller = {
             });
 
             return res.redirect('/admin/recetas'); 
+
         }else{
             
             db.plans.findAll()
@@ -116,6 +186,7 @@ const controller = {
             })
         }
     },
+
     modificarRecetaGet: (req, res) => {
         db.recipes.findByPk(req.params.id)
         .then(data => {
@@ -129,6 +200,7 @@ const controller = {
             return res.redirect('/admin/recetas');
         })
     },
+
     modificarRecetaPost: (req, res) => {
         let errors = validationResult(req);
         console.log(req.body)
@@ -164,6 +236,7 @@ const controller = {
             return res.render('admin/abm-recetas-modificacion', { data, errors: errors.errors });
         }
     },
+    
     eliminarRecetaPost: (req, res) => {
         db.recipes.destroy({
             where: {
@@ -176,7 +249,6 @@ const controller = {
         //Obtengo todos los usuarios de la base de datos
         db.users.findAll()
             .then(function(users){
-                console.log(users);
                 return res.render('admin/abm-users-list', {users});
             })
             .catch(error =>{
@@ -184,17 +256,46 @@ const controller = {
             })
     },
     editarUsuario: (req, res) => {
-        console.log('entro en el get de editarUsuario');
-        db.users.findByPk({
+       //Busco en la tabla Usuarios el que coincide con el parámetro
+        db.users.findByPk(req.params.id)
+        .then(function(user){
+            return res.render('admin/abm-users-modificacion', {user});
+        })
+        .catch(error => {
+            console.log(error);
+        })
+    },
+    editarUsuarioBD: (req, res) =>{
+       
+        db.users.update({ 
+            name : req.body.nombre,
+            lastname : req.body.apellido,
+            email : req.body.email,
+            password : bcrypt.hashSync(req.body.password, 10),
+            admin: req.body.admin // Valor que figure en el combo
+        },
+        {
+            where:{ id: req.params.id}
+        })
+       .catch(error => {
+            console.log(error);
+        })
+        console.log('Datos del usuario actualizados!')
+        return res.redirect('/admin/users');
+    },
+    eliminarUsuarioBD : (req, res) =>{
+        //ID del Usuario a eliminar: req.params.id
+        db.users.destroy({
             where: {
                 id: req.params.id
             }
-        })
-        .then(function(user){
-            console.log('entró al then');
-            return res.render('admin/abm-users-modificacion', {user});
-        })
-    }
+            })
+            .catch(error => {
+                console.log(error);
+            })
+            console.log('Usuario Eliminado!')
+            return res.redirect('/admin/users');
+        }
 };
 
 module.exports = controller;

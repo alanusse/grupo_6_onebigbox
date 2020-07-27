@@ -3,7 +3,7 @@
 const jsonModel = require('../models/jsonModel');
 const instructivoModel = jsonModel('instructionsDataBase');
 
-const db = require('../database/models');
+//const db = require('../database/models');
 
 // En algún momento vamos a usar la función para que nos muestre el formato precio con decimales y punto en los miles.
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");

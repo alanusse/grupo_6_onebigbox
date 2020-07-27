@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-    let alias = 'purchases';
+    let alias = 'Purchases';
 
     let cols = {
         id: {
@@ -8,6 +8,9 @@ module.exports = (sequelize, DataTypes) => {
             primaryKey: true
         },
         orderNumber: {
+            type: DataTypes.INTEGER
+        },
+        userId: {
             type: DataTypes.INTEGER
         }
     };
@@ -18,6 +21,13 @@ module.exports = (sequelize, DataTypes) => {
     };
 
     const Purchase = sequelize.define(alias, cols, config);
+
+    Purchase.associate = models => {
+        Purchase.belongsTo(models.users, {
+            alias: 'userPurchase',
+            foreignKey: 'userId'
+        })
+    };
 
     return Purchase;
 };

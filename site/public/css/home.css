@@ -1397,7 +1397,17 @@ form.recipe-update select#recipe-plan:focus {
 /*Lista Recetas*/
 /*JF*/
 
-.admin-nueva-receta{
+.btn-modificar{
+    background-color: #77D353;
+    font-size: 15px;
+}
+.btn-eliminar{
+    background-color: #F95F62;
+    border: none;
+    font-size: 15px;
+    cursor: pointer;
+}
+.admin-nueva {
     display: flex;
     align-items: baseline;
     flex-direction: row;
@@ -1407,6 +1417,9 @@ form.recipe-update select#recipe-plan:focus {
     display: flex;
     align-items: center;
     flex-direction: column;
+}
+.btn-nuevo{
+    background-color: #77D353;
 }
 .seleccion{
     display: flex;

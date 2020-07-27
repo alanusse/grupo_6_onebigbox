@@ -26,7 +26,7 @@ module.exports = (sequelize, DataTypes) =>{
             type: DataTypes.STRING
         },
         admin: {
-            type: DataTypes.BOOLEAN // USER: 0 o ADMIN:1
+            type: DataTypes.TINYINT
         }
     };
 
@@ -36,6 +36,13 @@ module.exports = (sequelize, DataTypes) =>{
     };
 
     const User = sequelize.define(alias, cols, config);
+
+    User.associate = function(models) {
+        User.hasMany(models.Items, {
+            foreignKey: 'userId',
+            as: 'userItems'
+        });
+    };
 
     return User;
 

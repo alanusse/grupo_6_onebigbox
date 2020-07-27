@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-    let alias = 'carts';
+    let alias = 'Items';
 
     let cols = {
         id: {
@@ -43,11 +43,24 @@ module.exports = (sequelize, DataTypes) => {
     };
 
     let config = {
-        tableName: 'carts', // El nombre de la tabla hay que ponerlo acá solo si no coincide con el nombre anteriormente usado. En este caso coincide pero lo pongo por buena práctica
+        tableName: 'items', // El nombre de la tabla hay que ponerlo acá solo si no coincide con el nombre anteriormente usado. En este caso coincide pero lo pongo por buena práctica
         timestamps: false
     };
 
-    const Cart = sequelize.define(alias, cols, config);
+    const Item = sequelize.define(alias, cols, config);
 
-    return Cart;
-};
+    Item.associate = function(models) {
+        Item.hasMany(models.users, {
+            foreignKey: 'id',
+            as: 'userItems'
+        });
+    };
+
+/*
+        Items.hasMany(models.Purchases, {
+            alias: 'purchasedItems',
+            foreignKey: 'purchaseId'
+        })
+        */
+    return Item;
+}

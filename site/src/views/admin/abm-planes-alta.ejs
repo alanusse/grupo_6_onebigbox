@@ -1,23 +1,42 @@
 <!DOCTYPE html>
 <html lang="es">
-<html lang="es">
 <!-- Include Head -->
 <%- include('../partials/head', {title: 'Alta Plan'}) %>
 <body>
       <!-- Header -->
 	<%- include('../partials/header-admin') %>
 	<!-- /Header -->
-    <main class="admin-planes-alta">
-        <!-- Agregar despues en el FORM para la imagen:  -->
-        <form  action="./abm-planes-alta" method="post" enctype="multipart/form-data" >
-            <input class="titulo" type="" name="plan" id="plan" placeholder="Nombre del Plan" >
-            <textarea class="description" type="" name="description" rows="10" cols="50" id="description" placeholder="Descripcion"></textarea>
-            <div class="file-image">
-                <i class="fas fa-upload"></i>
-                <p>Cargar Imagen</p>
-                <input type="file" name="image" id="image">
-            </div>
-            <input class="btn-home btn-d-block btn-naranja" type="submit" value="Crear Plan">
+        
+    <form  action="./abm-planes-alta" method="post" enctype="multipart/form-data" class="recipe-update">
+
+        <h1>NUEVO PLAN</h1>
+
+        <% if (typeof errors != 'undefined') { %>
+            <span>
+                <ul style="background-color: #ff6868; padding: 15px 20px; border-radius: 10px; width: 100%;">
+                    <% errors.forEach(error => { %>
+                           <li style="color: #fff; list-style: disc; margin-left: 20px; font-size: 14px;"><%= error.msg %></li>
+                    <% }) %>
+                </ul>
+            </span>
+        <% } %>
+
+        <span >
+            <i class="fas fa-box-open"></i>
+            <input type="text" name="plan" id="plan" placeholder="Nombre del Plan" required value="<%= typeof old == 'undefined' ? null : old.plan %>">
+        </span>
+
+        <textarea name="description" class="multi-text"  id="description" placeholder="Description del Plan" required><%= typeof old == 'undefined' ? null : old.description %></textarea>
+
+        <label for="recipe-img" class="recipe-img">
+            <i class="fas fa-upload"></i>Cargar imagen
+            <input type="file" name="image" id="image">
+        </label>    
+        <div class = "admin-botones update-action-btns">
+            <a href="/admin/planes">CANCELAR</a>
+            <input type="submit" id="crear" value="CREAR">
+        </div>    
+            
         </form>
 
     </main>

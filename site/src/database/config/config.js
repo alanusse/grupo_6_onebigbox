@@ -5,7 +5,7 @@ module.exports = {
       "password": "root",
       "database": "BDONEBIGBOX",
       "host":     "127.0.0.1",
-      "port":     "3306",
+      "port":     "8889",
       "dialect":  "mysql"
   },
   "test": {
@@ -26,10 +26,9 @@ module.exports = {
   }
 }
 */
-
 /** CONFIGURACIÓN WINDOWS */
-module.exports = {
-  "development": {
+ module.exports = {
+    "development": {
     "username": "root",
     "password": "",
     "database": "bdonebigbox",
@@ -37,26 +36,23 @@ module.exports = {
     "port": "3306",
     "dialect": "mysql",
     "define": {
-      "underscored": false,
-      "paranoid": true
+        "underscored": false,
+        "paranoid": true
     }
-  },
-  "test": {
+    },
+    "test": {
     "username": "root",
     "password": "",
     "database": "database_test",
     "host": "127.0.0.1",
     "port": "3306",
     "dialect": "mysql"
-    
-  },
-  "production": {
+    },
+    "production": {
     "username": "root",
     "password": "",
     "database": "database_production",
     "host": "127.0.0.1",
-    "port": "3306",
     "dialect": "mysql"
-   
-  }
-}
+    }
+ }

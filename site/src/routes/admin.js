@@ -3,9 +3,10 @@ var router = express.Router();
 
 const multer = require('multer');
 const path = require('path');
-
 const validator = require('../middlewares/validator');
+const adminCheck = require('../middlewares/adminCheck');
 
+router.use(adminCheck);
 
 // Copio el código del multer
 let storage = multer.diskStorage({
@@ -53,16 +54,19 @@ router.post('/login', validator.adminLogin, adminController.adminLogin);
 
 //Routers de los Planes
 router.get('/planes', adminController.planes);
-router.get('/planes/abm-planes-alta', adminController.altaPlan);
-router.post('/planes/abm-planes-alta', upload.single('image'), validator.altaPlan, adminController.registrarPlan);
+router.get('/planes/abm-planes-alta', adminController.altaPlanGet);
+router.get('/planes/abm-planes-modificacion/:id', adminController.modificarPlanGet);
 
+router.post('/planes/abm-planes-alta', upload.single('image'), validator.altaPlan, adminController.altaPlanPost);
+router.post('/planes/abm-planes-modificacion/:id', upload.single('image'), validator.updatePlan, adminController.modificarPlanPost);
+router.post('/planes/eliminar-plan/:id', adminController.eliminarPlanPost);
 
 //Routers de las Recetas
 router.get('/recetas', adminController.recetas);
-router.get('/recetas/abm-recetas-alta', adminController.altaReceta);
+router.get('/recetas/abm-recetas-alta', adminController.altaRecetaGet);
 router.get('/recetas/abm-recetas-modificacion/:id', adminController.modificarRecetaGet);
 
-router.post('/recetas/abm-recetas-alta', upload.single('image'), validator.altaReceta, adminController.registrarReceta);
+router.post('/recetas/abm-recetas-alta', upload.single('image'), validator.altaReceta, adminController.altaRecetaPost);
 router.post('/recetas/abm-recetas-modificacion/:id', validator.updateRecipe, adminController.modificarRecetaPost);
 router.post('/recetas/eliminar-receta/:id', adminController.eliminarRecetaPost);
 
@@ -70,5 +74,7 @@ router.post('/recetas/eliminar-receta/:id', adminController.eliminarRecetaPost);
 // Usuarios
 router.get('/users', adminController.listarUsuarios);
 router.get('/users/abm-users-modificacion/:id', adminController.editarUsuario);
+router.post('/users/abm-users-modificacion/:id', adminController.editarUsuarioBD);
+router.post('/users/abm-users-eliminar/:id', adminController.eliminarUsuarioBD);
 
 module.exports = router;
