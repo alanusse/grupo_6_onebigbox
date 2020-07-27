@@ -8,13 +8,7 @@
     <%- include('partials/header') %>
     <!-- Encabezado  -->
     <section class="nuestros-box">
-        <!-- Valido Usuario Logueado  -->
-        <% if (locals.user) { %>
-            <p> USUARIO LOGUEADO: <%= locals.user.email %> </p>
-        <% }else{ %>
-            <p>NO HAY USUARIO LOGUEADO</p>
-        <% } %>
-        <!-- Valido Usuario Logueado  -->
+
          <!-- Separo en un array los ingredientes y los pasos para luego recorrerlo  -->
         <% let ingredientes = receta.ingredientes.split('|');%>
         <% let pasos = receta.pasos.split('|'); %>          

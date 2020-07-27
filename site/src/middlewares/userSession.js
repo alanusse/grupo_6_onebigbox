@@ -1,5 +1,8 @@
+/*
 const jsonModel = require('../models/jsonModel');
 const usersModel = jsonModel('userDataBase');
+*/
+const db = require('../database/models');
 
 const log = (req, res, next) => {
     
@@ -11,13 +14,20 @@ const log = (req, res, next) => {
         
         return next();
     }else if(req.cookies.email){
-        let user = usersModel.findBySomething(element => element.email == req.cookies.email);
         
-        delete user.password; // Saco los datos sencibles
-        req.session.user = user; // Guardo al usuario en sesión
-        res.locals.user = user; // Guardo los datos del usuario en la variable Locals para que sean visibles por la vista
- 
-        return next();
+        db.users.findOne({
+            where: {email:req.cookies.email}
+        })
+        .then(function(user){
+            
+            delete user.password; 
+            req.session.user = user; // Guardo al usuario en sesión
+            res.locals.user = user; // Guardo los datos del usuario en la variable Locals para que sean visibles por la vista
+     
+        })
+        .catch(err => console.log(err))
+    
+         return next();
     }else{
         //Si no está logueado, y no tiene cuenta, ni nada, le digo que continúe
         return next();

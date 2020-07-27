@@ -4,7 +4,7 @@
 <body>
 	<%- include('../partials/header-admin') %>
 
-    <form action="/admin/planes/abm-planes-modificacion/<%= plan.id %>" method="POST" class="recipe-update" enctype="multipart/form-data">
+    <form action="../abm-planes-modificacion/<%= plan.id %>" method="POST" class="recipe-update" enctype="multipart/form-data">
         <h1>Modificar Plan</h1>
         
         <% if (typeof errors != 'undefined') { %>
@@ -29,7 +29,7 @@
         
         <label for="recipe-img" class="recipe-img">
             <i class="fas fa-upload"></i>Cargar imagen
-            <input type="file" name="image" id="image" class="recipe-img">
+            <input type="file" name="image" id="image" class="recipe-img" value="/img/planes/<%= plan.image %>">
         </label>
 
         <div class="update-action-btns">

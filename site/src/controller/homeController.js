@@ -1,5 +1,3 @@
-//const planesModel = jsonModel('planesDataBase');
-
 const jsonModel = require('../models/jsonModel');
 const instructivoModel = jsonModel('instructionsDataBase');
 

@@ -1,9 +1,6 @@
 /* ******* CONSTANTES PARA TRABAJAR CON JSON *********** */
 const jsonModel = require('../models/jsonModel');
-const planesModel = jsonModel('planesDataBase');
 const instructivoModel = jsonModel('instructionsDataBase');
-const recetasModel = jsonModel('recetasDataBase');
-/* ******* CONSTANTES PARA TRABAJAR CON JSON *********** */
 
 /* ******* CONSTANTES PARA TRABAJAR CON BASE DE DATOS *********** */
 const db = require('../database/models');

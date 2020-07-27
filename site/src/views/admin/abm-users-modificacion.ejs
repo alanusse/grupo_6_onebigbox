@@ -5,7 +5,7 @@
     <%- include('../partials/header-admin'); %>
 
     <form action="../abm-users-modificacion/<%= user.id %>" method="POST" class="recipe-update">
-        <h1>Modificar receta</h1>
+        <h1>Modificar Usuario</h1>
 
         <% if (typeof errors != 'undefined') { %>
             <span>
@@ -34,7 +34,7 @@
 
         <span>
             <i class="fas fa-key"></i>
-            <input type="password" name="password" id="password" placeholder="Password del Usuario" value="<%= user.password %>">
+            <input type="password" name="password" id="password" placeholder="Password del Usuario" value="">
         </span>
 
         <select name="admin" id="admin">

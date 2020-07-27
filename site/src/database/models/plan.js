@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataTypes) =>{
 
-    let alias = 'plans';
+    let alias = 'Plans';
 
     let cols = {
         id: {
@@ -28,7 +28,7 @@ module.exports = (sequelize, DataTypes) =>{
 
     //Hago la asociación con la tabla relacionada. En la foreignKey va el nombre de la columna de la clave de la tabla asociada
     Plan.associate = function(models) {
-        Plan.hasMany(models.recipes, {
+        Plan.hasMany(models.Recipes, {
             foreignKey: 'planId',
             as: 'receta'
         });

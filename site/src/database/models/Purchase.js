@@ -23,7 +23,7 @@ module.exports = (sequelize, DataTypes) => {
     const Purchase = sequelize.define(alias, cols, config);
 
     Purchase.associate = models => {
-        Purchase.belongsTo(models.users, {
+        Purchase.belongsTo(models.Users, {
             alias: 'userPurchase',
             foreignKey: 'userId'
         })

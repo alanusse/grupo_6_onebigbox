@@ -3,6 +3,7 @@ const db = require('../database/models');
 const { validationResult } = require('express-validator');
 const bcrypt = require('bcryptjs');
 
+
 const planes = {
     PLAN_FAMILIAR: 1,
     PLAN_EQUILIBRADO: 2,
@@ -62,7 +63,6 @@ const controller = {
     altaPlanPost: (req, res) => {
         console.log(req.file);
         let errors = validationResult(req);
-        console.log(errors);
 
         if (errors.isEmpty()){
             // Inserto en la base de datos lo que el usuario ingresó
@@ -95,23 +95,25 @@ const controller = {
     },
 
     modificarPlanPost: (req, res) => {    
-        
+        console.log('Entré al post');
+
         let errors = validationResult(req);
-        console.log(req.body)
+
         if(errors.isEmpty()) {
             db.plans.update({
                 plan: req.body.plan,
                 description: req.body.description,
-                image: req.file.filename,
+                image:  (req.file)? req.file.filename : req.body.image,
             },
             {
                 where: {
                     id: req.params.id
                 }
             })
-            //.catch(error => {
-            //    console.log(error);
-            //})
+            .catch(error => {
+                console.log(error);
+            })
+
             console.log('Datos de plan actualizados!')
             return res.redirect('/admin/planes');
         } else {
@@ -155,12 +157,7 @@ const controller = {
     },
 
     altaRecetaPost: (req, res) => {
-        
-        console.log('entró al post');
-
         let errors = validationResult(req);
-        
-        console.log(errors);
 
         if (errors.isEmpty()){
                 
@@ -204,6 +201,7 @@ const controller = {
     modificarRecetaPost: (req, res) => {
         let errors = validationResult(req);
         console.log(req.body)
+
         if(errors.isEmpty()) {
             db.recipes.update({
                 titulo: req.body.title,
@@ -212,6 +210,7 @@ const controller = {
                 pasos: req.body.preparation,
                 tiempopreparacion: req.body.preparationtime,
                 precio: req.body.price,
+                image:  (req.file)? req.file.filename : req.body.image,
                 planId: req.body.recipeplan
             },
             {
@@ -259,6 +258,7 @@ const controller = {
        //Busco en la tabla Usuarios el que coincide con el parámetro
         db.users.findByPk(req.params.id)
         .then(function(user){
+            delete user.password;
             return res.render('admin/abm-users-modificacion', {user});
         })
         .catch(error => {
@@ -266,20 +266,25 @@ const controller = {
         })
     },
     editarUsuarioBD: (req, res) =>{
-       
-        db.users.update({ 
+
+        let user = {
             name : req.body.nombre,
             lastname : req.body.apellido,
             email : req.body.email,
-            password : bcrypt.hashSync(req.body.password, 10),
             admin: req.body.admin // Valor que figure en el combo
-        },
-        {
-            where:{ id: req.params.id}
-        })
+        }
+        if (req.body.password){
+            user.password = bcrypt.hashSync(req.body.password, 10);
+        }
+         
+       db.users.update(user,
+          {
+              where:{ id: req.params.id}
+          })
        .catch(error => {
             console.log(error);
         })
+
         console.log('Datos del usuario actualizados!')
         return res.redirect('/admin/users');
     },

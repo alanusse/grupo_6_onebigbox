@@ -7,13 +7,15 @@
                 <li class="items"><a href="/howtouse">Como funciona?</a></li>
                 <li class="items"><a href="/nosotros">Nosotros</a></li>
                 <% if (locals.user) { %>
-                    <li class="user"><a href="/user"><img class="img-user-avatar" src="img/avatar/<%= locals.user.avatar %>" alt="user-avatar"></a></li>
+                    <li class="user"><a href="/user"><img class="img-user-avatar" src="/img/avatar/<%= locals.user.avatar %>" alt="user-avatar"></a></li>
                 <% } else { %>
                     <li class="user"><a href="/user"><i class="far fa-user"></i></a></li>
                 <% } %> 
                 <!-- Comento los favoritos hasta que tenga funcionalidad -->
                 <!--<li class="user"><a href="#"><i class="far fa-heart"></i></a></li>-->
-                <li class="user"><a href="/cart"><i class="fas fa-shopping-basket"></i></a></li>
+                <% if (locals.user) { %>
+                    <li class="user"><a href="/cart"><i class="fas fa-shopping-basket"></i></a></li>
+                <% } %>
                 <% if (locals.user) { %>
                     <li class="user"><a href="/user/logout"><i class="fas fa-sign-out-alt"></i></a></li>
                 <% } %>

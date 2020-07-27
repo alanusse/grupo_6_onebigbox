@@ -1,6 +1,3 @@
-// const jsonModel = require('../models/jsonModel');
-// const usersModel = jsonModel('userDataBase');
-
 const { validationResult } = require ('express-validator');
 const bcrypt = require('bcryptjs');
 /* ******* CONSTANTES PARA TRABAJAR CON JSON *********** */
@@ -34,8 +31,13 @@ const controller ={
                 admin: rolUsuario.USER // USER: 0 o ADMIN:1 -->Por defecto, todos son 0 (USER)
             })
             .then(user =>{
-                delete req.body.password;
-                req.session.user = req.body;
+                delete user.dataValues.password;
+                req.session.user = user.dataValues;
+                
+                if (user.dataValues.admin){
+                    req.session.admin = resultado.dataValues.admin;
+                }
+
                 return res.redirect('/');
             })
             .catch(err => console.log(err))
@@ -61,8 +63,10 @@ const controller ={
                 delete resultado.dataValues.password;
                 req.session.user = resultado.dataValues;
                 
-                req.session.admin = resultado.dataValues.admin;
-
+                if (resultado.dataValues.admin){
+                    req.session.admin = resultado.dataValues.admin;
+                }
+            
                 if (req.body.checkRecordarme){
                     //Guardo en una cookie el usuario que se registró asi ya queda logueado en la aplicación. Tercer parámetro es el tiempo, lo establecido ahi es para que dure UN DIA
                     res.cookie('email', uresultado.dataValues.email, {maxAge: 1000 * 60 * 60 * 24});
@@ -83,7 +87,6 @@ const controller ={
         }
         return res.redirect('/');
     } 
-
 };
 
 module.exports = controller;

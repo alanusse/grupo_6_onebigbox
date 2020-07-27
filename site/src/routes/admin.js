@@ -11,8 +11,11 @@ router.use(adminCheck);
 // Copio el código del multer
 let storage = multer.diskStorage({
     destination: function (req, file, cb) {
+        console.log('Estoy en el multer y la URL es:' + req.url );
         
-        if (req.url == '/recetas/abm-recetas-alta'){
+        let ingredientes = req.url.split('/');
+        //Me paro en la primera posición que es la que contiene donde estoy parado, si en recetas o planes
+        if (ingredientes[1] == 'recetas') {
             console.log ('La URL donde estoy parado es: ' + req.url);
             cb(null, path.resolve(__dirname+ '../../../public/img/recetas'))
         }else{
@@ -67,7 +70,7 @@ router.get('/recetas/abm-recetas-alta', adminController.altaRecetaGet);
 router.get('/recetas/abm-recetas-modificacion/:id', adminController.modificarRecetaGet);
 
 router.post('/recetas/abm-recetas-alta', upload.single('image'), validator.altaReceta, adminController.altaRecetaPost);
-router.post('/recetas/abm-recetas-modificacion/:id', validator.updateRecipe, adminController.modificarRecetaPost);
+router.post('/recetas/abm-recetas-modificacion/:id', upload.single('image'), validator.updateRecipe, adminController.modificarRecetaPost);
 router.post('/recetas/eliminar-receta/:id', adminController.eliminarRecetaPost);
 
 

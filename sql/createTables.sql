@@ -1,6 +1,6 @@
--- CREATE SCHEMA BDONEBIGBOX;
+CREATE SCHEMA BDONEBIGBOX;
 
-USE  BDONEBIGBOX;
+-- USE  BDONEBIGBOX;
 
 CREATE TABLE users (
 	id int unsigned primary key auto_increment,

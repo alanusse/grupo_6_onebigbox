@@ -50,7 +50,7 @@ module.exports = (sequelize, DataTypes) => {
     const Item = sequelize.define(alias, cols, config);
 
     Item.associate = function(models) {
-        Item.hasMany(models.users, {
+        Item.hasMany(models.Users, {
             foreignKey: 'id',
             as: 'userItems'
         });
