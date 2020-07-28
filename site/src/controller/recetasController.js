@@ -6,7 +6,7 @@ const db = require('../database/models');
 const controller ={
     root: (req, res) => {
         // Consulto las recetas en la base de datos
-         db.recipes.findAll()
+         db.Recipes.findAll()
             .then((recetas) => {
                 // Redirecciono a la vista con las recetas que haya encontrado en la base
                 return res.render('recetas-list', {recetas});
@@ -17,7 +17,7 @@ const controller ={
     },
 
     detail:(req, res) => {
-        db.recipes.findByPk(req.params.recetaId)
+        db.Recipes.findByPk(req.params.recetaId)
             .then((receta) =>{
                 return res.render('receta-detail', {receta});
             })

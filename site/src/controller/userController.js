@@ -22,7 +22,7 @@ const controller ={
         let errors = validationResult(req);
         if (errors.isEmpty()){
             
-            db.users.create({ 
+            db.Users.create({ 
                 name : req.body.nombre,
                 lastname : req.body.apellido,
                 email : req.body.email,
@@ -55,7 +55,7 @@ const controller ={
         
         if (errors.isEmpty()){
 
-            db.users.findOne({
+            db.Users.findOne({
                 where: {email:req.body.email}
             })
             .then(function(resultado){

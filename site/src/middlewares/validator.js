@@ -25,7 +25,7 @@ module.exports = {
             .withMessage('El correo electrónico no es válido')
             .bail()
             .custom(function(value, {req}){
-              return db.users.findOne({
+              return db.Users.findOne({
                   where: {
                       email: value
                   }
@@ -74,7 +74,7 @@ module.exports = {
             .withMessage('El correo electrónico es obligatorio')
             .bail()
             .custom( function(value, {req}){
-                return db.users.findOne({
+                return db.Users.findOne({
                     where: { email: value }
                 })
                 .then(user => {

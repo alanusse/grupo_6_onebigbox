@@ -17,7 +17,7 @@ const controller = {
         let errors = validationResult(req);
 
         if(errors.isEmpty()) {
-            db.users.findOne({
+            db.Users.findOne({
                 where: {
                     email: req.body.email
                 }
@@ -47,7 +47,7 @@ const controller = {
     },
 
     planes: (req, res) => {
-        db.plans.findAll()
+        db.Plans.findAll()
         .then((planes) => {
             return res.render('admin/abm-planes-list', {planes});
         })
@@ -66,13 +66,13 @@ const controller = {
 
         if (errors.isEmpty()){
             // Inserto en la base de datos lo que el usuario ingresó
-            db.plans.create({
+            db.Plans.create({
                 plan: req.body.plan,
                 description: req.body.description,
                 image: (req.file)? req.file.filename:'image1.png',
             });
         }else{
-            db.plans.findAll()
+            db.Plans.findAll()
             .then((planes) => {
                 return res.render('admin/abm-planes-alta', {planes, errors : errors.errors, old: req.body});
             })
@@ -81,7 +81,7 @@ const controller = {
     },
 
     modificarPlanGet: (req, res) => {
-        db.plans.findByPk(req.params.id)
+        db.Plans.findByPk(req.params.id)
         .then(plan => {
             if(plan != null) {
                 return res.render('admin/abm-planes-modificacion', { plan });
@@ -95,12 +95,10 @@ const controller = {
     },
 
     modificarPlanPost: (req, res) => {    
-        console.log('Entré al post');
-
-        let errors = validationResult(req);
+       let errors = validationResult(req);
 
         if(errors.isEmpty()) {
-            db.plans.update({
+            db.Plans.update({
                 plan: req.body.plan,
                 description: req.body.description,
                 image:  (req.file)? req.file.filename : req.body.image,
@@ -127,7 +125,7 @@ const controller = {
     },
 
     eliminarPlanPost: (req, res) => {
-        db.plans.destroy({
+        db.Plans.destroy({
             where: {
                 id: req.params.id
             }
@@ -136,7 +134,7 @@ const controller = {
     },
 
     recetas: (req, res) => {
-        db.recipes.findAll()
+        db.Recipes.findAll()
             .then((recetas) => {
                 return res.render('admin/abm-recetas-list', {recetas});
             })
@@ -147,7 +145,7 @@ const controller = {
 
     altaRecetaGet: (req, res) => {
         //Busco los planes que existen en la BD para cargar el combo
-        db.plans.findAll()
+        db.Plans.findAll()
         .then((planes) => {
             return res.render('admin/abm-recetas-alta', {planes});
         })
@@ -162,7 +160,7 @@ const controller = {
         if (errors.isEmpty()){
                 
             // Inserto en la base de datos lo que el usuario ingresó
-            db.recipes.create({
+            db.Recipes.create({
                 titulo: req.body.titulo,
                 description: req.body.description,
                 tiempopreparacion: req.body.preparationtime,
@@ -177,7 +175,7 @@ const controller = {
 
         }else{
             
-            db.plans.findAll()
+            db.Plans.findAll()
             .then((planes) => {
                 return res.render('admin/abm-recetas-alta', {planes, errors : errors.errors, old: req.body});
             })
@@ -185,7 +183,7 @@ const controller = {
     },
 
     modificarRecetaGet: (req, res) => {
-        db.recipes.findByPk(req.params.id)
+        db.Recipes.findByPk(req.params.id)
         .then(data => {
             if(data != null) {
                 return res.render('admin/abm-recetas-modificacion', { data });
@@ -200,10 +198,8 @@ const controller = {
 
     modificarRecetaPost: (req, res) => {
         let errors = validationResult(req);
-        console.log(req.body)
-
         if(errors.isEmpty()) {
-            db.recipes.update({
+            db.Recipes.update({
                 titulo: req.body.title,
                 description: req.body.description,
                 ingredientes: req.body.ingredients,
@@ -237,7 +233,7 @@ const controller = {
     },
     
     eliminarRecetaPost: (req, res) => {
-        db.recipes.destroy({
+        db.Recipes.destroy({
             where: {
                 id: req.params.id
             }
@@ -246,7 +242,7 @@ const controller = {
     },
     listarUsuarios: (req, res) =>{
         //Obtengo todos los usuarios de la base de datos
-        db.users.findAll()
+        db.Users.findAll()
             .then(function(users){
                 return res.render('admin/abm-users-list', {users});
             })
@@ -256,7 +252,7 @@ const controller = {
     },
     editarUsuario: (req, res) => {
        //Busco en la tabla Usuarios el que coincide con el parámetro
-        db.users.findByPk(req.params.id)
+        db.Users.findByPk(req.params.id)
         .then(function(user){
             delete user.password;
             return res.render('admin/abm-users-modificacion', {user});
@@ -277,7 +273,7 @@ const controller = {
             user.password = bcrypt.hashSync(req.body.password, 10);
         }
          
-       db.users.update(user,
+       db.Users.update(user,
           {
               where:{ id: req.params.id}
           })
@@ -290,7 +286,7 @@ const controller = {
     },
     eliminarUsuarioBD : (req, res) =>{
         //ID del Usuario a eliminar: req.params.id
-        db.users.destroy({
+        db.Users.destroy({
             where: {
                 id: req.params.id
             }

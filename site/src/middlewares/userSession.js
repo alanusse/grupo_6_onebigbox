@@ -1,7 +1,3 @@
-/*
-const jsonModel = require('../models/jsonModel');
-const usersModel = jsonModel('userDataBase');
-*/
 const db = require('../database/models');
 
 const log = (req, res, next) => {
@@ -15,7 +11,7 @@ const log = (req, res, next) => {
         return next();
     }else if(req.cookies.email){
         
-        db.users.findOne({
+        db.Users.findOne({
             where: {email:req.cookies.email}
         })
         .then(function(user){

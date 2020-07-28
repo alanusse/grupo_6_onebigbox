@@ -18,7 +18,7 @@ const controller ={
     root: (req, res) => {
        
        /* **** CODIGO PARA DB ***** */
-       db.plans.findAll()
+       db.Plans.findAll()
        .then((planes)  => {
             let instructive = instructivoModel.leerJson(); // Como no está el modelo del instructivo, lo leo del JSON
             return res.render('planes-list', {planes, instructive});
@@ -34,12 +34,12 @@ const controller ={
         // El plan 4 es el plan personalizado
 
         if (planBuscado != planes.PLAN_PERSONALIZADO){
-            db.plans.findByPk(planBuscado, {
+            db.Plans.findByPk(planBuscado, {
                 include: [{association: 'receta'}]
             })
             .then((plan) => {
                 //Calculo el precio total del plan consultando en la BD de recetas por el Plan elegido
-                db.recipes.sum('precio', {
+                db.Recipes.sum('precio', {
                     where: {
                         planId: planBuscado
                     }
@@ -52,7 +52,7 @@ const controller ={
                 })
             })
         }else{
-            db.recipes.findAll()
+            db.Pecipes.findAll()
             .then((recetas) => {
                 return res.render('plan-personalizado', {recetas});
             })
