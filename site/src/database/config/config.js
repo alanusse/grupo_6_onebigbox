@@ -1,4 +1,4 @@
-/*
+
 module.exports = {
   "development": {
       "username": "root",
@@ -25,9 +25,10 @@ module.exports = {
       "dialect":  "mysql"
   }
 }
-*/
+
 /** CONFIGURACIÓN WINDOWS */
- module.exports = {
+/*
+module.exports = {
     "development": {
     "username": "root",
     "password": "",
@@ -56,3 +57,4 @@ module.exports = {
     "dialect": "mysql"
     }
  }
+*/
