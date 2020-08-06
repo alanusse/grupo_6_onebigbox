@@ -52,7 +52,7 @@ const controller ={
                 })
             })
         }else{
-            db.Pecipes.findAll()
+            db.Recipes.findAll()
             .then((recetas) => {
                 return res.render('plan-personalizado', {recetas});
             })

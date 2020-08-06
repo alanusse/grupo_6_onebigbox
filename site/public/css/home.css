@@ -1398,7 +1398,7 @@ form.recipe-update select#recipe-plan:focus {
 /*JF*/
 
 .btn-modificar{
-    background-color: #77D353;
+    background-color: #77d35387;
     font-size: 15px;
 }
 .btn-eliminar{
@@ -1446,7 +1446,7 @@ form.recipe-update select#recipe-plan:focus {
 
 form.recipe-update input#crear {
     color: #fff;
-    background-color: #77D353;
+    background-color: #77d35387;
     text-transform: uppercase;
     font-weight: 600;
     transition: ease-in-out .3s;

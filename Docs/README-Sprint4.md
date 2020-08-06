@@ -49,6 +49,13 @@ HOME
 -- LOGIN -> http://localhost:3000/user
 --- REGISTRO -> http://localhost:3000/user/register
 -- CARRITO -> http://localhost:3000/cart
+
+
+ADMIN
+- http://localhost:3000/admin
+
+
+
 ---------------------------------------------
 REDES SOCIALES
 - mail:  contactoonebigbox@gmail.com

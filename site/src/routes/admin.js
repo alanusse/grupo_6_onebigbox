@@ -6,7 +6,8 @@ const path = require('path');
 const validator = require('../middlewares/validator');
 const adminCheck = require('../middlewares/adminCheck');
 
-router.use(adminCheck);
+// JS -> DESCOMENTAR!!!!
+//router.use(adminCheck);
 
 // Copio el código del multer
 let storage = multer.diskStorage({
@@ -16,10 +17,11 @@ let storage = multer.diskStorage({
         let ingredientes = req.url.split('/');
         //Me paro en la primera posición que es la que contiene donde estoy parado, si en recetas o planes
         if (ingredientes[1] == 'recetas') {
-            console.log ('La URL donde estoy parado es: ' + req.url);
             cb(null, path.resolve(__dirname+ '../../../public/img/recetas'))
-        }else{
+        }else if (ingredientes[1] == 'planes'){
             cb(null, path.resolve(__dirname+ '../../../public/img/planes'))
+        }else{
+          cb(null, path.resolve(__dirname+ '../../../public/img/avatar'))
         }
             
     },
@@ -77,7 +79,12 @@ router.post('/recetas/eliminar-receta/:id', adminController.eliminarRecetaPost);
 // Usuarios
 router.get('/users', adminController.listarUsuarios);
 router.get('/users/abm-users-modificacion/:id', adminController.editarUsuario);
-router.post('/users/abm-users-modificacion/:id', adminController.editarUsuarioBD);
-router.post('/users/abm-users-eliminar/:id', adminController.eliminarUsuarioBD);
+//router.post('/users/abm-users-modificacion/:id',upload.single('avatar'), validator.updateUser, adminController.editarUsuarioBD);
+router.post('/users/abm-users-modificacion/:id',upload.single('avatar'), validator.updateUser, adminController.editarUsuarioBD);
+router.post('/users/abm-users-eliminar/:id/:mail?', adminController.eliminarUsuarioBD);
+
+router.get('/users/abm-users-alta', adminController.altaUsuario);
+router.post('/users/abm-users-alta', upload.single('avatar'), validator.createUser, adminController.altaUsuarioBD);
+
 
 module.exports = router;

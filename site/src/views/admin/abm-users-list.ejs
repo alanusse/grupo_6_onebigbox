@@ -9,9 +9,9 @@
     <section  class="admin-user-list">
         <div>
             <h2 class="title"> LISTA DE USUARIOS </h2>
+            <li><a href="./users/abm-users-alta" class="btn-home btn-d-block btn-nuevo">NUEVO USUARIO</a></li>
         </div>
-
-        <% if (typeof errors != 'undefined') { %>
+         <% if (typeof errors != 'undefined') { %>
             <span>
                 <ul style="background-color: #ff6868; padding: 15px 20px; border-radius: 10px; width: 100%;">
                     <% errors.forEach(error => { %>
@@ -30,7 +30,7 @@
                         <li><img src="/img/avatar/<%= user.avatar %> " alt="<%= user.name + ' ' + user.lastname %> "></li>
                         <li class="title"><%= user.name + ' ' + user.lastname %></li>
                         <li><a href="/admin/users/abm-users-modificacion/<%= user.id %>" class="btn-home btn-d-block btn-naranja btn-modificar">MODIFICAR</a></li>
-                        <li><form action="/admin/users/abm-users-eliminar/<%= user.id %>" method="POST"><input type="submit" class="btn-home btn-d-block btn-eliminar" value="Eliminar"></form></li>
+                        <li><form action="/admin/users/abm-users-eliminar/<%= user.id %>/<%= user.email %>"method="POST"><input type="submit" class="btn-home btn-d-block btn-eliminar" value="Eliminar"></form></li>
                     </ul>
                 </div>
             <% }) %>

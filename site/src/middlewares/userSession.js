@@ -15,7 +15,6 @@ const log = (req, res, next) => {
             where: {email:req.cookies.email}
         })
         .then(function(user){
-            
             delete user.password; 
             req.session.user = user; // Guardo al usuario en sesión
             res.locals.user = user; // Guardo los datos del usuario en la variable Locals para que sean visibles por la vista

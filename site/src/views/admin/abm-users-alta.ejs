@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
-    <%- include('../partials/head', { title: 'Modificar Usuario - One Big Box' }); %>
+    <%- include('../partials/head', { title: 'Crear Usuario Usuario - One Big Box' }); %>
 <body>
     <%- include('../partials/header-admin'); %>
 
-    <form action="../abm-users-modificacion/<%= user.id %>" method="POST" class="recipe-update" enctype="multipart/form-data">
-        <h1>Modificar Usuario</h1>
+    <form action="../users/abm-users-alta" method="POST" class="recipe-update" enctype="multipart/form-data">
+        <h1>Alta Usuario</h1>
 
         <% if (typeof errors != 'undefined') { %>
             <span>
@@ -16,50 +16,50 @@
                 </ul>
             </span>
         <% } %>
-      
+       
         <span>
             <i class="fas fa-user"></i>
-            <input type="text" name="name" id="name" placeholder="Nombre del Usuario" value="<%= typeof old == 'undefined' ? null : old.name %>">
-            
+            <input type="text" name="name" id="name" placeholder="Nombre del Usuario" value="<%= typeof old == 'undefined' ? null : old.nombre %>"  >
         </span>
      
         <span>
             <i class="fas fa-file-signature"></i>
-            <input type="text" name="lastname" id="lastname" placeholder="Apellido del Usuario" value="<%= typeof old == 'undefined' ? null : old.lastname %>">
+            <input type="text" name="lastname" id="lastname" placeholder="Apellido del Usuario" value="<%= typeof old == 'undefined' ? null : old.apellido %>"  >
         </span>
 
         <span>
             <i class="fas fa-envelope"></i>
-            <input type="text" name="email" id="email" placeholder="Email del Usuario" value="<%= typeof old == 'undefined' ? null : old.email %>">
+            <input type="text" name="email" id="email" placeholder="Email del Usuario" value="<%= typeof old == 'undefined' ? null : old.email %>"  >
         </span>
 
         <span>
             <i class="fas fa-key"></i>
-            <input type="password" name="password" id="password" placeholder="Si no ingresa una nueva contraseña quedará la anterior" value="">
+            <input type="password" name="password" id="password" placeholder="Password del Usuario" value=""  >
         </span>
 
         <select name="admin" id="admin">
             <% if (typeof old == 'undefined') { %>
-                <option value="0" >USER</option>
-                <option value="1">ADMIN</option>
-            <% } else if (old.admin == 0) { %>
+                <option value="0">USER</option>
+                <option value="1">ADMIN</option>       
+            <% } else if ((old.admin == '0')) { %>
                 <option value="0" selected>USER</option>
                 <option value="1">ADMIN</option>
-            <% }else{ %>
+            <% } else { %>
                 <option value="0">USER</option>
-                <option value="1" selected>ADMIN</option>
-            <%}%>
+                <option value="1" selected >ADMIN</option>
+            <% } %>
         </select>
+     
 
         <div class="file">
             <i class="fas fa-upload"></i>
             <p>Cargar Imagen</p>
-            <input type="file" name="avatar" id="avatar" value= "/img/avatar/+<%= user.avatar%>">
+            <input type="file" name="avatar" id="avatar">
         </div>
 
         <div class="update-action-btns">
             <a href="/admin">Cancelar</a>
-            <input type="submit" value="Modificar Usuario">
+            <input type="submit" value="Crear">
         </div>
     </form>
 </body>
