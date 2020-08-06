@@ -5,28 +5,29 @@
 <body>
     <!-- Header -->
 	<%- include('../partials/header-admin') %>
-	<!-- /Header -->
-    <section  >
-        <div class = "admin-nueva">
-            <h2 class="title">RECETAS</h2>
-            <li><a href="./recetas/abm-recetas-alta" class="btn-home btn-d-block btn-nuevo">AGREGAR NUEVA RECETA</a></li>
-        </div>
-        <main class="boxes lista-boxes">
-            <% recetas.forEach(receta => { %>
-                <div class="box box-full">
-                    <ul>
-                        <li><img src="/img/recetas/<%= receta.image %> " alt="<%= receta.titulo %> "></li>
-                        <li class="title"><%= receta.titulo %></li>
-                        
-                        <li><a href="/admin/recetas/abm-recetas-modificacion/<%= receta.id %>" class="btn-home btn-d-block btn-naranja btn-modificar">MODIFICAR</a></li>
-                        <li><form action="/admin/recetas/eliminar-receta/<%= receta.id %>" method="POST"><input type="submit" class="btn-home btn-d-block btn-eliminar" value="Eliminar"></form></li>
-                   
-                    </ul>
+    <!-- /Header -->
+    
+    <div class="list-header">
+        <h1>Recetas</h1>
+        <a href="./recetas/abm-recetas-alta" class="recipe-btn recipe-create"><i class="fas fa-plus"></i>Crear receta</a>
+    </div>
+    <main class="recipes-list">
+        <% recetas.forEach(receta => { %>
+            <div class="recipe-item">
+                <div class="recipe-info">
+                    <img src="/img/recetas/<%= receta.image %>" alt="recipe_image">
+                    <h2><%= receta.titulo %></h2>
                 </div>
-            <% }) %>
-            
-        </main>
-    </section>
+                <div class="recipe-actions">
+                    <a href="/admin/recetas/abm-recetas-modificacion/<%= receta.id %>" class="recipe-btn recipe-modify"><i class="fas fa-edit"></i>Modificar</a>
+                    <form action="/admin/recetas/eliminar-receta/<%= receta.id %>" method="POST" class="recipe-btn recipe-delete btn-eliminar">
+                        <i class="fas fa-trash-alt"></i>
+                        <input type="submit" value="Eliminar">
+                    </form>
+                </div>
+            </div>
+        <% }) %>
+    </main>
     <script src="/js/script.js"></script>
 </body>
 </html>

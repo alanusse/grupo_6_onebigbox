@@ -226,6 +226,105 @@ section ul li.description {
 .instructive ul li img {
     width: 100%;
 }
+
+.recipe-btn {
+    padding: 5px 15px;
+    border-radius: 30px;
+    color: white;
+    font-size: 13px;
+    cursor: pointer;
+    height: 30px;
+}
+
+.recipe-btn input[type="submit"] {
+    border: none;
+    color: white;
+    font-size: 13px;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.recipe-btn input[type="submit"]:focus {
+    outline: none;
+}
+
+.recipe-btn i {
+    margin-right: 7px;
+}
+
+.recipe-btn.recipe-create {
+    background-color: #7cd07c;
+}
+
+main.recipes-list .recipe-btn.recipe-modify {
+    background-color: var(--orange);
+}
+
+main.recipes-list .recipe-btn.recipe-delete {
+    background-color: #ff5656;
+}
+
+.list-header {
+    width: 100%;
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.list-header h1 {
+    font-size: 25px;
+    font-weight: 600;
+}
+
+main.recipes-list {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto 20px auto;
+    padding: 0 20px;
+}
+
+main.recipes-list .recipe-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #a2a2a2;
+    border-radius: 8px;
+    padding: 10px;
+    margin: 5px 0;
+    transition: .3s;
+}
+
+main.recipes-list .recipe-item:hover {
+    background-color: #dcdcdc;
+}
+
+main.recipes-list .recipe-item .recipe-info,
+main.recipes-list .recipe-item .recipe-actions {
+    display: flex;
+    align-items: center;
+}
+
+main.recipes-list .recipe-item .recipe-actions a {
+    margin-right: 20px;
+}
+
+main.recipes-list .recipe-item .recipe-info img {
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    object-fit: cover;
+    object-position: center;
+    border: 1px solid #d2d2d2;
+    margin-right: 20px;
+}
+
+main.recipes-list .recipe-item .recipe-info h2 {
+    font-size: 18px;
+    font-weight: 600;
+}
 /* HOMEPAGE Y PLANES */
 
 
@@ -910,11 +1009,13 @@ h3.selected-plans {
     height: 40px;
     object-fit: cover;
     border: 2px solid var(--dark-blue);
-    transition: .3s;
+    transition: ease-in-out .3s;
 }
 
 .header-nav ul li.user .img-user-avatar:hover {
-    transform: scale(1.1);
+    -webkit-box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.75);
 }
 
 .header-nav ul li a {
@@ -1114,6 +1215,7 @@ footer {
 .admin-login form input[type="text"]:focus,
 .admin-login form input[type="password"]:focus {
     border-color: var(--orange);
+    outline: none;
 }
 
 .admin-login form div i {
