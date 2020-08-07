@@ -23,10 +23,18 @@ const controller = {
                 }
             })
             .then(data => {
+                console.log('Entró en el Then y la data es:')
+                console.log(data.dataValues);
+
                 if(data !== null) {
-                    if(bcrypt.compareSync(req.body.password, data.password)) {
-                        if(data.admin != 0) {
-                            req.session.admin = req.body.email;
+                    if(bcrypt.compareSync(req.body.password, data.dataValues.password)) {
+                        if(data.dataValues.admin != 0) {
+                            //Me fijo si exite una cookie activa y si esa cookie es diferente al usuario que se está logueando
+                            if ((req.cookies.email) && (req.cookies.email !== data.dataValues.email)){
+                                res.clearCookie('email'); 
+                            }
+                            delete data.dataValues.password; // Por seguridad borramos la password
+                            req.session.user = data.dataValues;
                             return res.redirect('/admin/planes');
                         } else {
                             errors.errors.push({ msg: 'Esta sección es únicamente para administradores' });
@@ -40,6 +48,9 @@ const controller = {
                     errors.errors.push({ msg: 'No se encontró una cuenta con esas credenciales' });
                     return res.render('admin/admin-login', { errors: errors.errors });
                 }
+            })
+            .catch(error=>{
+                console.log(error);
             })
         } else {
             return res.render('admin/admin-login', { errors: errors.errors });
@@ -250,7 +261,9 @@ const controller = {
     /*USUARIOS*/
     listarUsuarios: (req, res) =>{
         //Obtengo todos los usuarios de la base de datos
-        db.Users.findAll()
+        db.Users.findAll({
+            order: [['admin', 'DESC']],
+        })
             .then(function(users){
                 return res.render('admin/abm-users-list', {users});
             })
@@ -307,10 +320,6 @@ const controller = {
 
     },
     eliminarUsuarioBD : (req, res) =>{
-        console.log('Parámetros:');
-        console.log('ID' + req.params.id);
-        console.log('mail:'+ req.params.mail);
-        
         //ID del Usuario a eliminar: req.params.id
         db.Users.destroy({
             where: {

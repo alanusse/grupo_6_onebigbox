@@ -62,11 +62,7 @@ const controller ={
                 //Borro la contraseña
                 delete resultado.dataValues.password;
                 req.session.user = resultado.dataValues;
-                
-                if (resultado.dataValues.admin){
-                    req.session.admin = resultado.dataValues.admin;
-                }
-            
+              
                 if (req.body.checkRecordarme){
                     //Guardo en una cookie el usuario que se registró asi ya queda logueado en la aplicación. Tercer parámetro es el tiempo, lo establecido ahi es para que dure UN DIA
                     res.cookie('email', resultado.dataValues.email, {maxAge: 1000 * 60 * 60 * 24});

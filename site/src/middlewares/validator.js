@@ -314,7 +314,7 @@ module.exports = {
       .bail()
       .isEmail()
       .withMessage('El correo electrónico no es válido')
-      .bail(),/*
+      .bail()
       .custom(function(value, {req}){
         return db.Users.findOne({
             where: {
@@ -323,10 +323,10 @@ module.exports = {
         }).then(user => {
           if (user){
             //Acá tengo el usuario encontrado en la base de datos. Por l cual, no podría registrarse con un mail existente
-            return Promise.reject('Usuario ya existe');
+            return Promise.reject('Usuario ya existe, por favor indique otro correo electrónico');
           }
         });
-      }),  */
+      }), 
   body('password')
       .custom((value, {req})=> {
         console.log('La password contiene' + req.body.password);

@@ -38,9 +38,7 @@ app.use(session({ secret: "Mensaje Secreto", resave: false, saveUninitialized: t
 // ** Middleware para la sessión **
 app.use(userSession);
 
-
 //********** ACCESO A LAS RUTAS **********
-
 app.use('/', homeRouter);
 app.use('/user', usersRouter);
 app.use('/planes', planesListRouter);

@@ -1571,34 +1571,104 @@ form.recipe-update input#cancelar {
 
 /*Users*/
 /*JF:ADMIN*/
-.admin-user-list{
+/*Lista de Usuarios*/
+main.user-list {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto 20px auto;
+    padding: 0 20px;
+    
+}
+main.user-list .user-item {
     display: flex;
-    align-items: baseline;
-    flex-direction: column;
-    padding-left: 10%;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #a2a2a2;
+    border-radius: 8px;
+    padding: 10px;
+    margin: 5px 0;
+    transition: .3s;
 }
-.admin-user-list div{
-    flex-direction: row;
-    justify-content: center;
+main.user-list .user-item:hover {
+    background-color: #dcdcdc;
 }
-.lista-boxes-users {
+.user-info{
     flex-wrap: wrap;
-    margin: 30px 100px;
-
 }
-.users-box {
-    border-radius: 20px;
-    box-shadow: 0px 20px 34px -20px var(--dark-grey);
-    justify-content: center;
-    align-content: center;
-    margin-bottom: 15px;
-    background-color: white;
-}
-.users-box-full {
-    width: 20%;
-    margin: 5%;
+main.user-list .user-item .user-info,
+main.user-list .user-item .user-actions {
+    display: flex;
+    align-items: center;
 }
 
+main.user-list .user-item .user-actions a {
+    margin-right: 20px;
+}
+
+main.user-list .user-item .user-info img {
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    object-fit: cover;
+    object-position: center;
+    border: 1px solid #d2d2d2;
+    margin-right: 20px;
+}
+
+main.user-list .user-item .user-info h2 {
+    font-size: 18px;
+    font-weight: 600;
+}
+main.user-list .user-item .user-info h3 {
+    font-size: 14px;
+    font-weight: 400;
+}
+main.user-list .user-item .user-info h4 {
+    font-size: 12px;
+    font-weight: 400;
+}
+.user-btn {
+    padding: 5px 15px;
+    border-radius: 30px;
+    color: white;
+    font-size: 13px;
+    cursor: pointer;
+    height: 30px;
+}
+
+.user-btn input[type="submit"] {
+    border: none;
+    color: white;
+    font-size: 13px;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.user-btn input[type="submit"]:focus {
+    outline: none;
+}
+
+.user-btn i {
+    margin-right: 7px;
+}
+
+.user-btn.user-create {
+    background-color: #7cd07c;
+}
+
+main.user-list .user-btn.user-modify {
+    background-color: var(--orange);
+}
+
+main.user-list .user-btn.user-delete {
+    background-color: #ff5656;
+}
+
+
+
+/* FIN - Lista de Usuarios*/
+
+/*Alta y modificación de usuarios*/
 .btn-admin {
     display: block;
     text-align: center;

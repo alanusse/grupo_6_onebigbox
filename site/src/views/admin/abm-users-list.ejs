@@ -1,48 +1,48 @@
 <!DOCTYPE html>
 <html lang="es">
 <!-- Include Head -->
-<%- include('../partials/head', {title: 'Admin Lista de Usuarios - One Big Box'}) %>
+<%- include('../partials/head', {title: 'Listado de Recetas'}) %>
 <body>
     <!-- Header -->
-    <%- include('../partials/header-admin') %>
+	<%- include('../partials/header-admin') %>
     <!-- /Header -->
-    <section  class="admin-user-list">
-        <div>
-            <h2 class="title"> LISTA DE USUARIOS </h2>
-            <li><a href="./users/abm-users-alta" class="btn-home btn-d-block btn-nuevo">NUEVO USUARIO</a></li>
-        </div>
-         <% if (typeof errors != 'undefined') { %>
-            <span>
-                <ul style="background-color: #ff6868; padding: 15px 20px; border-radius: 10px; width: 100%;">
-                    <% errors.forEach(error => { %>
-                        <li style="color: #fff; list-style: disc; margin-left: 20px; font-size: 14px;"><%= error.msg %></li>
-                    <% }) %>
-                </ul>
-            </span>
-        <% } %>
+    
+    <div class="list-header">
+        <h1>Usuarios</h1>
+        <a href="./users/abm-users-alta" class="user-btn user-create"><i class="fas fa-plus"></i>Crear Usuario</a>
+    </div>
+    <%if (users.length>0) { %>
+        <main class="user-list">
 
-        <%if (users) { %>
-        <main class="boxes lista-boxes-users">
-              
-            <% users.forEach(user  => { %>
-                <div class="users-box users-box-full">
-                    <ul>
-                        <li><img src="/img/avatar/<%= user.avatar %> " alt="<%= user.name + ' ' + user.lastname %> "></li>
-                        <li class="title"><%= user.name + ' ' + user.lastname %></li>
-                        <li><a href="/admin/users/abm-users-modificacion/<%= user.id %>" class="btn-home btn-d-block btn-naranja btn-modificar">MODIFICAR</a></li>
-                        <li><form action="/admin/users/abm-users-eliminar/<%= user.id %>/<%= user.email %>"method="POST"><input type="submit" class="btn-home btn-d-block btn-eliminar" value="Eliminar"></form></li>
-                    </ul>
+            <% users.forEach(user => { %>
+                <div class="user-item">
+                    <div class="user-info">
+                        <img src="/img/avatar/<%= user.avatar %> " alt="<%= user.name + ' ' + user.lastname %> ">
+                        <div>
+                            <h2><%= user.name + ' ' + user.lastname %> </h2>
+                            <h3><%= user.email %></h3>
+                            <h4><%= (user.admin) ? 'ADMIN' : '' %></h4>
+                            
+                        </div>
+                    </div>
+                    
+                    <div class="user-actions">
+                        <a href="/admin/users/abm-users-modificacion/<%= user.id %>" class="user-btn user-modify"><i class="fas fa-edit"></i>Modificar</a>
+                        <form  action="/admin/users/abm-users-eliminar/<%= user.id %>/<%= user.email %>" method="POST" class="user-btn user-delete btn-eliminar">
+                            <i class="fas fa-trash-alt"></i>
+                            <input type="submit" value="Eliminar">
+                        </form>
+                    </div>
                 </div>
             <% }) %>
-            
         </main>
-        <%} else {%>
-            <span>
-                <ul style="background-color: #ff6868; padding: 15px 20px; border-radius: 10px; width: 100%;">
-                    <li style="color: #fff; list-style: disc; margin-left: 20px; font-size: 14px;">No hay usuarios en la Base de datos</li>
-                </ul>
-            </span>
-        <%}%>
-    </section  >
+    <%} else {%>
+        <span>
+            <ul style="background-color: #ff6868; margin-left: 10% ; padding: 15px 20px; border-radius: 10px; width: 80%;">
+                <li style="color: #fff; list-style: disc; margin-left: 20px; font-size: 14px;">No hay usuarios en la Base de datos</li>
+            </ul>
+        </span>
+    <%}%>    
+   
 </body>
 </html>
