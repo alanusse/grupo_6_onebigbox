@@ -136,6 +136,7 @@ section ul li.description {
 
 .boxes {
     display: flex;
+    flex-direction: column;
 }
 .home-planes {
     width: 100%;
@@ -153,7 +154,6 @@ section ul li.description {
 
 .box {
     display: flex;
-    flex-direction: column;
     border-radius: 20px;
     box-shadow: 0px 20px 34px -20px var(--dark-grey);
     justify-content: center;
@@ -227,7 +227,7 @@ section ul li.description {
     width: 100%;
 }
 
-.recipe-btn {
+.admin-btn {
     padding: 5px 15px;
     border-radius: 30px;
     color: white;
@@ -236,7 +236,7 @@ section ul li.description {
     height: 30px;
 }
 
-.recipe-btn input[type="submit"] {
+.admin-btn input[type="submit"] {
     border: none;
     color: white;
     font-size: 13px;
@@ -244,23 +244,23 @@ section ul li.description {
     cursor: pointer;
 }
 
-.recipe-btn input[type="submit"]:focus {
+.admin-btn input[type="submit"]:focus {
     outline: none;
 }
 
-.recipe-btn i {
+.admin-btn i {
     margin-right: 7px;
 }
 
-.recipe-btn.recipe-create {
+.admin-btn.admin-create {
     background-color: #7cd07c;
 }
 
-main.recipes-list .recipe-btn.recipe-modify {
+main.admin-list .admin-btn.admin-modify {
     background-color: var(--orange);
 }
 
-main.recipes-list .recipe-btn.recipe-delete {
+main.admin-list .admin-btn.admin-delete {
     background-color: #ff5656;
 }
 
@@ -279,14 +279,14 @@ main.recipes-list .recipe-btn.recipe-delete {
     font-weight: 600;
 }
 
-main.recipes-list {
+main.admin-list {
     width: 100%;
     max-width: 1000px;
     margin: 0 auto 20px auto;
     padding: 0 20px;
 }
 
-main.recipes-list .recipe-item {
+main.admin-list .admin-item {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -297,21 +297,21 @@ main.recipes-list .recipe-item {
     transition: .3s;
 }
 
-main.recipes-list .recipe-item:hover {
+main.admin-list .admin-item:hover {
     background-color: #dcdcdc;
 }
 
-main.recipes-list .recipe-item .recipe-info,
-main.recipes-list .recipe-item .recipe-actions {
+main.admin-list .admin-item .admin-info,
+main.admin-list .admin-item .admin-actions {
     display: flex;
     align-items: center;
 }
 
-main.recipes-list .recipe-item .recipe-actions a {
+main.admin-list .admin-item .admin-actions a {
     margin-right: 20px;
 }
 
-main.recipes-list .recipe-item .recipe-info img {
+main.admin-list .admin-item .admin-info img {
     width: 50px;
     height: 50px;
     border-radius: 100%;
@@ -321,7 +321,7 @@ main.recipes-list .recipe-item .recipe-info img {
     margin-right: 20px;
 }
 
-main.recipes-list .recipe-item .recipe-info h2 {
+main.admin-list .admin-item .admin-info h2 {
     font-size: 18px;
     font-weight: 600;
 }

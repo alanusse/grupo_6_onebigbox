@@ -9,28 +9,28 @@
 	<!-- /Header -->
     <section>
 
-            <div class="admin-nueva">
+    <div class="list-header">
+        <h1>PLANES</h1>
+        <a href="./planes/abm-planes-alta" class="admin-btn admin-create"><i class="fas fa-plus"></i>Crear Plan</a>
+    </div>
 
-                <h2 class="title">PLANES</h2>
-                <li><a href="./planes/abm-planes-alta" class="btn-home btn-d-block btn-nuevo">AGREGAR NUEVO PLAN</a></li>
-            
-            </div>
-
-        <main class="boxes lista-boxes">
-
-            <% planes.forEach(plan => { %>
-                <div class="box box-full">
-                    <ul>
-                        <li><img src="/img/planes/<%= plan.image %> " alt="plan familiar"></li>
-                        <li class="title"><%= plan.plan %></li>
-                        <li class="description"><%= plan.description %> </li>
-                        <li><a href="/admin/planes/abm-planes-modificacion/<%= plan.id %>" class="btn-home btn-d-block btn-naranja btn-modificar">MODIFICAR</a></li>
-                        <li><form action="/admin/planes/eliminar-plan/<%= plan.id %>" method="POST"><input type="submit" class="btn-home btn-d-block btn-eliminar" value="Eliminar"></form></li>
-                    </ul>
+    <main class="admin-list">
+        <% planes.forEach(plan => { %>
+            <div class="admin-item">
+                <div class="admin-info">                    
+                    <img src="/img/planes/<%= plan.image %> " alt="plan_image">
+                    <h2><%= plan.plan %></h2>
                 </div>
-            <% }) %>
-            
-        </main>
+                <div class="admin-actions">
+                    <a href="/admin/planes/abm-planes-modificacion/<%= plan.id %>" class="admin-btn admin-modify"><i class="fas fa-edit"></i>Modificar</a>
+                    <form action="/admin/planes/eliminar-plan/<%= plan.id %>" method="POST" class="admin-btn admin-delete btn-eliminar">
+                        <i class="fas fa-trash-alt"></i>
+                        <input type="submit" value="Eliminar">   
+                    </form>
+                </div>
+            </div>
+        <% }) %>  
+    </main>
         
     </section>
     <script src="/js/script.js"></script>

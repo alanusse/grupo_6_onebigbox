@@ -6,9 +6,10 @@
     <!-- Header -->
     <%- include('../partials/header-admin') %>
     <!-- /Header -->
-    <section  class="admin-user-list">
-        <div>
-            <h2 class="title"> LISTA DE USUARIOS </h2>
+
+        <div class="list-header">
+            <h1>Usuarios</h1>
+            <a href="#" class="admin-btn admin-create"><i class="fas fa-plus"></i>Crear Usuario</a>
         </div>
 
         <% if (typeof errors != 'undefined') { %>
@@ -22,16 +23,20 @@
         <% } %>
 
         <%if (users) { %>
-        <main class="boxes lista-boxes-users">
-              
+        <main class="admin-list">
             <% users.forEach(user  => { %>
-                <div class="users-box users-box-full">
-                    <ul>
-                        <li><img src="/img/avatar/<%= user.avatar %> " alt="<%= user.name + ' ' + user.lastname %> "></li>
-                        <li class="title"><%= user.name + ' ' + user.lastname %></li>
-                        <li><a href="/admin/users/abm-users-modificacion/<%= user.id %>" class="btn-home btn-d-block btn-naranja btn-modificar">MODIFICAR</a></li>
-                        <li><form action="/admin/users/abm-users-eliminar/<%= user.id %>" method="POST"><input type="submit" class="btn-home btn-d-block btn-eliminar" value="Eliminar"></form></li>
-                    </ul>
+                <div class="admin-item">
+                    <div class="admin-info">
+                        <img src="/img/avatar/<%= user.avatar %>" alt="<%= user.name + ' ' + user.lastname %>">
+                        <h2><%= user.name + ' ' + user.lastname %></h2>
+                    </div>    
+                    <div class="admin-actions">   
+                        <a href="/admin/users/abm-users-modificacion/<%= user.id %>" class="admin-btn admin-modify"><i class="fas fa-edit"></i>Modificar</a>
+                        <form action="/admin/users/abm-users-eliminar/<%= user.id %>" method="POST" class="admin-btn admin-delete btn-eliminar">
+                            <i class="fas fa-trash-alt"></i>
+                            <input type="submit" value="Eliminar">
+                        </form>
+                    </div>
                 </div>
             <% }) %>
             
@@ -43,6 +48,6 @@
                 </ul>
             </span>
         <%}%>
-    </section  >
+    <script src="/js/script.js"></script>
 </body>
 </html>

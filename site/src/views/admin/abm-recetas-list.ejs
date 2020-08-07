@@ -9,18 +9,18 @@
     
     <div class="list-header">
         <h1>Recetas</h1>
-        <a href="./recetas/abm-recetas-alta" class="recipe-btn recipe-create"><i class="fas fa-plus"></i>Crear receta</a>
+        <a href="./recetas/abm-recetas-alta" class="admin-btn admin-create"><i class="fas fa-plus"></i>Crear Receta</a>
     </div>
-    <main class="recipes-list">
+    <main class="admin-list">
         <% recetas.forEach(receta => { %>
-            <div class="recipe-item">
-                <div class="recipe-info">
+            <div class="admin-item">
+                <div class="admin-info">
                     <img src="/img/recetas/<%= receta.image %>" alt="recipe_image">
                     <h2><%= receta.titulo %></h2>
                 </div>
-                <div class="recipe-actions">
-                    <a href="/admin/recetas/abm-recetas-modificacion/<%= receta.id %>" class="recipe-btn recipe-modify"><i class="fas fa-edit"></i>Modificar</a>
-                    <form action="/admin/recetas/eliminar-receta/<%= receta.id %>" method="POST" class="recipe-btn recipe-delete btn-eliminar">
+                <div class="admin-actions">
+                    <a href="/admin/recetas/abm-recetas-modificacion/<%= receta.id %>" class="admin-btn admin-modify"><i class="fas fa-edit"></i>Modificar</a>
+                    <form action="/admin/recetas/eliminar-receta/<%= receta.id %>" method="POST" class="admin-btn admin-delete btn-eliminar">
                         <i class="fas fa-trash-alt"></i>
                         <input type="submit" value="Eliminar">
                     </form>
