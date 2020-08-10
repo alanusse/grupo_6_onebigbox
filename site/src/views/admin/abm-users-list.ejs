@@ -1,48 +1,58 @@
 <!DOCTYPE html>
 <html lang="es">
 <!-- Include Head -->
-<%- include('../partials/head', {title: 'Listado de Recetas'}) %>
+<%- include('../partials/head', {title: 'Admin Lista de Usuarios - One Big Box'}) %>
 <body>
     <!-- Header -->
-	<%- include('../partials/header-admin') %>
+    <%- include('../partials/header-admin') %>
     <!-- /Header -->
-    
-    <div class="list-header">
-        <h1>Usuarios</h1>
-        <a href="./users/abm-users-alta" class="user-btn user-create"><i class="fas fa-plus"></i>Crear Usuario</a>
-    </div>
-    <%if (users.length>0) { %>
-        <main class="user-list">
 
-            <% users.forEach(user => { %>
-                <div class="user-item">
-                    <div class="user-info">
-                        <img src="/img/avatar/<%= user.avatar %> " alt="<%= user.name + ' ' + user.lastname %> ">
+        <div class="list-header">
+            <h1>Usuarios</h1>
+            <a href="/admin/users/abm-users-alta" class="admin-btn admin-create"><i class="fas fa-plus"></i>Crear Usuario</a>
+        </div>
+
+        <% if (typeof errors != 'undefined') { %>
+            <span>
+                <ul style="background-color: #ff6868; padding: 15px 20px; border-radius: 10px; width: 100%;">
+                    <% errors.forEach(error => { %>
+                        <li style="color: #fff; list-style: disc; margin-left: 20px; font-size: 14px;"><%= error.msg %></li>
+                    <% }) %>
+                </ul>
+            </span>
+        <% } %>
+
+        <%if (users) { %>
+        <main class="admin-list">
+            <% users.forEach(user  => { %>
+                <div class="admin-item">
+                    <div class="admin-info">
+                        <img src="/img/avatar/<%= user.avatar %>" alt="<%= user.name + ' ' + user.lastname %>">
                         <div>
                             <h2><%= user.name + ' ' + user.lastname %> </h2>
                             <h3><%= user.email %></h3>
                             <h4><%= (user.admin) ? 'ADMIN' : '' %></h4>
-                            
                         </div>
                     </div>
                     
-                    <div class="user-actions">
-                        <a href="/admin/users/abm-users-modificacion/<%= user.id %>" class="user-btn user-modify"><i class="fas fa-edit"></i>Modificar</a>
-                        <form  action="/admin/users/abm-users-eliminar/<%= user.id %>/<%= user.email %>" method="POST" class="user-btn user-delete btn-eliminar">
+                    <div class="admin-actions">   
+                        <a href="/admin/users/abm-users-modificacion/<%= user.id %>" class="admin-btn admin-modify"><i class="fas fa-edit"></i>Modificar</a>
+                        <form action="/admin/users/abm-users-eliminar/<%= user.id %>/<%= user.email %>" method="POST" class="admin-btn admin-delete btn-eliminar">
                             <i class="fas fa-trash-alt"></i>
                             <input type="submit" value="Eliminar">
                         </form>
                     </div>
                 </div>
             <% }) %>
+            
         </main>
-    <%} else {%>
-        <span>
-            <ul style="background-color: #ff6868; margin-left: 10% ; padding: 15px 20px; border-radius: 10px; width: 80%;">
-                <li style="color: #fff; list-style: disc; margin-left: 20px; font-size: 14px;">No hay usuarios en la Base de datos</li>
-            </ul>
-        </span>
-    <%}%>    
-   
+        <%} else {%>
+            <span>
+                <ul style="background-color: #ff6868; padding: 15px 20px; border-radius: 10px; width: 100%;">
+                    <li style="color: #fff; list-style: disc; margin-left: 20px; font-size: 14px;">No hay usuarios en la Base de datos</li>
+                </ul>
+            </span>
+        <%}%>
+    <script src="/js/adminUser/abm-users.js"></script>
 </body>
 </html>

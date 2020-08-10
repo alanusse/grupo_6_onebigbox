@@ -268,32 +268,7 @@ module.exports = {
             .withMessage('La contraseña es obligatoria')
             .bail()
             .isLength( { min:4, max:10})
-            .withMessage('La contraseña debe tener un mínimo de 4 y un máximo de 10 caracteres'),
-        body("avatar")
-            /* CODIGO PARA IMAGEN OBLIGATORIA
-            .custom((value, { req }) => {
-              if (req.file) {
-                return true;
-              } else {
-                return false;
-              }
-            })
-            .withMessage("Imagen obligatoria")
-            .bail()*/
-            .custom((value, { req }) => {
-              if (req.file) {
-                const acceptedExtensions = [".jpg", ".jpeg", ".png"];
-                const ext = path.extname(req.file.originalname);
-                if (acceptedExtensions.includes(ext)) {
-                  return true;
-                } else {
-                  return false;
-                }
-              } else {
-                return true;
-              }
-            })
-            .withMessage("La extensión de la imágen no es válida (extensiones permitidas: .jpg, .jpeg y .png)"),        
+            .withMessage('La contraseña debe tener un mínimo de 4 y un máximo de 10 caracteres')
     ],
     updateUser:[
       body('name')
@@ -314,22 +289,25 @@ module.exports = {
       .bail()
       .isEmail()
       .withMessage('El correo electrónico no es válido')
-      .bail()
+      .bail(), /*
       .custom(function(value, {req}){
-        return db.Users.findOne({
-            where: {
-                email: value
-            }
-        }).then(user => {
-          if (user){
-            //Acá tengo el usuario encontrado en la base de datos. Por l cual, no podría registrarse con un mail existente
-            return Promise.reject('Usuario ya existe, por favor indique otro correo electrónico');
-          }
-        });
-      }), 
+        console.log('El ID es: ' + req.body.id );
+        return db.Users.findByPk(req.body.id)
+          .then(data => {
+            console.log('La data es:');
+            console.log(data);
+            console.log('El body es:');
+            console.log(req.body);
+            if (data.dataValues.email != req.body.email){
+              //Si el mail es distinto quiere decir que el usuario lo cambió y tengo que validar que no exista
+              return Promise.reject('El usuario cambió el correo electrónico');
+            }else{
+                return false;
+            } 
+          })
+      }), */
   body('password')
       .custom((value, {req})=> {
-        console.log('La password contiene' + req.body.password);
         //Valido si hay datos en el campo contraseña y si éstos son mas de 4 caracteres
         if (req.body.password){
           return ((req.body.password.length)<4)? false: true

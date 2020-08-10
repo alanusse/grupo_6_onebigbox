@@ -16,7 +16,10 @@
                 </ul>
             </span>
         <% } %>
-      
+        <ul style="background-color: #ff6868; padding: 15px 20px; border-radius: 10px; width: 100%; display: none" class="errors-front">
+                
+        </ul>
+             
         <span>
             <i class="fas fa-user"></i>
             <input type="text" name="name" id="name" placeholder="Nombre del Usuario" value="<%= typeof old == 'undefined' ? null : old.name %>">
@@ -62,5 +65,7 @@
             <input type="submit" value="Modificar Usuario">
         </div>
     </form>
+
+    <script src="/js/adminUser/abm-users-update.js"></script>
 </body>
 </html>

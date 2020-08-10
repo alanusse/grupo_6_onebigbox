@@ -4,7 +4,7 @@
 <body>
     <%- include('../partials/header-admin'); %>
 
-    <form action="../users/abm-users-alta" method="POST" class="recipe-update" enctype="multipart/form-data">
+    <form action="../users/abm-users-alta" method="POST" class="recipe-update" enctype="multipart/form-data" >
         <h1>Alta Usuario</h1>
 
         <% if (typeof errors != 'undefined') { %>
@@ -16,6 +16,9 @@
                 </ul>
             </span>
         <% } %>
+        <ul style="background-color: #ff6868; padding: 15px 20px; border-radius: 10px; width: 100%; display: none" class="errors-front">
+                
+        </ul>
        
         <span>
             <i class="fas fa-user"></i>
@@ -29,7 +32,7 @@
 
         <span>
             <i class="fas fa-envelope"></i>
-            <input type="text" name="email" id="email" placeholder="Email del Usuario" value="<%= typeof old == 'undefined' ? null : old.email %>"  >
+            <input type="email" name="email" id="email" placeholder="Email del Usuario" value="<%= typeof old == 'undefined' ? null : old.email %>"  >
         </span>
 
         <span>
@@ -49,7 +52,6 @@
                 <option value="1" selected >ADMIN</option>
             <% } %>
         </select>
-     
 
         <div class="file">
             <i class="fas fa-upload"></i>
@@ -62,5 +64,6 @@
             <input type="submit" value="Crear">
         </div>
     </form>
+    <script src="/js/adminUser/abm-user-alta.js"></script>
 </body>
 </html>

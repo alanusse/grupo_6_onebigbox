@@ -1,10 +1,5 @@
 module.exports = (req, res, next) => {
     
-    console.log('Estoy en el middleware del Admin');
-    console.log(req.session.user);
-    console.log('El contenido de req.url es:' + req.url);
-    //if(req.session.admin) {
-    
     if(typeof req.session.user !== 'undefined') {
         if(req.session.user.admin){
             console.log('El contenido de req.url es:' + req.url);
