@@ -46,7 +46,7 @@ router.post('/', validator.login ,userController.loginIngresoDatos);
 
 // Routeador del Register
 router.get('/register', userController.register);
-router.post('/register', upload.single('avatar'), validator.register ,userController.registerPost); 
+router.post('/register', upload.single('avatar'), validator.createUser ,userController.registerPost); 
 
 router.get('/logout', userController.logout);
 

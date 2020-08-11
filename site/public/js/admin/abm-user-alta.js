@@ -1,11 +1,8 @@
-window.addEventListener('load', function(){   
-   
-
-
-    // Capturo los eventos para validar los datos del alta  la modificación del Usuario
+window.addEventListener('load', function(){
+ // Capturo los eventos para validar los datos del alta  la modificación del Usuario
 
       // Hago una sola función que valide los caracteres especiales y luego la llamo en las diferentes casillas de texto
-      function isValid (character){
+    function isValid (character){
         let caracEspeciales = ['+','|', '°', '#', '!', '"', '#', '$', '%', '&', '/', '(', ')', '=', '?', '¡', '¨', '*', '[', ']', ';', ':', '¿', '+', '{', '}', '.', '-', '_', "'"];
         if ( ( (!isNaN(character) || (caracEspeciales.includes(character) ) )&& (character !== ' ') ) ) {
            return false;
@@ -74,14 +71,13 @@ window.addEventListener('load', function(){
             ulErrors.style.display = 'none';
         }
     });
+
+    /*** VALIDACIONES PARA SUBMIT DEL FORMULARIO */
     let formSubmit = document.querySelector('form');
     formSubmit.addEventListener('submit', function(e){
-        let url = 'http://localhost:3000/api/admin/users/validatorUpdate';
-      
-        //let id = window.location.href.split('/')[window.location.href.split('/').length-1];
-        //console.log(id);
+        let url = 'http://localhost:3000/api/admin/user/validatorCreate';
+    
         let data = {
-            id : window.location.href.split('/')[window.location.href.split('/').length-1],
             name: document.querySelector('#name').value,
             lastname: document.querySelector('#lastname').value,
             email: document.querySelector('#email').value,
@@ -95,21 +91,18 @@ window.addEventListener('load', function(){
                     'Content-Type': 'application/json; charset=utf-8'
                 }
         })
-        //'application/x-www-form-urlencoded; charset=UTF-8'
         .then(res => res.json())
         .then(data => {
             if(data.meta.hasErrors){
                 let ulErrors = document.querySelector('.errors-front');
                 ulErrors.innerHTML = ''
                 ulErrors.style.display = 'block';
-
                 data.data.errors.forEach(error => {
                     ulErrors.innerHTML += `<li style="color: #fff; list-style: disc; margin-left: 20px; font-size: 14px;">${ error.msg }</li>` 
                 })
-                
             } else {
-                formSubmit.submit()
+                formSubmit.submit();
             }
         })
-       })
-   })
+    })
+})

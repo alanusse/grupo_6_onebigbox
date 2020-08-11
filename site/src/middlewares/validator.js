@@ -5,13 +5,13 @@ const db = require('../database/models');
 
 module.exports = {
     register: [
-        body('nombre')
+        body('name')
             .notEmpty()
             .withMessage('El nombre es obligatorio')
             .bail()
             .isLength({ min: 4 })
             .withMessage('El nombre debe tener un mínimo de 4 caracteres'),
-        body('apellido')
+        body('lastname')
             .notEmpty()
             .withMessage('El apellido es obligatorio')
             .bail()
@@ -252,6 +252,7 @@ module.exports = {
             .withMessage('El correo electrónico no es válido')
             .bail()
             .custom(function(value, {req}){
+              
               return db.Users.findOne({
                   where: {
                       email: value
@@ -289,23 +290,30 @@ module.exports = {
       .bail()
       .isEmail()
       .withMessage('El correo electrónico no es válido')
-      .bail(), /*
+      .bail()
       .custom(function(value, {req}){
-        console.log('El ID es: ' + req.body.id );
-        return db.Users.findByPk(req.body.id)
+        //Guardo el ID de esta manera para que en la API tome el id del formulario  cuando esta función es llamada desde el POST, lo saque de la URL
+        let id = (req.body.id)? req.body.id : req.params.id;
+        return db.Users.findByPk(id)
           .then(data => {
-            console.log('La data es:');
-            console.log(data);
-            console.log('El body es:');
-            console.log(req.body);
             if (data.dataValues.email != req.body.email){
-              //Si el mail es distinto quiere decir que el usuario lo cambió y tengo que validar que no exista
-              return Promise.reject('El usuario cambió el correo electrónico');
+              return db.Users.findOne({
+                where: {email: value}
+                })
+                .then(user => {
+                  if (user){
+                  //Acá tengo el usuario encontrado en la base de datos. Por l cual, no podría registrarse con un mail existente
+                    return Promise.reject('Usuario ya existe, por favor indique otro correo electrónico');
+                  }else{
+                    return false;
+                  }
+
+                });
             }else{
-                return false;
-            } 
+              return false;
+            }
           })
-      }), */
+      }),
   body('password')
       .custom((value, {req})=> {
         //Valido si hay datos en el campo contraseña y si éstos son mas de 4 caracteres

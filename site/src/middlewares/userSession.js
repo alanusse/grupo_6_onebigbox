@@ -4,13 +4,12 @@ const log = (req, res, next) => {
     
     res.locals.user = false; // Inicializo la variable en FALSE para que por defecto sea false
     
-    console.log('Estoy en el middleware de session');
+    console.log('Estoy en el middleware de session y me llaman de: ' + req.url);
     console.log('El contenido de req.session.user es: '+ req.session.user);
     console.log('El contenido de la cookie es: ' + req.cookies.email)
     // Valido si está logueado o no
     if (req.session.user){
         res.locals.user = req.session.user; // Le doy a la variable todos los datos que tiene guardado session
-        
         return next();
     }else if(req.cookies.email){
         

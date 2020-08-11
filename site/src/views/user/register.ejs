@@ -27,9 +27,13 @@
                                 </li>                            
                             <% }) %>
                         </ul>
-                    <% } %>                     
-                    <input type="text" name="nombre" id="nombre" placeholder="Nombre" value="<%= typeof old == 'undefined' ? null : old.nombre %>">
-                    <input type="text" name="apellido" id="apellido" placeholder="Apellido" value="<%= typeof old == 'undefined' ? null : old.apellido %>" >
+                    <% } %>
+                     <!-- Espacio apartado para los errores que valido desde el scrip del frontEnd -->
+                     <ul style="background-color: #ff6868; padding: 15px 20px; border-radius: 10px; width: 100%; display: none" class="errors-front">
+                
+                    </ul>             
+                    <input type="text" name="name" id="name" placeholder="Nombre" value="<%= typeof old == 'undefined' ? null : old.nombre %>">
+                    <input type="text" name="lastname" id="lastname" placeholder="Apellido" value="<%= typeof old == 'undefined' ? null : old.apellido %>" >
                     <input type="email" name="email" id="email" placeholder="Correo electrónico" value="<%= typeof old == 'undefined' ? null : old.email %>" >
                     <input type="password" name="password" id="password" placeholder="Contraseña">    
                     <div class="file">
@@ -52,5 +56,6 @@
 <!-- footer -->
 <%- include('../partials/footer') %>
 <!-- /footer -->
+<script src="/js/user/register.js"></script>
 </body>
 </html>

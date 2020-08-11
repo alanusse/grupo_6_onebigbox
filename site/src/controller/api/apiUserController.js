@@ -57,7 +57,7 @@ const controller = {
             return res.send(jsonResult);
         })
     },
-    validatorCreate(req, res){
+    validatorRegister(req, res){
         let errors = validationResult(req);
         let jsonResult;
         if (errors.isEmpty()){
@@ -83,10 +83,10 @@ const controller = {
         }
         return res.send(jsonResult);
     },
-    validatorUpdate(req, res){
-        console.log('Pasó por el validator Update')
+    validatorLogin(req, res){
         let errors = validationResult(req);
         let jsonResult;
+        console.log(errors);
         if (errors.isEmpty()){
             jsonResult ={
                 meta: {

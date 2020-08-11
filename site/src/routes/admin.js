@@ -7,7 +7,7 @@ const validator = require('../middlewares/validator');
 const adminCheck = require('../middlewares/adminCheck');
 
 // JS -> DESCOMENTAR!!!!
-//router.use(adminCheck);
+router.use(adminCheck);
 
 // Copio el código del multer
 let storage = multer.diskStorage({

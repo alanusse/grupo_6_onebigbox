@@ -6,7 +6,7 @@ var logger = require('morgan');
 var cors = require('cors');
 const session = require('express-session');
 // Requiero el middleware a nivel aplicación para loguear siempre las rutas por donde pasa el usuario
-const userAudit = require('./middlewares/userAudit');
+//const userAudit = require('./middlewares/userAudit');
 const  userSession = require('./middlewares/userSession');
 
 // Creo las variables para los routes
@@ -18,6 +18,7 @@ var recetasRouter = require('./routes/recetas');
 var adminRouter = require('./routes/admin');
 //Rutas para API
 var apiAdminRouter = require('./routes/api/apiAdmin');
+var apiUserRouter = require('./routes/api/apiUser');
 
 var app = express();
 
@@ -50,8 +51,10 @@ app.use('/cart', cartRouter );
 app.use('/recetas', recetasRouter);
 app.use('/admin', adminRouter);
 
+
 //Rutas de la API
-app.use('/api/admin/users', apiAdminRouter);
+app.use('/api/admin/user', apiAdminRouter);
+app.use('/api/user', apiUserRouter);
 
 
 // catch 404 and forward to error handler
