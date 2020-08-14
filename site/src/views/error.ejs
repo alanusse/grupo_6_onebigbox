@@ -3,7 +3,12 @@
 <html lang="es">
     <%- include('partials/head', { title: 'Error 404 - OneBigBox' }) %>
 <body>
-    <%- include('partials/header') %> 
+
+    <% if (admin) { %>
+        <%- include('partials/header-admin') %> 
+    <% } else { %>
+        <%- include('partials/header') %> 
+    <% } %>
 
     <% if (error.status === 404) { %>
         <h1 style="margin: 80px auto;
@@ -24,5 +29,6 @@
     <% } %>
 
     <%- include('partials/footer') %>
+
 </body>
 </html>
