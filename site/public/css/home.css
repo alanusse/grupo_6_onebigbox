@@ -1657,6 +1657,20 @@ form.recipe-update input#cancelar {
     }
 
     /* HOMEPAGE Y PLANES */
+    
+    /* ADMIN LISTS */
+    main.admin-list .admin-item {
+        flex-wrap: wrap;
+    }
+
+    main.admin-list .admin-info {
+        margin: 0 auto;
+    }
+
+    main.admin-list .admin-actions {
+        margin: 10px auto 0 auto;
+    }
+    /* ADMIN LISTS */
 }
 
 @media (max-width: 768px) {
