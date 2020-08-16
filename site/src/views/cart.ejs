@@ -7,149 +7,68 @@
     <!-- Header -->
 	<%- include('partials/header') %>
 	<!-- /Header -->
-    <main class="container">
-        <h1 class="cart-title">Carrito de compras</h1>
-        <div class="cart-content">
-            <div class="foods-plans-container">
-                <div class="food-plan-container">
-                    <div class="food-plan-header">
-                        <h2>Plan Vegetariano</h2>
-                        <img src="/img/vegetariano_3.jpg" alt="plan-vegetariano">
+    
+    <!-- Main -->
+    <main class="cart">
+        <form action="POST">
+            <div class="cart-header row spc-btw content-padding">
+                <div class="cart-titles">
+                    <h1>Carrito de compras</h1>
+                    <h2>Cantidad de recetas: 8</h2>
+                    <p>Total: $500</p>
+                </div>
+                <input type="submit" value="Finalizar compra">
+            </div>
+            <div class="cart-items-list">
+                <div class="cart-item row spc-btw">
+                    <div class="item-all-info row">
+                        <img class="item-img" src="/img/equilibrado_1.jpg" alt="receta-img">
+                        <div class="item-info">
+                            <h3 class="item-title">Título de receta</h3>
+                            <h4 class="item-plan">Plan de receta</h4>
+                            <a class="item-delete" href="#"><i class="fas fa-trash-alt"></i>Quitar del carrito</a>
+                            <span>Cantidad</span><input class="item-quantity" type="number" value="1" name="item-quantity" min="0">
+                        </div>
                     </div>
-                    <div class="foods-info-container">
-                        <div class="foods-details-container">
-                            <div class="food-details">
-                                <h3>Gnochi con pesto de albahaca</h3>
-                                <div class="food-product-options">
-                                    <a href="#"><i class="fas fa-times"></i>Eliminar producto</a>
-                                    <a href="#"><i class="far fa-heart"></i>Agregar a favoritos</a>
-                                </div>
-                                <form action="" method="get" class="cantidad-form">
-                                    <label for="cantidad">Cantidad</label>
-                                    <input type="number" name="cantidad" id="cantidad" min="1" max="10" value="1">
-                                </form>
-                                <div class="food-price">
-                                    <p>Precio unitario <span>$ 200</span></p>
-                                    <p>Subtotal <span>$ 400</span></p>
-                                </div>
-                            </div>
+                    <div class="item-price">
+                        <div class="item-unit-price">
+                            <p>Precio unitario:</p>
+                            <p>$200</p>
                         </div>
-                        <div class="foods-details-container">
-                            <div class="food-details">
-                                <h3>Ensalada de garbanzos con queso y menta</h3>
-                                <div class="food-product-options">
-                                    <a href="#"><i class="fas fa-times"></i>Eliminar producto</a>
-                                    <a href="#"><i class="far fa-heart"></i>Agregar a favoritos</a>                                    
-                                </div>
-                                <form action="" method="get" class="cantidad-form">
-                                    <label for="cantidad">Cantidad</label>
-                                    <input type="number" name="cantidad" id="cantidad" min="1" max="10" value="1">
-                                </form>
-                                <div class="food-price">
-                                    <p>Precio unitario <span>$ 200</span></p>
-                                    <p>Subtotal <span>$ 400</span></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="foods-details-container">
-                            <div class="food-details">
-                                <h3>Ensalada de pollo con nueces</h3>
-                                <div class="food-product-options">
-                                    <a href="#"><i class="fas fa-times"></i>Eliminar producto</a>
-                                    <a href="#"><i class="far fa-heart"></i>Agregar a favoritos</a>                                    
-                                </div>
-                                <form action="" method="get" class="cantidad-form">
-                                    <label for="cantidad">Cantidad</label>
-                                    <input type="number" name="cantidad" id="cantidad" min="1" max="10" value="1">
-                                </form>
-                                <div class="food-price">
-                                    <p>Precio unitario <span>$ 200</span></p>
-                                    <p>Subtotal <span>$ 400</span></p>
-                                </div>
-                            </div>
+                        <div class="item-subtotal-price">
+                            <p>Subtotal</p>
+                            <p>$400</p>
                         </div>
                     </div>
                 </div>
-                <div class="food-plan-container">
-                    <div class="food-plan-header">
-                        <h2>Plan Equilibrado</h2>
-                        <img src="/img/equilibrado_1.jpg" alt="plan-vegetariano">
+                <div class="cart-item row spc-btw">
+                    <div class="item-all-info row">
+                        <img class="item-img" src="/img/vegetariano_3.jpg" alt="receta-img">
+                        <div class="item-info">
+                            <h3 class="item-title">Título de receta</h3>
+                            <h4 class="item-plan">Plan de receta</h4>
+                            <a class="item-delete" href="#"><i class="fas fa-trash-alt"></i>Quitar del carrito</a>
+                            <span>Cantidad</span><input class="item-quantity" type="number" value="1" name="item-quantity" min="0">
+                        </div>
                     </div>
-                    <div class="foods-info-container">
-                        <div class="foods-details-container">
-                            <div class="food-details">
-                                <h3>Milanesas de pollo con puré de zapallo</h3>
-                                <div class="food-product-options">
-                                    <a href="#"><i class="fas fa-times"></i>Eliminar producto</a>
-                                    <a href="#"><i class="far fa-heart"></i>Agregar a favoritos</a>                                    
-                                </div>
-                                <form action="" method="get" class="cantidad-form">
-                                    <label for="cantidad">Cantidad</label>
-                                    <input type="number" name="cantidad" id="cantidad" min="1" max="10" value="1">
-                                </form>
-                                <div class="food-price">
-                                    <p>Precio unitario <span>$ 200</span></p>
-                                    <p>Subtotal <span>$ 400</span></p>
-                                </div>
-                            </div>
+                    <div class="item-price">
+                        <div class="item-unit-price">
+                            <p>Precio unitario:</p>
+                            <p>$200</p>
                         </div>
-                        <div class="foods-details-container">
-                            <div class="food-details">
-                                <h3>Wok de pollo con arroz yamani</h3>
-                                <div class="food-product-options">
-                                    <a href="#"><i class="fas fa-times"></i>Eliminar producto</a>
-                                    <a href="#"><i class="far fa-heart"></i>Agregar a favoritos</a>                                    
-                                </div>
-                                <form action="" method="get" class="cantidad-form">
-                                    <label for="cantidad">Cantidad</label>
-                                    <input type="number" name="cantidad" id="cantidad" min="1" max="10" value="1">
-                                </form>
-                                <div class="food-price">
-                                    <p>Precio unitario <span>$ 200</span></p>
-                                    <p>Subtotal <span>$ 400</span></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="foods-details-container">
-                            <div class="food-details">
-                                <h3>Spaghettis con salsa de tomate</h3>
-                                <div class="food-product-options">
-                                    <a href="#"><i class="fas fa-times"></i>Eliminar producto</a>
-                                    <a href="#"><i class="far fa-heart"></i>Agregar a favoritos</a>
-                                </div>
-                                <form action="" method="get" class="cantidad-form">
-                                    <label for="cantidad">Cantidad</label>
-                                    <input type="number" name="cantidad" id="cantidad" min="1" max="10" value="1">
-                                </form>
-                                <div class="food-price">
-                                    <p>Precio unitario <span>$ 200</span></p>
-                                    <p>Subtotal <span>$ 400</span></p>
-                                </div>
-                            </div>
+                        <div class="item-subtotal-price">
+                            <p>Subtotal</p>
+                            <p>$400</p>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="cart-details-container">
-                <h2>Detalle</h2>
-                <div class="cart-details">
-                    <div class="cart-details-plans">
-                        <h3 class="selected-plans">Planes seleccionados</h3>
-                        <p>Plan Vegetariano <span>$ 1200</span></p>
-                        <p>Plan Equilibrado <span>$ 3600</span></p>
-                    </div>
-                    <div class="cart-details-total">
-                        <p class="p-subtotal">Subtotal <span>$ 4800</span></p>
-                        <p>Envío <span>$ 0</span></p>
-                        <p>Total <span>$ 4800</span></p>
-                    </div>
-                    <a href="#" class="btn btn-d-block btn-naranja">Comprar</a>
-                </div>            
-            </div>
-        </div>
+        </form>
     </main>
-<!-- footer -->
-<%- include('partials/footer') %>
-<!-- /footer -->
+    <!-- /Main -->
+
+    <!-- footer -->
+    <%- include('partials/footer') %>
+    <!-- /footer -->
 </body>
 </html>

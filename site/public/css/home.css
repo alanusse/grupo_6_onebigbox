@@ -796,160 +796,115 @@ h2.title {
 /** FIN DEL DETALLE DE LA RECETA*/
 
 /* CARRITO */
-h1.cart-title {
-    text-transform: uppercase;
+main.cart {
+    margin: 0 auto;
+    padding: 0 20px;
+    max-width: 1200px;
+}
+
+main.cart input[type="submit"] {
+    height: 40px;
+    width: 300px;
+    margin: auto 0;
+    border-radius: 30px;
+    background-color: var(--orange);
+    border: none;
+    color: #fff;
+    font-size: 15px;
     font-weight: 600;
-    font-size: 24px;
-    text-align: center;
-    margin-bottom: 20px;
-    margin-top: 40px;
+    cursor: pointer;
 }
 
-.cart-content {
-    display: flex;
-    flex-direction: column;
-    background-color: #fff;
-    border: 1px solid var(--dark-grey);
-    border-radius: 15px;
-    padding: 20px 20px;
-    margin-bottom: 40px;
+main.cart h1 {
+    font-size: 25px;
+    font-weight: 700;
 }
 
-.foods-plans-container {
-    border-bottom: 3px solid var(--dark-blue);
-}
-
-.food-plan-container {
-    border-bottom: 1px solid var(--dark-blue);
-    margin-bottom: 40px;
-}
-
-.food-plan-container:last-of-type {
-    border-bottom: none;
-    margin-bottom: 0;
-}
-
-.food-plan-container h2 {
-    text-align: center;
-    text-transform: uppercase;
+main.cart h2 {
     font-size: 20px;
-    font-weight: 800;
-    margin: 0 0 20px 0;
+    font-weight: 400;
 }
 
-.food-plan-container img {
-    display: block;
-    border-radius: 15px;
-    height: 100px;
+main.cart .cart-titles p {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+main.cart .item-img {
+    width: 120px;
+    height: 120px;
     object-fit: cover;
+    object-position: center;
+    border-radius: 10px;
+}
+
+main.cart .item-info {
+    margin-left: 15px;
+}
+
+.content-padding {
+    padding: 20px 0;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.spc-btw {
+    justify-content: space-between;
+}
+
+.item-info a {
+    display: block;
+    margin: 10px 0;
+    color: var(--dark-blue);
+}
+
+.cart-item {
+    border-bottom: 1px solid var(--dark-blue);
+    padding: 20px 0;
+    max-width: 1000px;
     margin: 0 auto;
 }
 
-.foods-details-container {
-    font-weight: normal;
-    color: var(--dark-grey);
-    margin-bottom: 30px;
-    border-bottom: 1px solid var(--dark-grey);
-    padding-bottom: 30px;
+.cart-item:last-of-type {
+    border-bottom: none;
 }
 
-.foods-details-container:last-of-type {
-    border: none;
-    margin-bottom: 0;
+.item-info a i {
+    margin-right: 10px;
 }
 
-.food-details h3 {
-    font-size: 18px;
-    margin: 15px 0;
-    color: var(--dark-blue);
+.item-info span {
+    margin-right: 10px;
 }
 
-.cantidad-form {
-    margin: 30px;
-}
-
-.cantidad-form input[type="number"] {
-    margin-left: 15px;
-    padding: 3px 10px;
+.item-info input[type="number"] {
     width: 50px;
-    height: 30px;
-    border: 1px solid var(--dark-grey);
-    border-radius: 5px;
+    border: 1px solid var(--dark-blue);
+    padding: 2px 10px;
+    border-radius: 10px;
 }
 
-.food-details a {
-    display: block;
-    color: var(--dark-grey);
-    text-decoration: none;
-    margin: 10px 0;
+.item-price {
+    min-width: 200px;
+    font-size: 18px;
+    font-weight: 500;
+    margin: auto 0;
 }
 
-.food-details a:hover {
-    text-decoration: underline;
+.item-unit-price {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #c2c2c2;
+    padding-bottom: 15px;
 }
 
-.food-details a i {
-    margin-right: 5px;
-    color: var(--dark-blue);
-}
-
-.food-price {
-    margin-left: auto;
-}
-
-.food-price p {
-    text-align: right;
-    margin: 5px 0;
-    color: var(--dark-blue);
-}
-
-.food-price p span {
-    font-weight: bold;
-    margin-left: 10px;
-}
-
-.cart-details-container h2 {
-    font-size: 20px;
-    text-transform: uppercase;
-    font-weight: bold;
-    text-align: center;
-}
-
-h3.selected-plans {
-    font-size: 16px;
-    color: var(--dark-grey);
-}
-
-.cart-details-plans {
-    border-bottom: 1px solid var(--dark-grey);
-}
-
-.cart-details-plans p {
-    font-size: 20px;
-    font-weight: bold;
-    text-align: left;
-}
-
-.cart-details-plans p span {
-    float: right;
-}
-
-.cart-details-total {
-    font-size: 20px;
-    font-weight: bold;
-}
-
-.cart-details-total p span {
-    float: right;
-}
-
-.cart-details-total .p-subtotal {
-    text-align: right;
-}
-
-.cart-details-total .p-subtotal span {
-    float: none;
-    margin-left: 30px;
+.item-subtotal-price {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 15px;
 }
 /* CARRITO */
 
@@ -1791,32 +1746,30 @@ form.recipe-update input#cancelar {
     .btn-admin p{
         display: none;
     }
+    /* ADMIN*/
+
+    /* CART */
+    .cart-header {
+        flex-direction: column;
+    }
+
+    .cart-titles,
+    main.cart input[type="submit"] {
+        margin: 10px auto;
+    }
+
+    .item-all-info,
+    .item-price {
+        width: 100%;
+    }
+
+    .item-price {
+        margin-top: 20px;
+    }
+    /* /CART/ */
 }
- /* ADMIN*/
 
 @media (min-width: 768px) { /* FROM TABLET */
-    /* Carrito */
-    .cart-content {
-        flex-direction: row;
-    }
-    
-    .foods-plans-container {
-        flex-basis: 60%;
-        border-right: 1px solid var(--dark-grey);
-        border-bottom: none;
-        padding-right: 30px;
-    }
-
-    .cart-details-container {
-        flex-basis: 40%;
-        padding-left: 30px;
-    }
-
-    .cart-details-plans p {
-        font-size: 16px;
-    }
-    /* /Carrito */
-
       /* ADMIN*/
     .btn-admin i{
         margin-left: 20%;
