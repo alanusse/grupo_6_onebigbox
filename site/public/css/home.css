@@ -792,7 +792,18 @@ h2.title {
     text-align: justify;
 }
 
-
+.add-recipe-cart button {
+    display: block;
+    width: 100%;
+    max-width: 300px;
+    margin: 10px auto;
+    background-color: var(--orange);
+    border: none;
+    border-radius: 15px;
+    color: #fff;
+    padding: 5px;
+    cursor: pointer;
+}
 /** FIN DEL DETALLE DE LA RECETA*/
 
 /* CARRITO */

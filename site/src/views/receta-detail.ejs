@@ -45,6 +45,9 @@
                         <h2 class = "detalle-receta-subtitulo">Tiempo de Cocción</h2>
                         <p class = "detalle-receta-description"><%- receta.tiempopreparacion %></p>
                     </div>
+                    <form action="/cart/addRecipe/<%= receta.id %>" method="POST" class="add-recipe-cart">
+                        <button type="submit">Agregar al carrito</button>
+                    </form>
                 </div>
             </div>
     </section>   
