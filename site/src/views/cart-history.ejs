@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- Include Head -->
+<%- include('partials/head', {title: 'Carrito de Compras'}) %>
+
+<body>
+     <!-- Header -->
+	<%- include('partials/header') %>
+    <!-- /Header -->
+    
+    <div class="list-header">
+        <h1>Historial de Compras</h1>
+    </div>
+
+
+    <% if (typeof errors != 'undefined') { %>
+        <span>
+            <ul style="background-color: #ff6868; padding: 15px 20px; border-radius: 10px; width: 100%;">
+                <% errors.forEach(error => { %>
+                    <li style="color: #fff; list-style: disc; margin-left: 20px; font-size: 14px;"><%= error.msg %></li>
+                <% }) %>
+            </ul>
+        </span>
+    <% } %>
+
+    <main class="admin-list">
+        <h2>Usuario</h2>
+        
+
+        
+    </main>
+
+    <!-- footer -->
+    <%- include('partials/footer') %>
+    <!-- /footer -->
+
+    <script src="/js/cart/cart-history.js"></script>
+</body>
+</html>
