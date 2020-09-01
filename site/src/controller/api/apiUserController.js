@@ -71,7 +71,7 @@ const controller = {
                 }
             }
         }else{
-            jsonResult ={
+            let jsonResult ={
                 meta: {
                     status: 200,
                     hasErrors: true
@@ -86,7 +86,7 @@ const controller = {
     validatorLogin(req, res){
         let errors = validationResult(req);
         let jsonResult;
-        console.log(errors);
+    
         if (errors.isEmpty()){
             jsonResult ={
                 meta: {

@@ -16,9 +16,14 @@ var planesListRouter = require('./routes/planes');
 var cartRouter = require('./routes/cart');
 var recetasRouter = require('./routes/recetas');
 var adminRouter = require('./routes/admin');
+
 //Rutas para API
 var apiAdminRouter = require('./routes/api/apiAdmin');
 var apiUserRouter = require('./routes/api/apiUser');
+var apiDashboard = require('./routes/api/apiDashboard.js');
+var apiCart = require('./routes/api/apiCart');
+var apiPurcharse = require('./routes/api/apiPurcharse');
+//**** */
 
 var app = express();
 
@@ -55,7 +60,9 @@ app.use('/admin', adminRouter);
 //Rutas de la API
 app.use('/api/admin/user', apiAdminRouter);
 app.use('/api/user', apiUserRouter);
-
+app.use('/api/dashboard', apiDashboard);
+app.use('/api/cart', apiCart);
+app.use('/api/apiPurcharse', apiPurcharse);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -72,6 +79,7 @@ app.use(function(err, req, res, next) {
   let admin = req.headers.referer.includes('admin')
   res.status(err.status || 500);
   res.render('error', {admin});
+  
 });
 
 
