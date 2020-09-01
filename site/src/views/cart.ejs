@@ -10,65 +10,83 @@
     
     <!-- Main -->
     <main class="cart">
-        <form action="POST">
-            <div class="cart-header row spc-btw content-padding">
-                <div class="cart-titles">
-                    <h1>Carrito de compras</h1>
-                    <h2>Cantidad de recetas: 8</h2>
-                    <p>Total: $500</p>
+        
+            <ul style="background-color: #ff6868; padding: 15px 20px; border-radius: 10px; width: 100%; display: none" class="errors-front">            
+            </ul>
+
+            <% if (items.length > 0) { %>             
+                <div class="cart-header row spc-btw content-padding">       
+                    <div class="cart-titles">
+                        <h1>Carrito de compras</h1>
+                        <h2>Cantidad de recetas: <%- items.length %> </h2>
+                        
+                        <p id="total-purchase">Total: $ <%- total%> </p>
+
+                        <form  method="POST" action="cart/deleteCart">
+                            <div >
+                                <button type="submit" class="cart-delete"  id = "cart-delete" > <i class="fas fa-trash-alt"></i> Vaciar Carrito </button> 
+                            </div>   
+                        </form>
+                        
+                    </div>
+                    <form  method="POST" action="/cart/shop">
+                        <div >
+                            <input type="submit" value="Finalizar compra">
+                        </div>        
+                    </form>           
                 </div>
-                <input type="submit" value="Finalizar compra">
-            </div>
-            <div class="cart-items-list">
-                <div class="cart-item row spc-btw">
-                    <div class="item-all-info row">
-                        <img class="item-img" src="/img/equilibrado_1.jpg" alt="receta-img">
-                        <div class="item-info">
-                            <h3 class="item-title">Título de receta</h3>
-                            <h4 class="item-plan">Plan de receta</h4>
-                            <a class="item-delete" href="#"><i class="fas fa-trash-alt"></i>Quitar del carrito</a>
-                            <span>Cantidad</span><input class="item-quantity" type="number" value="1" name="item-quantity" min="0">
+
+                <% items.forEach(item => { %>
+                 
+                    <div class="cart-items-list">
+                        <div class="cart-item row spc-btw">
+                            <div class="item-all-info row">
+                                <img class="item-img" src="/img/recetas/<%- item.recipeImage %>" alt="receta-img">
+                                <div class="item-info">
+                                    <h3 class="item-title"><%- item.recipeTitulo %></h3>
+                                    <h4 class="item-plan"><%- item.planTitulo %></h4>
+
+                                    <form  method="POST" action="/cart/deleteCartById" id = "form-item-delete">
+                                        <div >
+                                            <button type="submit" class="item-delete"  id = "item-delete"> <i class="fas fa-trash-alt"></i></button> 
+                                            <input type="hidden" id="itemId" name= "itemId" value="<%- item.id %>" >
+                                        </div>   
+                                    </form>
+
+                                    <div>
+                                        <span>Cantidad</span>
+
+                                        <input class="item-quantity" type="number" value= <%- item.recipeCant %> name="item-quantity" id="item-quantity" min="1">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item-price">
+                                <div class="item-unit-price" id="item-unit-price">
+                                    <p id="price-text">Precio unitario: $</p>
+                                    <p id="price-number"><%- item.recipePrecio %></p>
+                                </div>
+                                <div class="item-subtotal-price" id = "item-subtotal-price"> 
+                                    <p id="sub-price-text">Subtotal: $</p>
+                                    <p id="sub-price-number"><%- item.totalPrice %></p>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="item-price">
-                        <div class="item-unit-price">
-                            <p>Precio unitario:</p>
-                            <p>$200</p>
-                        </div>
-                        <div class="item-subtotal-price">
-                            <p>Subtotal</p>
-                            <p>$400</p>
-                        </div>
-                    </div>
+
+                <% }) %>
+                
+            <% }else{ %>
+                <div class="cart-header row spc-btw content-padding"> 
+                    <h2>Carrito de compras Vacío</h2>
                 </div>
-                <div class="cart-item row spc-btw">
-                    <div class="item-all-info row">
-                        <img class="item-img" src="/img/vegetariano_3.jpg" alt="receta-img">
-                        <div class="item-info">
-                            <h3 class="item-title">Título de receta</h3>
-                            <h4 class="item-plan">Plan de receta</h4>
-                            <a class="item-delete" href="#"><i class="fas fa-trash-alt"></i>Quitar del carrito</a>
-                            <span>Cantidad</span><input class="item-quantity" type="number" value="1" name="item-quantity" min="0">
-                        </div>
-                    </div>
-                    <div class="item-price">
-                        <div class="item-unit-price">
-                            <p>Precio unitario:</p>
-                            <p>$200</p>
-                        </div>
-                        <div class="item-subtotal-price">
-                            <p>Subtotal</p>
-                            <p>$400</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </form>
+            <%}%>
     </main>
     <!-- /Main -->
 
     <!-- footer -->
     <%- include('partials/footer') %>
     <!-- /footer -->
+
+    <script src="/js/cart/item.js"></script>
 </body>
 </html>

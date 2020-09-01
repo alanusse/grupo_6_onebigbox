@@ -825,7 +825,30 @@ main.cart input[type="submit"] {
     font-weight: 600;
     cursor: pointer;
 }
-
+main.cart .cart-delete {
+    height: 40px;
+    width: 200px;
+    margin: auto 0;
+    border-radius: 30px;
+    border: none;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    background-color: #ff5656;
+}
+main.cart .item-delete {
+    height: 40px;
+    width: 50px;
+    margin: auto 0;
+    border-radius: 30px;
+    border: none;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    background-color: #ff5656;
+}
 main.cart h1 {
     font-size: 25px;
     font-weight: 700;

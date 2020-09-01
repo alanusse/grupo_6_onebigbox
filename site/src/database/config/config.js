@@ -31,7 +31,7 @@ module.exports = {
 module.exports = {
     "development": {
     "username": "root",
-    "password": "root",
+    "password": "",
     "database": "bdonebigbox",
     "host": "127.0.0.1",
     "port": "3306",
@@ -39,7 +39,10 @@ module.exports = {
     "define": {
         "underscored": false,
         "paranoid": true
-    }
+    }/*,
+    "dialectOptions": {
+        decimalNumbers: true
+    }*/
     },
     "test": {
     "username": "root",

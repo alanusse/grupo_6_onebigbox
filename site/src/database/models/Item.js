@@ -19,6 +19,9 @@ module.exports = (sequelize, DataTypes) => {
         recipePrecio: {
             type: DataTypes.DECIMAL
         },
+        recipeImage: {
+            type: DataTypes.STRING
+        },
         recipeCant: {
             type: DataTypes.INTEGER
         },
@@ -39,6 +42,9 @@ module.exports = (sequelize, DataTypes) => {
         },
         purchaseId: {
             type: DataTypes.INTEGER
+        },
+        state: {
+            type: DataTypes.TINYINT
         }
     };
 
@@ -50,17 +56,18 @@ module.exports = (sequelize, DataTypes) => {
     const Item = sequelize.define(alias, cols, config);
 
     Item.associate = function(models) {
-        Item.hasMany(models.Users, {
-            foreignKey: 'id',
-            as: 'userItems'
+        Item.belongsTo(models.Users, {
+            foreignKey: 'userId',
+            as: 'users'
+        });
+    }
+    Item.associate = function(models) {
+        Item.belongsTo(models.Purchases, {
+            foreignKey: 'purchaseId',
+            as: 'purcharse',
+            allowNull: true
         });
     };
 
-/*
-        Items.hasMany(models.Purchases, {
-            alias: 'purchasedItems',
-            foreignKey: 'purchaseId'
-        })
-        */
     return Item;
 }

@@ -12,6 +12,9 @@ module.exports = (sequelize, DataTypes) => {
         },
         userId: {
             type: DataTypes.INTEGER
+        },
+        total: {
+            type: DataTypes.DECIMAL
         }
     };
 
@@ -22,12 +25,13 @@ module.exports = (sequelize, DataTypes) => {
 
     const Purchase = sequelize.define(alias, cols, config);
 
-    Purchase.associate = models => {
-        Purchase.belongsTo(models.Users, {
-            alias: 'userPurchase',
-            foreignKey: 'userId'
-        })
+    Purchase.associate = function(models) {
+        Purchase.hasMany(models.Items, {
+            foreignKey: 'purchaseId',
+            as: 'item-purchase'
+        });
     };
+
 
     return Purchase;
 };
