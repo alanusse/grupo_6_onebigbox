@@ -1,4 +1,5 @@
 const db = require('../database/models');
+const plan = require('../database/models/plan');
 const states = {
     ABIERTO: 1,
     CERRADO: 0
@@ -22,7 +23,50 @@ const controller ={
         .catch(error => console.log(error))
     },
     agregarAlCarrito: (req, res) => {
-        return res.redirect('/cart');
+        const planAgregado = req.params.planid;
+        db.Recipes.findAll({
+            where: {
+                planId: planAgregado
+            },
+            
+            include: [{association: 'planes'}]
+        // db.Plans.findByPk(planAgregado, {
+        //     raw: true,
+        //     nest: true,
+        //     include: [{association: 'receta'}]
+        
+        }).then(response => {
+            const responseObj = response;
+            // Hacer un for al response con un PUSH y armar un nuevo array de items, y ahí usar bulkCreate().
+            let responseArr = Object.entries(responseObj);
+            console.log(responseArr);
+            let itemsArr = [];
+            for(let i=0; i<itemsArr.length; i++){
+                itemsArr.push({
+                    userId: req.session.user.id,
+                    recipeId: response.id,
+                    recipeTitulo: response.titulo,
+                    recipePrecio: response.precio,
+                    recipeImage: response.image,
+                    recipeCant: 1,
+                    planId: response.id,
+                    planTitulo: response.planes.plan,
+                    planDescription: response.planes.description,
+                    planImage: response.planes.image,
+                    totalPrice: response.planes.precio * 1,
+                    purchaseId: null,
+                    state: states.ABIERTO
+            })
+                console.log(itemsArr);
+            }
+           console.log('ESTA ES LA RESPONSE')
+            db.Items.bulkCreate(itemsArr)
+            .then(item =>{
+                return res.redirect('/cart');
+                //return res.send(item)
+            })
+            .catch(err => console.log(err))
+        }).catch(error => console.log(error))
     },
     addRecipe: (req, res) => {    
         db.Recipes.findOne({
@@ -31,7 +75,8 @@ const controller ={
             },
             include: [{association: 'planes'}]
         }).then(response => {   
-           
+           console.log(response);
+
             let newitem = {
                 userId: req.session.user.id,
                 recipeId: response.id,

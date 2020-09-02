@@ -136,7 +136,7 @@ section ul li.description {
 
 .boxes {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
 }
 .home-planes {
     width: 100%;

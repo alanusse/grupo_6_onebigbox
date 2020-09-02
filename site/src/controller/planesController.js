@@ -38,6 +38,7 @@ const controller ={
                 include: [{association: 'receta'}]
             })
             .then((plan) => {
+                console.log(plan);
                 //Calculo el precio total del plan consultando en la BD de recetas por el Plan elegido
                 db.Recipes.sum('precio', {
                     where: {
