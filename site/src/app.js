@@ -3,7 +3,8 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-var cors = require('cors');
+//CORS
+const cors = require('cors');
 const session = require('express-session');
 // Requiero el middleware a nivel aplicación para loguear siempre las rutas por donde pasa el usuario
 //const userAudit = require('./middlewares/userAudit');
@@ -41,7 +42,6 @@ app.use(express.static(path.join(__dirname, '../public')));
 //app.use(session({secret: "Mensaje Secreto"}));
 app.use(session({ secret: "Mensaje Secreto", resave: false, saveUninitialized: true}));
 
-
 //********** LOUEO **********
 //app.use(userAudit);
 
@@ -63,6 +63,8 @@ app.use('/api/user', apiUserRouter);
 app.use('/api/dashboard', apiDashboard);
 app.use('/api/cart', apiCart);
 app.use('/api/apiPurcharse', apiPurcharse);
+
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

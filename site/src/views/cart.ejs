@@ -24,7 +24,7 @@
 
                         <form  method="POST" action="cart/deleteCart">
                             <div >
-                                <button type="submit" class="cart-delete"  id = "cart-delete" > <i class="fas fa-trash-alt"></i> Vaciar Carrito </button> 
+                                <button type="submit" class="cart-delete"  > <i class="fas fa-trash-alt"></i> Vaciar Carrito </button> 
                             </div>   
                         </form>
                         
@@ -46,10 +46,10 @@
                                     <h3 class="item-title"><%- item.recipeTitulo %></h3>
                                     <h4 class="item-plan"><%- item.planTitulo %></h4>
 
-                                    <form  method="POST" action="/cart/deleteCartById" id = "form-item-delete">
+                                    <form  method="POST" action="/cart/deleteCartById">
                                         <div >
-                                            <button type="submit" class="item-delete"  id = "item-delete"> <i class="fas fa-trash-alt"></i></button> 
-                                            <input type="hidden" id="itemId" name= "itemId" value="<%- item.id %>" >
+                                            <button type="submit" class="item-delete"  name = "item-delete"> <i class="fas fa-trash-alt"></i></button> 
+                                            <input type="hidden" name= "itemId"  value="<%- item.id %>" >
                                         </div>   
                                     </form>
 

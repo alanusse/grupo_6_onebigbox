@@ -1,6 +1,4 @@
 window.addEventListener('load', function(){
-    
-   
     let cantidades = document.querySelectorAll('.cart-items-list');
 
     //Recorro todo el array
@@ -9,16 +7,22 @@ window.addEventListener('load', function(){
         // Id del ítem: ('item-delete'); -> Para sacar el número: idItemDelete.href.split('/')[idItemDelete.href.split('/').length-1];
         // El precio: ('item-unit-price') ->
         // La cantidad: ('item-quantity')
-  
-        //Tomo todas las cantidades de cada uno de los items de la lista
+        
+
+           //Tomo todas las cantidades de cada uno de los items de la lista
         cantidad = element.querySelector("#item-quantity");
+        console.log(cantidad);
+
         // Agrego el evento para detectar cuando cambia el dato
         cantidad.addEventListener('focusout', function(evento){
-    
+           
             //Acá obtengo el precio
             let precio = element.querySelector('#price-number');
-            //Acá tengo ('item-delete')
-            let idItem = document.getElementById("itemId").value;
+            console.log(precio);
+            //Acá tengo (el id del item)
+            let idItem = element.querySelector("input[name='itemId']").value
+            console.log(idItem);
+
             //URL de la API
             let apiUrl = 'http://localhost:3000/api/cart/updateCartById';
 
@@ -28,7 +32,8 @@ window.addEventListener('load', function(){
                 recipeCant: cantidad.value,
                 itemPrice: precio.innerHTML
             }
-
+            console.log(itemData);
+            
             fetch(apiUrl, {
                     method: 'post',
                     body: JSON.stringify(itemData),

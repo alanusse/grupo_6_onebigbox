@@ -22,11 +22,13 @@ const log = (req, res, next) => {
             res.locals.user = user; // Guardo los datos del usuario en la variable Locals para que sean visibles por la vista
             console.log('Entró en la asignación de valores');
             console.log('El contenido de req.session.user es: '+ req.session.user);
-            console.log('El contenido de la cookie es: ' + req.cookies.email)
+            console.log('El contenido de la cookie es: ' + req.cookies.email);
+            console.log('El contenido de la variable res es: ' + res.locals.user);
+            console.log('holaaaaaaa');
+
+            return next();
         })
         .catch(err => console.log(err))
-    
-         return next();
     }else{
         //Si no está logueado, y no tiene cuenta, ni nada, le digo que continúe
         return next();

@@ -1,5 +1,6 @@
 const db = require('../../../database/models');
 
+
 const controller = {
     // API para la parte superior del dashboard donde se muestran las estadísticas del sitio
     getDashboardStadistics: (req, res) =>{
@@ -29,11 +30,20 @@ const controller = {
                             count: 1,
                             url: 'api/dashboard/getStadistics'            
                         },
-                        data: {
-                            productsInDataBase: resultado[0].productsInDataBase,
-                            amountProducts: resultado[0].amountProducts,
-                            userQuantity :userQuantity
-                        }
+                        result: [
+                            {
+                                productsTitle: 'Productos en la BD',
+                                productsInDataBase: resultado[0].productsInDataBase,
+                            },
+                            {
+                                amountTitle: 'Precio Total',
+                                amountProducts: resultado[0].amountProducts,
+                            },
+                            {
+                                userTitle: 'Cantidad de Usuarios',
+                                userQuantity :userQuantity
+                            }
+                        ]
                     }
                 return res.send(jsonResult);
                 })
@@ -43,7 +53,7 @@ const controller = {
                         meta: {
                             status: 404                
                         },
-                        data: 'Error Access'
+                        result: 'Error Access'
                     }    
                     return res.send(jsonResult);
                 })
@@ -54,7 +64,7 @@ const controller = {
                     meta: {
                         status: 404                
                     },
-                    data: 'Error Access'
+                    result: 'Error Access'
                 }    
                 return res.send(jsonResult);
             })            
@@ -71,7 +81,7 @@ const controller = {
                         count: resultado.length,
                         url: 'api/dashboard/getCategories'            
                     },
-                    data: resultado
+                    result: resultado
                 }
                 return res.send(jsonResult);
             })
@@ -81,7 +91,7 @@ const controller = {
                     meta: {
                         status: 404                
                     },
-                    data: 'Error Access'
+                    result: 'Error Access'
                 }    
                 return res.send(jsonResult);
             })   
@@ -102,7 +112,7 @@ const controller = {
                     count: resultado.length,
                     url: 'api/dashboard/getLastProducts'          
                 },
-                data: resultado
+                result: resultado
             }
             return res.send(jsonResult);
         })
@@ -111,7 +121,7 @@ const controller = {
                 meta: {
                     status: 404                
                 },
-                data: 'Error Access'
+                result: 'Error Access'
             }    
             return res.send(jsonResult);
         })   
