@@ -10,6 +10,7 @@
     <section class="background">
 
         <% if (!locals.user) { %>
+            
             <ul class="slogan">
                 <li class="title">COMIDA SANA <br> PARA TODA LA SEMANA</li>
                 <li class="description">Sin moverte de tu casa, recibí los mejores <b>ingredientes</b> y <b>recetas</b><br> para cocinar como un chef profesional</li>
@@ -17,7 +18,8 @@
             </ul>
         <% } %>
     </section>
-        
+        <h1><%= locals.user %> </h1>
+        <h2><%= locals %> </h2>
     <section class="nuestros-box">
         <ul>
             <li class="title">NUESTRO PLANES</li>

@@ -17,12 +17,17 @@ const log = (req, res, next) => {
             where: {email:req.cookies.email}
         })
         .then(function(user){
+            console.log(user);
+            console.log('holaaaassnnsssaa');
+            //console.log(res.locals);
             delete user.password; 
             req.session.user = user.dataValues; // Guardo al usuario en sesión
-            res.locals.user = user; // Guardo los datos del usuario en la variable Locals para que sean visibles por la vista
+            res.locals.user = user.dataValues; // Guardo los datos del usuario en la variable Locals para que sean visibles por la vista
             console.log('Entró en la asignación de valores');
             console.log('El contenido de req.session.user es: '+ req.session.user);
             console.log('El contenido de la cookie es: ' + req.cookies.email)
+            console.log(res.locals);
+            console.log(res.locals.user);
         })
         .catch(err => console.log(err))
     

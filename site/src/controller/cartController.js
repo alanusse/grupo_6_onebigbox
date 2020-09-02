@@ -35,36 +35,35 @@ const controller ={
         //     nest: true,
         //     include: [{association: 'receta'}]
         
-        }).then(response => {
-            const responseObj = response;
+        }).then(plan => {
+
+            //const responseObj = response;
+            //return res.send(response);
             // Hacer un for al response con un PUSH y armar un nuevo array de items, y ahí usar bulkCreate().
-            let responseArr = Object.entries(responseObj);
-            console.log(responseArr);
-            let itemsArr = [];
-            for(let i=0; i<itemsArr.length; i++){
-                itemsArr.push({
+            
+            let itemsArr = plan.map(receta => {
+                return ({
                     userId: req.session.user.id,
-                    recipeId: response.id,
-                    recipeTitulo: response.titulo,
-                    recipePrecio: response.precio,
-                    recipeImage: response.image,
+                    recipeId: receta.id,
+                    recipeTitulo: receta.titulo,
+                    recipePrecio: receta.precio,
+                    recipeImage: receta.image,
                     recipeCant: 1,
-                    planId: response.id,
-                    planTitulo: response.planes.plan,
-                    planDescription: response.planes.description,
-                    planImage: response.planes.image,
-                    totalPrice: response.planes.precio * 1,
+                    planId: receta.planId,
+                    planTitulo: receta.planes.plan,
+                    planDescription: receta.planes.description,
+                    planImage: receta.planes.image,
+                    totalPrice: receta.precio *1,
                     purchaseId: null,
                     state: states.ABIERTO
             })
-                console.log(itemsArr);
-            }
-           console.log('ESTA ES LA RESPONSE')
-            db.Items.bulkCreate(itemsArr)
-            .then(item =>{
-                return res.redirect('/cart');
-                //return res.send(item)
+                    
             })
+                    //return res.send(itemsArr);
+            
+           //console.log('RESPONSE')
+            db.Items.bulkCreate(itemsArr)
+            .then( () => res.redirect('/cart'))
             .catch(err => console.log(err))
         }).catch(error => console.log(error))
     },
@@ -143,22 +142,22 @@ const controller ={
         })
         .then((items) =>{
             //total = items.reduce((total, item) => total += item.totalPrice);
-            items.forEach(item => {
-                total = total + item.totalPrice
-            });
+            total = items.reduce((total, item) => {
+                return total += item.totalPrice
+            }, 0);
            
 
             //El findOne me trae un solo registro y como yo lo estoy ordenando de manera descendiente, me va a traer el último para que yo pueda sumar uno
             return db.Purchases.findOne({
                 order: [['createdAt', 'DESC']]
             })
-        })
             .then((cart) => {
                     
                 //Creo el objeto purcharse para luego insertarlo en el carrito
                 //Yo digo que empiece el orderNumber en 100
+                //return res.send(cart)
                 let itemPurcharse = {
-                    orderNumber: (cart.dataValues.orderNumber)? cart.dataValues.orderNumber + 1: 100,
+                    orderNumber: (cart.orderNumber)? cart.orderNumber + 1: 100,
                     userId: req.session.user.id,
                     total: total
                 }
@@ -182,10 +181,12 @@ const controller ={
                         console.log(itemUpdate);
 
                         console.log('COMPRA FINALIZADA');
-
+                        
                         return res.redirect('/cart/history/'+ req.session.user.id);
                     })
                     .catch(error => console.log(error))
+        })
+            
     },
     history : (req, res) =>{
         console.log('Pasó por el History');
