@@ -39,10 +39,7 @@ module.exports = {
     "define": {
         "underscored": false,
         "paranoid": true
-    }/*,
-    "dialectOptions": {
-        decimalNumbers: true
-    }*/
+    }
     },
     "test": {
     "username": "root",

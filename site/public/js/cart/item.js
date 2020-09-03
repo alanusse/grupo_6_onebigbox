@@ -11,28 +11,29 @@ window.addEventListener('load', function(){
 
            //Tomo todas las cantidades de cada uno de los items de la lista
         cantidad = element.querySelector("#item-quantity");
-        console.log(cantidad);
 
         // Agrego el evento para detectar cuando cambia el dato
         cantidad.addEventListener('focusout', function(evento){
            
             //Acá obtengo el precio
-            let precio = element.querySelector('#price-number');
+            let precio = element.querySelector('#price-number').innerHTML;
             console.log(precio);
             //Acá tengo (el id del item)
             let idItem = element.querySelector("input[name='itemId']").value
             console.log(idItem);
-
+            
+            //Tomo la nueva cantidad de productos elegida por el usuario
+            let newCant = element.querySelector(".item-quantity").value;
+        
             //URL de la API
             let apiUrl = 'http://localhost:3000/api/cart/updateCartById';
 
             // Armo el objeto literal que le envío por POST a la API
             let itemData = {
                 idItem : idItem,
-                recipeCant: cantidad.value,
-                itemPrice: precio.innerHTML
+                recipeCant: newCant,
+                itemPrice: precio
             }
-            console.log(itemData);
             
             fetch(apiUrl, {
                     method: 'post',
@@ -55,17 +56,17 @@ window.addEventListener('load', function(){
                     // Si la API no devuelve error, actualizo el dato en la página
                     console.log('Dato Actualizado');
                     //Actualizo el dato del Subtotal
-                    let subtotal = precio.innerHTML * cantidad.value;
+                    let subtotal = parseFloat(precio) * newCant;
+                    
                     // toFixed(2) -> Se usa para indicar que dos dígitos son decimales 
-                    element.querySelector("#sub-price-number").innerHTML = subtotal.toFixed(2);
+                    element.querySelector(".sub-price-number").innerHTML = subtotal.toFixed(2);
                     
                     //Tengo que recorrer los items para 
                     let subtotalCart = 0;
                     cantidades.forEach(e => {     
-                        console.log(e.querySelector("#sub-price-number"));
-                        subtotalCart += parseFloat(e.querySelector("#sub-price-number").innerHTML);
+                        console.log(e.querySelector(".sub-price-number"));
+                        subtotalCart += parseFloat(e.querySelector(".sub-price-number").innerHTML);
                     })
-                    console.log(subtotalCart);
                     document.getElementById('total-purchase').innerHTML = 'Total: $' + subtotalCart.toFixed(2);    
                 }
             })

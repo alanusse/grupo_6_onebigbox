@@ -3,10 +3,7 @@ const db = require('../database/models');
 const log = (req, res, next) => {
     
     res.locals.user = false; // Inicializo la variable en FALSE para que por defecto sea false
-    
-    console.log('Estoy en el middleware de session y me llaman de: ' + req.url);
-    console.log('El contenido de req.session.user es: '+ req.session.user);
-    console.log('El contenido de la cookie es: ' + req.cookies.email)
+
     // Valido si está logueado o no
     if (req.session.user){
         res.locals.user = req.session.user; // Le doy a la variable todos los datos que tiene guardado session
@@ -17,15 +14,10 @@ const log = (req, res, next) => {
             where: {email:req.cookies.email}
         })
         .then(function(user){
+              
             delete user.password; 
             req.session.user = user.dataValues; // Guardo al usuario en sesión
-            res.locals.user = user; // Guardo los datos del usuario en la variable Locals para que sean visibles por la vista
-            console.log('Entró en la asignación de valores');
-            console.log('El contenido de req.session.user es: '+ req.session.user);
-            console.log('El contenido de la cookie es: ' + req.cookies.email);
-            console.log('El contenido de la variable res es: ' + res.locals.user);
-            console.log('holaaaaaaa');
-
+            res.locals.user = user.dataValues; // Guardo los datos del usuario en la variable Locals para que sean visibles por la vista
             return next();
         })
         .catch(err => console.log(err))
