@@ -13,6 +13,7 @@ const controller = {
         let userQuantity = 0;
         let totalPurchase = 0;
         let totalCantPurcharse = 0;
+        let totalUserPurcharse;
 
         //1. Busco cantidad de usuarios
         db.Users.count('id')
@@ -27,6 +28,15 @@ const controller = {
                     }, 0);
                     
                 totalCantPurcharse = purchase.length;
+
+                //Obtengo la cantidad de compras por usuario
+                totalUserPurcharse= purchase.reduce((result, currentValue) => {
+                    result[currentValue.userId] = (result[currentValue.userId] || 0)+1;
+                    return result;
+                  }, {}); // empty object is the initial value for result object
+
+                  //Con esto obtengo la candad de Usuarios que compraron en el sitio
+                console.log(Object.values(totalUserPurcharse).length);
 
                 // Una vez que obtengo la cantidad de usuarios, busco la cantidad de recetas y el precio total
                 db.sequelize.query(query)
@@ -44,27 +54,39 @@ const controller = {
                             {
                                 title: 'Total Recetas Cargadas',
                                 result: resultado[0].productsInDataBase,
-                                typeResult: 'products'
+                                typeResult: 'products',
+                                origin: 'data'
                             },
                             {
                                 title: 'Precio Total en Recetas',
                                 result: resultado[0].amountProducts,
-                                typeResult: 'amount'
+                                typeResult: 'amount',
+                                origin: 'data'
                             },
                             {
                                 title: 'Cantidad de Usuarios Registrados',
                                 result :userQuantity,
-                                typeResult: 'user'
+                                typeResult: 'user',
+                                origin: 'purcharse'
                             },
                             {
-                                title: 'Cantidad de Ventas',
+                                title: 'Cantidad de Ventas Totales',
                                 result :totalCantPurcharse,
-                                typeResult: 'amount'
+                                typeResult: 'totalPurchase',
+                                origin: 'purcharse'
                             },
                             {
                                 title: 'Monto total Vendido',
                                 result : totalPurchase,
-                                typeResult: 'totalPurchase'
+                                typeResult: 'amount',
+                                origin: 'purcharse',
+                                
+                            },
+                            {
+                                title: 'Cantidad de Usuarios Compradores',
+                                result : Object.values(totalUserPurcharse).length,
+                                typeResult: 'userPurchase',
+                                origin: 'purcharse'
                             }
                         ]
                     }
@@ -80,7 +102,7 @@ const controller = {
                     }    
                     return res.send(jsonResult);
                 })
-            })
+            }) //Cierro el then del purchase.findAll
             .catch(error=>{
                 console.log(error);
                 jsonResult = {

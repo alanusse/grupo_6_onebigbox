@@ -28,7 +28,7 @@
                     <li><img src="/img/planes/plan-familiar.png" alt="plan familiar"></li>
                     <li class="title">PLAN FAMILIAR</li>
                     <li class="description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab iure architecto nesciunt atque quo?</li>
-                    <li><a href="planes/detail/1" class="btn-home btn-d-block btn-naranja">SELECCIONAR PLAN</a></li>
+                    <li><a href="planes/detail/1" class="btn-home btn-d-block btn-naranja">VER PLAN</a></li>
                 </ul>
             </div>
             <div class="box center plan-home">
@@ -36,7 +36,7 @@
                     <li><img src="/img/planes/plan-equilibrado.jpg" alt="plan equilibrado"></li>
                     <li class="title">PLAN EQUILIBRADO</li>
                     <li class="description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab iure architecto nesciunt atque quo?</li>
-                    <li><a href="planes/detail/2" class="btn-home btn-d-block btn-naranja">SELECCIONAR PLAN</a></li>
+                    <li><a href="planes/detail/2" class="btn-home btn-d-block btn-naranja">VER PLAN</a></li>
                 </ul>
             </div>
             <div class="box plan-home">
@@ -44,15 +44,71 @@
                     <li><img src="/img/planes/plan-vegetariano.png" alt="plan vegetariano"></li>
                     <li class="title">PLAN VEGETARIANO</li>
                     <li class="description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab iure architecto nesciunt atque quo?</li>
-                    <li><a href="planes/detail/3" class="btn-home btn-d-block btn-naranja">SELECCIONAR PLAN</a></li>
+                    <li><a href="planes/detail/3" class="btn-home btn-d-block btn-naranja">VER PLAN</a></li>
                 </ul>
             </div>    
         </main>
         <div class="view-all"><a href="/planes" class="button">VER TODOS</a></div>
-
-
-
     </section>
+
+    <section class="nuestros-box">
+        <ul>
+            <li class="title">ALGUNAS DE NUESTRAS RECETAS RECETAS</li>
+            <li class="description">Te acertamos las recetas mas elegidas de nuestros usuarios!</li>
+        </ul>
+        <main class="boxes home-planes">
+            <div class="box plan-home">
+                <ul>
+                    <li><img src="/img/recetas/ensaladahoriatiki.jpg" alt="Ensalada Horiatiki"></li>
+                    <li class="title">Ensalada Horiatiki</li>
+                    <li class="description">Prepárate para teletransportarte a la auténtica Grecia con esta combinación de sabores e ingredientes mediterráneos.</li>
+                    <li>
+                        <% if (locals.user) { %>
+                            <form action="/cart/addRecipe/7" method="POST" class="add-recipe-cart">
+                                <button type="submit" class="btn-home btn-d-block btn-naranja">AGREGAR AL CARRITO</button>
+                            </form>
+                        <% }else{ %>
+                            <a href="recetas/detail/7" class="btn-home btn-d-block btn-naranja">VER RECETA</a>
+                        <% } %>
+                    </li>
+                </ul>
+            </div>
+            <div class="box center plan-home">
+                <ul>
+                    <li><img src="/img/recetas/macarrones.jpg" alt="Macarrones de trigo sarraceno"></li>
+                    <li class="title">Macarrones de trigo sarraceno</li>
+                    <li class="description">El toque de manzana rallada en la carne de ternera. El trigo de sarraceno ademas es fuente de fibra que promueve la salud digestiva y del corazón.</li>
+                    <li>
+                        <% if (locals.user) { %>
+                            <form action="/cart/addRecipe/4" method="POST" class="add-recipe-cart">
+                                <button type="submit" class="btn-home btn-d-block btn-naranja">AGREGAR AL CARRITO</button>
+                            </form>
+                        <% }else{ %>
+                            <a href="recetas/detail/4" class="btn-home btn-d-block btn-naranja">VER RECETA</a>
+                        <% } %>
+                    </li>
+                </ul>
+            </div>
+            <div class="box plan-home">
+                <ul>
+                    <li><img src="/img/recetas/pollochampinon.jpg" alt="Pollo con salsa de champiñones"></li>
+                    <li class="title">Pollo con salsa de champiñones</li>
+                    <li class="description">Una salsa de champiñones clásica y simple, ¡pero nunca falla! En este plato el pollo es el encargado de aportar proteínas de calidad y vitaminas B.</li>
+                    <li>
+                        <% if (locals.user) { %>
+                            <form action="/cart/addRecipe/3" method="POST" class="add-recipe-cart">
+                                <button type="submit" class="btn-home btn-d-block btn-naranja">AGREGAR AL CARRITO</button>
+                            </form>
+                        <% }else{ %>
+                            <a href="recetas/detail/3" class="btn-home btn-d-block btn-naranja">VER RECETA</a>
+                        <% } %>
+                    </li>
+                </ul>
+            </div>    
+        </main>
+        <div class="view-all"><a href="/recetas" class="button">VER TODAS</a></div>
+    </section>
+
 
     <section class="instructive">
         <% instructive.forEach(step => { %>
@@ -62,43 +118,6 @@
                 <li class="description"><%= step.description %></li>
             </ul>
             <% }) %>
-    </section>
-
-    <section class="nuestros-box">
-        <ul>
-            <li class="title">NUESTRAS RECETAS</li>
-            <li class="description">Nuestros planes incluyen recetas creadas por nuestros chefs pensadas para tu salud</li>
-        </ul>
-        <main class="boxes home-planes">
-            <div class="box plan-home">
-                <ul>
-                    <li><img src="/img/recetas/ensaladahoriatiki.jpg" alt="plan familiar"></li>
-                    <li class="title">Ensalada Horiatiki</li>
-                    <li class="description">Prepárate para teletransportarte a la auténtica Grecia con esta combinación de sabores e ingredientes mediterráneos.</li>
-                    <li><a href="/recetas/detail/7" class="btn-home btn-d-block btn-naranja">SELECCIONAR RECETA</a></li>
-                </ul>
-            </div>
-            <div class="box center plan-home">
-                <ul>
-                    <li><img src="/img/recetas/macarrones.jpg" alt="plan equilibrado"></li>
-                    <li class="title">Macarrones de trigo sarraceno</li>
-                    <li class="description">El toque de manzana rallada en la carne de ternera. El trigo de sarraceno ademas es fuente de fibra que promueve la salud digestiva y del corazón.</li>
-                    <li><a href="recetas/detail/4" class="btn-home btn-d-block btn-naranja">SELECCIONAR RECETA</a></li>
-                </ul>
-            </div>
-            <div class="box plan-home">
-                <ul>
-                    <li><img src="/img/recetas/pollochampinon.jpg" alt="plan vegetariano"></li>
-                    <li class="title">Pollo con salsa de champiñones</li>
-                    <li class="description">Una salsa de champiñones clásica y simple, ¡pero nunca falla! En este plato el pollo es el encargado de aportar proteínas de calidad y vitaminas B.</li>
-                    <li><a href="recetas/detail/3" class="btn-home btn-d-block btn-naranja">SELECCIONAR RECETA</a></li>
-                </ul>
-            </div>    
-        </main>
-        <div class="view-all"><a href="/recetas" class="button">VER TODAS</a></div>
-
-
-
     </section>
 
     <!-- footer -->
