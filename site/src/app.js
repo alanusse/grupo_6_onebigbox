@@ -24,6 +24,8 @@ var apiUserRouter = require('./routes/api/apiUser');
 var apiDashboard = require('./routes/api/apiDashboard.js');
 var apiCart = require('./routes/api/apiCart');
 var apiPurcharse = require('./routes/api/apiPurcharse');
+
+var apiImage = require('./routes/api/apiImage');
 //**** */
 
 var app = express();
@@ -64,6 +66,7 @@ app.use('/api/dashboard', apiDashboard);
 app.use('/api/cart', apiCart);
 app.use('/api/apiPurcharse', apiPurcharse);
 
+app.use('/api/image', apiImage);
 
 
 // catch 404 and forward to error handler

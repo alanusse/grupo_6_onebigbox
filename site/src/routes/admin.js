@@ -20,6 +20,7 @@ let storage = multer.diskStorage({
             cb(null, path.resolve(__dirname+ '../../../public/img/recetas'))
         }else if (ingredientes[1] == 'planes'){
             cb(null, path.resolve(__dirname+ '../../../public/img/planes'))
+            cb(null, path.resolve(__dirname+ '../../../../../../ProyectoFinalDashboard/dashboard/public/images/planes'))
         }else{
           cb(null, path.resolve(__dirname+ '../../../public/img/avatar'))
         }

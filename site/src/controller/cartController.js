@@ -117,7 +117,6 @@ const controller ={
         .catch(error => console.log(error))
     },
     deleteCartById: (req, res) => {
-        console.log('El item que voy a borrar es:' + req.body.itemId);
         //Borro todos los elementos del carrito que pertenecen a determinado usuario
         db.Items.destroy({
             where: {

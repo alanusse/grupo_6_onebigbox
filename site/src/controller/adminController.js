@@ -2,7 +2,8 @@ const db = require('../database/models');
 
 const { validationResult } = require('express-validator');
 const bcrypt = require('bcryptjs');
-
+const fs = require('fs');
+const path = require('path');
 
 const planes = {
     PLAN_FAMILIAR: 1,
@@ -76,6 +77,7 @@ const controller = {
         let errors = validationResult(req);
 
         if (errors.isEmpty()){
+            // fs.createReadStream(path.resolve(__dirname + '../../public/img/planes' )).pipe(fs.createWriteStream(path.resolve(__dirname + "../../../../../ProyectoFinalDashboard/dashboard/public/images/planes")));
             // Inserto en la base de datos lo que el usuario ingresó
             db.Plans.create({
                 plan: req.body.plan,
