@@ -1,4 +1,27 @@
 window.addEventListener('load', function(){
+
+
+    function format(num, posiciones = 0) {
+    
+        {
+            if (!num || num == 'NaN') return '-';
+    
+            if (num == 'Infinity') return '&#x221e;';
+            num = num.toString().replace(/\$|\,/g, '');
+            if (isNaN(num))
+                num = "0";
+            let sign = (num == (num = Math.abs(num)));
+            num = Math.floor(num * 100 + 0.50000000001);
+            let cents = num % 100;
+            num = Math.floor(num / 100).toString();
+            if (cents < 10)
+                cents = "0" + cents;
+            for (var i = 0; i < Math.floor((num.length - (1 + i)) / 3) ; i++)
+                num = num.substring(0, num.length - (4 * i + 3)) + '.' + num.substring(num.length - (4 * i + 3));
+            return (((sign) ? '' : '-') + num + ',' + cents);
+        }
+    }
+
     let cantidades = document.querySelectorAll('.cart-items-list');
 
     //Recorro todo el array
@@ -59,15 +82,21 @@ window.addEventListener('load', function(){
                     let subtotal = parseFloat(precio) * newCant;
                     
                     // toFixed(2) -> Se usa para indicar que dos dígitos son decimales 
-                    element.querySelector(".sub-price-number").innerHTML = subtotal.toFixed(2);
+                    element.querySelector(".sub-price-number").innerHTML =  format(subtotal,2);
                     
                     //Tengo que recorrer los items para 
                     let subtotalCart = 0;
                     cantidades.forEach(e => {     
-                        console.log(e.querySelector(".sub-price-number"));
                         subtotalCart += parseFloat(e.querySelector(".sub-price-number").innerHTML);
                     })
-                    document.getElementById('total-purchase').innerHTML = 'Total: $' + subtotalCart.toFixed(2);    
+                    document.getElementById('total-purchase').innerHTML = 'Total: $' + format(subtotalCart,2);
+                    
+                    
+                    let totalRecetas = 0;
+                    cantidades.forEach(element => { 
+                       totalRecetas += Number(element.querySelector("#item-quantity").value);  
+                    })
+                    document.querySelector('h2').innerHTML = 'Cantidad de recetas: '+ totalRecetas;
                 }
             })
         });

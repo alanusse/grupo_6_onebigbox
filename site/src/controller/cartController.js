@@ -1,5 +1,5 @@
 const db = require('../database/models');
-const plan = require('../database/models/plan');
+
 const states = {
     ABIERTO: 1,
     CERRADO: 0
@@ -16,9 +16,10 @@ const controller ={
         })
         .then((items)=>{   
             
+            let cantRecetas = items.reduce((acum, item ) => acum += Number(item.recipeCant), 0)
             let total = items.reduce((acum, item ) => acum += Number(item.totalPrice), 0)
            
-            return res.render('cart', {items, total});
+            return res.render('cart', {items, total, cantRecetas});
         })
         .catch(error => console.log(error))
     },
@@ -131,7 +132,7 @@ const controller ={
 
     },
     shop : (req, res) => {
-        let total = 0;
+        let totalPrice = 0;
         //Primero busco los items cuyo estado sea ABIERTO
         db.Items.findAll({
             where: {
@@ -141,10 +142,11 @@ const controller ={
         })
         .then((items) =>{
             //total = items.reduce((total, item) => total += item.totalPrice);
-            total = items.reduce((total, item) => {
-                return total += item.totalPrice
+            totalPrice = items.reduce((total, item) => {
+                return total += parseFloat(item.totalPrice)
             }, 0);
            
+            console.log(totalPrice);
 
             //El findOne me trae un solo registro y como yo lo estoy ordenando de manera descendiente, me va a traer el último para que yo pueda sumar uno
             return db.Purchases.findOne({
@@ -155,10 +157,12 @@ const controller ={
                 //Creo el objeto purcharse para luego insertarlo en el carrito
                 //Yo digo que empiece el orderNumber en 100
                 //return res.send(cart)
+                console.log(cart)
+               
                 let itemPurcharse = {
-                    orderNumber: (cart.orderNumber)? cart.orderNumber + 1: 100,
+                    orderNumber: (cart)? cart.orderNumber + 1: 100,
                     userId: req.session.user.id,
-                    total: total
+                    total: totalPrice
                 }
                 // Creo el ítem en la tabla Purchases, esto equivale a realizar la compra
                 return db.Purchases.create(itemPurcharse)

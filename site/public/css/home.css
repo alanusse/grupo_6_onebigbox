@@ -1458,7 +1458,7 @@ form.recipe-update input.recipe-img {
 
 form.recipe-update input[type="submit"] {
     flex-basis: calc(50% - 20px);
-    background-color: #56ca31;
+    background-color:#7cd07c;
     color: #fff;
     border-radius: 5px;
     cursor: pointer;
@@ -1471,7 +1471,7 @@ form.recipe-update .update-action-btns a {
     padding: 10px 15px;
     text-align: center;
     font-size: 15px;
-    background-color: #ff4d4d;
+    background-color: #ff5656;
     border-radius: 0 5px 5px 0;
     border: 1px solid #909090;
     color: #fff;

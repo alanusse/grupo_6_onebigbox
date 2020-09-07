@@ -174,7 +174,7 @@ const controller = {
         })   
     },
     getPurcharseRecipe : (req, res) => {
-        let query = 'select recipeId, recipeTitulo, count(*) as totalPurchase, sum(totalPrice) as totalAmount from items where state = 0 group by recipeId order by totalPurchase DESC';
+        let query = 'select recipeId, recipeTitulo, sum(recipeCant) as totalPurchase, sum(totalPrice) as totalAmount from items where state = 0 group by recipeId order by totalPurchase DESC';
 
         db.sequelize.query(query)
         .then((result) => {
